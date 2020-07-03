@@ -1,0 +1,117 @@
+﻿@namespace AntDesignPro
+@inherits LayoutComponentBase
+
+<Layout>
+    <Sider Collapsible Collapsed=@collapsed NoTrigger Width="208">
+        <div class="logo-demo"></div>
+        <Menu DefaultSelectedKeys=@(new[] {"dashboard.1"})
+              DefaultOpenKeys=@(new[] {"dashboard"})
+              Mode=MenuMode.Inline
+              Theme=MenuTheme.Dark
+              InlineCollapsed=collapsed>
+            <SubMenu Key="dashboard" Title=dashboard>
+                <MenuItem Key="dashboard.index"><a href="/">默认页</a></MenuItem>
+                <MenuItem Key="dashboard.analysis"><a href="/dashboard/analysis">分析页</a></MenuItem>
+                <MenuItem Key="dashboard.monitor"><a href="/dashboard/monitor">监控页</a></MenuItem>
+                <MenuItem Key="dashboard.workplace"><a href="/dashboard/workplace">工作台</a></MenuItem>
+            </SubMenu>
+            
+            <SubMenu Key="form" Title=form>
+                <MenuItem Key="form.1"><a>基础表单</a></MenuItem>
+                <MenuItem Key="form.2"><a>分布表单</a></MenuItem>
+                <MenuItem Key="form.3"><a>高级表单</a></MenuItem>
+            </SubMenu>
+
+            <SubMenu Key="exception" Title=exception>
+                <MenuItem Key="exception.403"><a href="/exception/403">403</a></MenuItem>
+                <MenuItem Key="exception.404"><a href="/exception/404">404</a></MenuItem>
+                <MenuItem Key="exception.500"><a href="/exception/500">500</a></MenuItem>
+            </SubMenu>
+            
+            <SubMenu Key="user" Title=user>
+                <MenuItem Key="user.login"><a href="/user/login">登录</a></MenuItem>
+                <MenuItem Key="user.register"><a href="/user/register">注册</a></MenuItem>
+                <MenuItem Key="user.lock"><a href="/user/lock">锁屏</a></MenuItem>
+            </SubMenu>
+        </Menu>
+    </Sider>
+    <Layout Class="site-layout">
+        <Header Class="site-layout-background" Style="padding: 0;">
+            @if (collapsed)
+            {
+                <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="toggle" />
+            }
+            else
+            {
+                <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="toggle" />
+            }
+        </Header>
+        <Content Class="site-layout-background" Style="margin: 24px 16px;padding: 24px;min-height: 280px; background-color: #f5f7fa; color: rgba(0,0,0,.65);">
+            @Body
+        </Content>
+    </Layout>
+</Layout>
+
+<style>
+    .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .trigger:hover {
+            color: #1890ff;
+        }
+
+    .logo-demo {
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 16px;
+    }
+
+    .site-layout .site-layout-background {
+        background: #fff;
+    }
+</style>
+
+@code
+{
+    RenderFragment dashboard =
+        @<span>
+        <Icon Type="dashboard" Theme="outline"></Icon>
+        <span>仪表盘</span>
+    </span>;
+
+    RenderFragment form =
+    @<span>
+        <Icon Type="form" Theme="outline"></Icon>
+        <span>表单页</span>
+    </span>;
+
+    RenderFragment list =
+    @<span>
+        <Icon Type="user" Theme="outline"></Icon>
+        <span>列表页</span>
+    </span>;
+
+    RenderFragment user =
+    @<span>
+        <Icon Type="user" Theme="outline"></Icon>
+        <span>登录页</span>
+    </span>;
+
+    RenderFragment exception =
+        @<span>
+        <Icon Type="exception" Theme="outline"></Icon>
+        <span>异常页</span>
+    </span>;
+
+    bool collapsed;
+
+    void toggle()
+    {
+        collapsed = !collapsed;
+    }
+}

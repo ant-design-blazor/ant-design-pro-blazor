@@ -1,0 +1,23 @@
+{
+  "name": "platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^4.0.0",
+    "@ant-design/pro-layout": "^6.0.0",
+    "@ant-design/pro-table": "^2.4.0",
+    "@antv/data-set": "^0.11.0",
+    "@antv/l7-react": "^2.1.9",
+    "@antv/g2": "^4.0.12",
+    "@delon/abc": "^9.4.1",
+    "@delon/chart": "^9.4.1",
+    "@delon/theme": "^9.4.1",
+    "antd": "^4.4.0"
+  }
+}

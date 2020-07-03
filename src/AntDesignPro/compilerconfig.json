@@ -1,0 +1,13 @@
+[
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "_Imports.razor.less",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "options": {
+      "sourceMap": true
+    }
+  }
+]
