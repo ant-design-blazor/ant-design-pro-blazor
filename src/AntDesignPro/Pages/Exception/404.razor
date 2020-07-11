@@ -1,20 +1,12 @@
-﻿@namespace AntDesignPro
+﻿@namespace AntDesignPro.Pages.Exception
 @page "/exception/404"
 
-<div>
-    <div type="404" style="min-height: 500px; height: 80%;" class="exception">
-        <div class="exception__img-block">
-            <div class="exception__img" style="background-image: url(&quot;https://gw.alipayobjects.com/zos/rmsportal/KpnpchXsobRgLElEozzI.svg&quot;);"></div></div>
-        <div class="exception__cont">
-            <h1 class="exception__cont-title">404</h1>
-            <div class="exception__cont-desc">抱歉，你访问的页面不存在</div>
-            <div class="exception__cont-actions">
-                <div>
-                </div>
-                <button nz-button="" class="ant-btn ant-btn-primary ng-star-inserted">
-                    <span class="ng-star-inserted">返回首页</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+<Result Status="404"
+        Title=@("404")
+        SubTitle=@("Sorry, the page you visited does not exist.")
+        Extra="extra" />
+
+@code
+{
+    RenderFragment extra =@<Button Type="primary">Back Home</Button>;
+}

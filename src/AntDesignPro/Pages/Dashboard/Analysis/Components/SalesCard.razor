@@ -1,0 +1,71 @@
+@namespace AntDesignPro.Pages.Dashboard.Analysis
+@inherits AntDomComponentBase
+
+<Card>
+    <div class="salesCard">
+        <Tabs>
+            <TabPane Key="1">
+                <Tab>Sales</Tab>
+                <ChildContent>
+                    <Row>
+                        <Col Span="16">
+                            <div class="salesBar">
+                                <div id="container-bar"></div>
+                            </div>
+                        </Col>
+                        <Col Span="8">
+                        <div class="salesRank">
+                            <h1 class="rankingTitle">
+                                Sales Ranking
+                            </h1>
+                            <ul class="rankingList">
+                                @foreach (var item in Items)
+                                {
+                                    <li key="@item.Title">
+                                        <span class="rankingItemNumber @(item.Id<=3 ? "active" :"")">
+                                            @item.Id
+                                        </span>
+                                        <span class="rankingItemTitle" title="@item.Title">
+                                            @item.Title
+                                        </span>
+                                        <span class="rankingItemValue">
+                                            @item.Total
+                                        </span>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        </Col>
+                    </Row>
+                </ChildContent>
+            </TabPane>
+            <TabPane Key="2">
+                <Tab>Visits</Tab>
+                <ChildContent>
+
+                </ChildContent>
+            </TabPane>
+        </Tabs>
+    </div>
+</Card>
+
+@code
+{
+    public class SaleItem
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Total { get; set; }
+    }
+
+    public SaleItem[] Items = new SaleItem[]
+    {
+        new SaleItem{ Id = 1, Title = "Gongzhuan No.0 shop", Total = "323,234"},
+        new SaleItem{ Id = 2, Title = "Gongzhuan No.1 shop", Total = "323,234"},
+        new SaleItem{ Id = 3, Title = "Gongzhuan No.2 shop", Total = "323,234"},
+        new SaleItem{ Id = 4, Title = "Gongzhuan No.3 shop", Total = "323,234"},
+        new SaleItem{ Id = 5, Title = "Gongzhuan No.4 shop", Total = "323,234"},
+        new SaleItem{ Id = 6, Title = "Gongzhuan No.5 shop", Total = "323,234"},
+        new SaleItem{ Id = 7, Title = "Gongzhuan No.6 shop", Total = "323,234"},
+        };
+}

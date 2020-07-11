@@ -1,0 +1,32 @@
+@namespace AntDesignPro.Layout
+@inherits AntDomComponentBase
+
+<div style="@Style" class="@ClassMapper.Class">
+    <div class="@prefixedClassName-warp">
+        <PageHeader>
+            <div class="@prefixedClassName-detail">
+                <div class="@prefixedClassName-main">
+                    <div class="@prefixedClassName-row">
+                        @if (Content != null)
+                        {
+                            <div class="@prefixedClassName-content">@Content</div>
+                        }
+                        @if (ExtraContent != null)
+                        {
+                            <div class="@prefixedClassName-extraContent">
+                                @ExtraContent
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </PageHeader>
+    </div>
+    <GridContent>
+        @if(ChildContent!=null){
+            <div class="@prefixedClassName-children-content">
+                @ChildContent
+            </div>
+        }
+    </GridContent>
+</div>

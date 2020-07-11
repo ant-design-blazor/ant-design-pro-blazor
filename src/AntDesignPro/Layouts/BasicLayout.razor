@@ -3,23 +3,45 @@
 
 <Layout>
     <Sider Collapsible Collapsed=@collapsed NoTrigger Width="208">
-        <div class="logo-demo"></div>
-        <Menu DefaultSelectedKeys=@(new[] {"dashboard.1"})
+        <div class="ant-pro-sider-logo" id="logo">
+            <a href="/">
+                <img src="assets/logo.svg" alt="logo">
+                @if(!collapsed){
+                    <h1>Ant Design Pro</h1>
+                }
+            </a>
+        </div>
+        <Menu DefaultSelectedKeys=@(new[] {"dashboard.analysis"})
               DefaultOpenKeys=@(new[] {"dashboard"})
               Mode=MenuMode.Inline
               Theme=MenuTheme.Dark
               InlineCollapsed=collapsed>
             <SubMenu Key="dashboard" Title=dashboard>
-                <MenuItem Key="dashboard.index"><a href="/">默认页</a></MenuItem>
                 <MenuItem Key="dashboard.analysis"><a href="/dashboard/analysis">分析页</a></MenuItem>
                 <MenuItem Key="dashboard.monitor"><a href="/dashboard/monitor">监控页</a></MenuItem>
                 <MenuItem Key="dashboard.workplace"><a href="/dashboard/workplace">工作台</a></MenuItem>
             </SubMenu>
             
             <SubMenu Key="form" Title=form>
-                <MenuItem Key="form.1"><a>基础表单</a></MenuItem>
-                <MenuItem Key="form.2"><a>分布表单</a></MenuItem>
-                <MenuItem Key="form.3"><a>高级表单</a></MenuItem>
+                <MenuItem Key="form.basic-form"><a href="/form/basic-form">基础表单</a></MenuItem>
+                <MenuItem Key="form.step-form"><a href="/form/step-form">分布表单</a></MenuItem>
+                <MenuItem Key="form.advanced-form"><a href="/form/advanced-form">高级表单</a></MenuItem>
+            </SubMenu>
+            
+            <SubMenu Key="list" Title=list>
+                <MenuItem Key="list.table-list"><a href="/list/table-list">查询表格</a></MenuItem>
+                <MenuItem Key="list.basic-list"><a href="/list/basic-list">标准列表</a></MenuItem>
+                <MenuItem Key="list.card-list"><a href="/list/card-list">标准列表</a></MenuItem>
+            </SubMenu>
+            
+            <SubMenu Key="profile" Title=profile>
+                <MenuItem Key="profile.basic"><a href="/profile/basic">基础详情页</a></MenuItem>
+                <MenuItem Key="profile.advanced"><a href="/profile/advanced">高级详情页</a></MenuItem>
+            </SubMenu>
+
+            <SubMenu Key="result" Title=result>
+                <MenuItem Key="result.success"><a href="/result/success">成功页</a></MenuItem>
+                <MenuItem Key="result.fail"><a href="/result/fail">失败页</a></MenuItem>
             </SubMenu>
 
             <SubMenu Key="exception" Title=exception>
@@ -28,6 +50,11 @@
                 <MenuItem Key="exception.500"><a href="/exception/500">500</a></MenuItem>
             </SubMenu>
             
+            <SubMenu Key="account" Title=account>
+                <MenuItem Key="account.center"><a href="/account/center">个人中心</a></MenuItem>
+                <MenuItem Key="account.settings"><a href="/account/settings">个人设置</a></MenuItem>
+            </SubMenu>
+
             <SubMenu Key="user" Title=user>
                 <MenuItem Key="user.login"><a href="/user/login">登录</a></MenuItem>
                 <MenuItem Key="user.register"><a href="/user/register">注册</a></MenuItem>
@@ -46,7 +73,7 @@
                 <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="toggle" />
             }
         </Header>
-        <Content Class="site-layout-background" Style="margin: 24px 16px;padding: 24px;min-height: 280px; background-color: #f5f7fa; color: rgba(0,0,0,.65);">
+        <Content Class="site-layout-background" Style="padding: 24px;min-height: 280px; background-color: #f5f7fa; color: rgba(0,0,0,.65);">
             @Body
         </Content>
     </Layout>
@@ -79,9 +106,9 @@
 @code
 {
     RenderFragment dashboard =
-        @<span>
+    @<span>
         <Icon Type="dashboard" Theme="outline"></Icon>
-        <span>仪表盘</span>
+        <span>Dashboard</span>
     </span>;
 
     RenderFragment form =
@@ -92,20 +119,38 @@
 
     RenderFragment list =
     @<span>
-        <Icon Type="user" Theme="outline"></Icon>
+        <Icon Type="table" Theme="outline"></Icon>
         <span>列表页</span>
+    </span>;
+
+    RenderFragment profile = 
+    @<span>
+        <Icon Type="profile" Theme="outline"></Icon>
+        <span>详情页</span>
+    </span>;
+
+    RenderFragment result = 
+    @<span>
+        <Icon Type="check-circle" Theme="outline"></Icon>
+        <span>结果页</span>
+    </span>;
+
+    RenderFragment exception =
+    @<span>
+        <Icon Type="exception" Theme="outline"></Icon>
+        <span>异常页</span>
+    </span>;
+
+    RenderFragment account = 
+    @<span>
+        <Icon Type="user" Theme="outline"></Icon>
+        <span>个人页</span>
     </span>;
 
     RenderFragment user =
     @<span>
-        <Icon Type="user" Theme="outline"></Icon>
+        <Icon Type="login" Theme="outline"></Icon>
         <span>登录页</span>
-    </span>;
-
-    RenderFragment exception =
-        @<span>
-        <Icon Type="exception" Theme="outline"></Icon>
-        <span>异常页</span>
     </span>;
 
     bool collapsed;
