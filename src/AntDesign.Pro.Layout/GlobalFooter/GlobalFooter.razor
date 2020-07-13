@@ -1,0 +1,30 @@
+﻿@namespace AntDesign.Pro.Layout
+@inherits AntDomComponentBase
+
+<footer class="@ClassMapper.Class" style="@Style" id="@Id">
+    @if (Links != null && Links.Length > 0)
+    {
+        <div class="@BaseClassName-links">
+            @foreach (var link in Links)
+            {
+            <a key="@link.Key"
+               title="@link.Key"
+               target=@(link.BlankTarget ? "_blank" : "_self" )
+               href=@link.Href>
+                @if (link.Title.IsT0)
+                {
+                    @link.Title.AsT0
+                }
+                else
+                {
+                    @link.Title.AsT1
+                }
+            </a>
+            }
+        </div>
+    }
+    @if (Copyright != null)
+    {
+        <div class="@BaseClassName}-copyright">@Copyright</div>
+    }
+</footer>

@@ -2,24 +2,24 @@ using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Layout
 {
-    public partial class GridContent
+    public partial class GlobalFooter
     {
-        private string _prefixCls = "ant-pro";
+        private const string PrefixCls = "ant-pro";
+        private const string BaseClassName = PrefixCls + "-global-footer";
 
         [Parameter]
-        public RenderFragment ChildContent { get; set; }
+        public RenderFragment Copyright { get; set; }
 
         [Parameter]
-        public string ContentWidth { get; set; }
+        public LinkItem[] Links { get; set; }
 
         protected void SetClassMap()
         {
             ClassMapper
                 .Clear()
-                .Add($"{_prefixCls}-grid-content")
-                .If("wide", () => ContentWidth == "Fixed");
+                .Add(BaseClassName);
         }
-        
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
