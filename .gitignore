@@ -338,12 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-package-lock.json
-/components/wwwroot/css/ant-design-blazor.css
-/components/wwwroot/js/ant-design-blazor.js
-/components/wwwroot/js/ant-design-blazor.js.map
-/components/AntDesign.xml
-/site/**/wwwroot/docs
-/site/AntBlazor.Docs/wwwroot/css/docs.css
-/site/AntBlazor.Docs/wwwroot/meta
-**/dist
+/package-lock.json
+/src/AntDesign.Pro/wwwroot/css/site.css

@@ -1,0 +1,77 @@
+﻿@namespace AntDesign.Pro.Pages.Form
+@page "/form/basic-form"
+
+
+<PageContainer Title="Basic Form" Content="Content" Breadcrumb="Breadcrumb">
+    <Card>
+        <Form Model="@_model"
+              Style="margin-top: 8px;"
+              LabelCol="new ColLayoutParam { Span = 7 }"
+              WrapperCol="new ColLayoutParam { Span = 17 }">
+            <FormItem Label="Title">
+                <Input Placeholder="Give the target a name" @bind-Value="_model.Title" />
+            </FormItem>
+            <FormItem Label="Start and end date">
+                <RangePicker Style="width:100%;" TValue="DateTime?" />
+            </FormItem>
+            <FormItem Label="Goal description">
+                <TextArea MinRows="4"></TextArea>
+            </FormItem>
+            <FormItem Label="Metrics">
+                <TextArea MinRows="4"></TextArea>
+            </FormItem>
+            <FormItem Label="Client">
+                <Input Placeholder="Please describe your customer service, internal customers directly Name job number" @bind-Value="_model.Client" />
+            </FormItem>
+            <FormItem Label="Inviting critics">
+                <Input Placeholder="Please describe your customer service, internal customers directly Name job number" @bind-Value="_model.Client" />
+            </FormItem>
+            <FormItem Label="Weight">
+                <AntDesign.InputNumber @bind-Value="@_model.Weight" Min="0" Max="100" DefaultValue="0"></AntDesign.InputNumber>
+                <span class="ant-form-text">%</span>
+            </FormItem>
+            <FormItem Label="Target disclosure">
+                <RadioGroup @bind-Value="@_model.Disclosure" >
+                    <Radio Value="1">Public</Radio>
+                    <Radio Value="2">Partially public</Radio>
+                    <Radio Value="3">Private</Radio>
+                </RadioGroup>
+            </FormItem>
+            <FormItem Label="." Style="margin-top:32px">
+                <Button Type="primary" HtmlType="submit">
+                    Submit
+                </Button>
+                <Button Style="margin-left:8px">
+                    Save
+                </Button>
+            </FormItem>
+        </Form>
+    </Card>
+</PageContainer>
+
+@code
+{
+    public class FormModel
+    {
+        public string Title { get; set; }
+        public string Client { get; set; }
+        public int Disclosure { get; set; }
+        public int Weight { get; set; }
+    }
+
+    public RenderFragment Content = @<span>Form pages are used to collect or verify information to users, and basic forms are common in scenarios where there are fewer data items.</span>;
+
+    public RenderFragment Breadcrumb = @<Breadcrumb>
+                                            <BreadcrumbItem>
+                                                Home
+                                            </BreadcrumbItem>
+                                           <BreadcrumbItem>
+                                               Form
+                                           </BreadcrumbItem>
+                                           <BreadcrumbItem>
+                                               Basic Form
+                                           </BreadcrumbItem>
+                                       </Breadcrumb>;
+
+    private FormModel _model = new FormModel();
+}
