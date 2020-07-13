@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Analysis.Components
+namespace AntDesign.Pro.Pages.Analysis
 {
     public partial class Trend
     {
