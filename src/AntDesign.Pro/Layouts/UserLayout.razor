@@ -1,0 +1,29 @@
+﻿@namespace AntDesign.Pro
+@inherits LayoutComponentBase
+
+<div class="container">
+    <div class="langs" showlangtext="false">
+        <Icon Type="global" />
+    </div>
+
+    <div class="wrap">
+        <div class="top">
+            <div class="head">
+                <img class="logo" src="./assets/logo.svg">
+                <span class="title">Ant Design</span>
+            </div>
+            <div class="desc">Ant Design Blazor - Pro</div>
+        </div>
+        @Body
+        <div class="global-footer">
+            <div class="global-footer__links">
+                <a class="global-footer__links-item">帮助</a>
+                <a class="global-footer__links-item">隐私</a>
+                <a class="global-footer__links-item">条款</a>
+            </div>
+            <div class="global-footer__copyright">
+                Copyright <Icon Type="copyright" /> 2020 <a href="http://www.flexem.com" target="_blank">Ant Design</a>
+            </div>
+        </div>
+    </div>
+</div>

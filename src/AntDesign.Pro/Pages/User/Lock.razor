@@ -1,0 +1,22 @@
+﻿@namespace AntDesign.Pro.Pages
+@layout UserLayout
+@page "/user/lock"
+
+<div class="lock-container ant-card width-lg" style="margin: 0 auto;">
+    <div class="ant-card-body">
+        <div class="avatar">
+            <Avatar Size="large" Icon="user" />
+        </div>
+        <Form Model="@_user">
+            <FormItem>
+                <Input Placeholder="解锁密码" Type="password" @bind-Value="@context.UserName"><Suffix><Icon Type="lock" /></Suffix></Input>
+            </FormItem>
+
+            <Row Type="flex" Align="middle">
+                <Col Span="24" style="text-align: right;">
+                    <Button Type="primary" OnClick="Unlock" Disabled class="submit">解锁</Button>
+                </Col>
+            </Row>
+        </Form>
+    </div>
+</div>

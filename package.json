@@ -1,0 +1,35 @@
+{
+    "name": "platform",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "dotnet watch run",
+        "build": "dotnet publish -o dist",
+        "gulp:pro": "gulp --gulpfile ./src/AntDesign.Pro/gulpfile.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@ant-design/icons": "^4.0.0",
+        "@ant-design/pro-layout": "^6.0.0",
+        "@ant-design/pro-table": "^2.4.0",
+        "@antv/data-set": "^0.11.0",
+        "@antv/l7-react": "^2.1.9",
+        "@antv/g2": "^4.0.12",
+        "antd": "^4.4.0"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-less": "^4.0.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "less-plugin-npm-import": "^2.1.0",
+        "husky": "^4.2.3",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    }
+}

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C60BCE84-4AF4-4393-8D3E-1B69E29549C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Pro", "src\AntDesign.Pro\AntDesign.Pro.csproj", "{539597BB-9A1F-484F-8029-B7E0A1076A98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Pro.Layout", "src\AntDesign.Pro.Layout\AntDesign.Pro.Layout.csproj", "{379D6EE7-3D71-4241-9623-1A30BB77BA02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379D6EE7-3D71-4241-9623-1A30BB77BA02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379D6EE7-3D71-4241-9623-1A30BB77BA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379D6EE7-3D71-4241-9623-1A30BB77BA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379D6EE7-3D71-4241-9623-1A30BB77BA02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{539597BB-9A1F-484F-8029-B7E0A1076A98} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{379D6EE7-3D71-4241-9623-1A30BB77BA02} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E124DDCB-1F8D-4F96-BF41-D87019D0A412}
+	EndGlobalSection
+EndGlobal

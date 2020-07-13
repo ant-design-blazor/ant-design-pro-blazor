@@ -1,0 +1,39 @@
+@namespace AntDesign.Pro.Layout
+@inherits AntDomComponentBase
+
+<div style="@Style" class="ant-pro-page-container">
+    <div class="@prefixedClassName-warp">
+        <PageHeader Title="Title" PageHeaderBreadcrumb="Breadcrumb" BackIcon="_emptyBackIcon">
+            <PageHeaderContent>
+                <div class="@prefixedClassName-detail">
+                    <div class="@prefixedClassName-main">
+                        <div class="@prefixedClassName-row">
+                            @if (Content != null)
+                            {
+                                <div class="@prefixedClassName-content">@Content</div>
+                            }
+                            @if (ExtraContent != null)
+                            {
+                                <div class="@prefixedClassName-extraContent">
+                                    @ExtraContent
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </PageHeaderContent>
+        </PageHeader>
+    </div>
+    <GridContent>
+        @if(ChildContent!=null){
+            <div class="@prefixedClassName-children-content">
+                @ChildContent
+            </div>
+        }
+    </GridContent>
+</div>
+
+@code
+{
+    private RenderFragment _emptyBackIcon = @<span></span>;
+}
