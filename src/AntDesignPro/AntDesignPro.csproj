@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AntDesign" Version="0.2.0-nightly-200711163240" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
@@ -31,5 +30,9 @@
 
   <ItemGroup>
     <None Remove="AntDesignPro.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AntDesignPro.Layout\AntDesignPro.Layout.csproj" />
   </ItemGroup>
 </Project>

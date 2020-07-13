@@ -73,8 +73,10 @@
                 <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="toggle" />
             }
         </Header>
-        <Content Class="site-layout-background" Style="padding: 24px;min-height: 280px; background-color: #f5f7fa; color: rgba(0,0,0,.65);">
-            @Body
+        <Content Class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header">
+            <div class="ant-pro-basicLayout-children-content-wrap">
+                @Body
+            </div>
         </Content>
     </Layout>
 </Layout>
