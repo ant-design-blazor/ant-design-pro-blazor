@@ -3,39 +3,39 @@
 
 <Card>
     <div class="salesCard">
-        <Tabs>
+        <Tabs TabBarStyle="margin-bottom: 24px;">
             <TabPane Key="1">
                 <Tab>Sales</Tab>
                 <ChildContent>
                     <Row>
-                        <Col Span="16">
+                        <AntDesign.Col Span="16">
                             <div class="salesBar">
                                 <div id="container-bar"></div>
                             </div>
-                        </Col>
-                        <Col Span="8">
-                        <div class="salesRank">
-                            <h1 class="rankingTitle">
-                                Sales Ranking
-                            </h1>
-                            <ul class="rankingList">
-                                @foreach (var item in Items)
-                                {
-                                    <li key="@item.Title">
-                                        <span class="rankingItemNumber @(item.Id<=3 ? "active" :"")">
-                                            @item.Id
-                                        </span>
-                                        <span class="rankingItemTitle" title="@item.Title">
-                                            @item.Title
-                                        </span>
-                                        <span class="rankingItemValue">
-                                            @item.Total
-                                        </span>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                        </Col>
+                        </AntDesign.Col>
+                        <AntDesign.Col Span="8">
+                            <div class="salesRank">
+                                <h1 class="rankingTitle">
+                                    Sales Ranking
+                                </h1>
+                                <ul class="rankingList">
+                                    @foreach (var item in Items)
+                                    {
+                                        <li key="@item.Title">
+                                            <span class="rankingItemNumber @(item.Id<=3 ? "active" :"")">
+                                                @item.Id
+                                            </span>
+                                            <span class="rankingItemTitle" title="@item.Title">
+                                                @item.Title
+                                            </span>
+                                            <span class="rankingItemValue">
+                                                @item.Total
+                                            </span>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </AntDesign.Col>
                     </Row>
                 </ChildContent>
             </TabPane>
@@ -67,5 +67,5 @@
         new SaleItem{ Id = 5, Title = "Gongzhuan No.4 shop", Total = "323,234"},
         new SaleItem{ Id = 6, Title = "Gongzhuan No.5 shop", Total = "323,234"},
         new SaleItem{ Id = 7, Title = "Gongzhuan No.6 shop", Total = "323,234"},
-        };
+    };
 }
