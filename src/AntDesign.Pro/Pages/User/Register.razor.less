@@ -1,45 +1,61 @@
-﻿.register-container {
-    display: block;
-    width: 368px;
-    margin: 0 auto;
+﻿@import '~antd/es/style/themes/default.less';
+.main {
+  width: 368px;
+  margin: 0 auto;
 
+  .register{
     h3 {
-        margin-bottom: 20px;
-        font-size: 16px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .password {
+      margin-bottom: 24px;
+      :global {
+        .ant-form-item-explain {
+          display: none;
+        }
+      }
+    }
+
+    .getCaptcha {
+      display: block;
+      width: 100%;
     }
 
     .submit {
-        width: 50%;
+      width: 50%;
     }
 
     .login {
-        float: right;
-        line-height: @btn-height-lg;
+      float: right;
+      line-height: @btn-height-lg;
     }
+  }
+}
 
-    .register-password-cdk {
-        .success,
-        .warning,
-        .error {
-            transition: color 0.3s;
-        }
+.success,
+.warning,
+.error {
+  transition: color 0.3s;
+}
 
-        .success {
-            color: @success-color;
-        }
+.success {
+  color: @success-color;
+}
 
-        .warning {
-            color: @warning-color;
-        }
+.warning {
+  color: @warning-color;
+}
 
-        .error {
-            color: @error-color;
-        }
+.error {
+  color: @error-color;
+}
 
-        .progress-pass > .progress {
-            .ant-progress-bg {
-                background-color: @warning-color;
-            }
-        }
+.progress-pass > .progress {
+  :global {
+    .ant-progress-bg {
+      background-color: @warning-color;
     }
+  }
 }

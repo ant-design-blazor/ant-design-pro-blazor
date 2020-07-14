@@ -1,60 +1,63 @@
-﻿.login-container {
-    display: block;
+﻿@import '~antd/es/style/themes/default.less';
+.main {
     width: 368px;
     margin: 0 auto;
 
-    .ant-tabs .ant-tabs-bar {
-        margin-bottom: 24px;
-        text-align: center;
-        border-bottom: 0;
+    @media screen and (max-width: @screen-sm) {
+        width: 95%;
     }
 
-    .ant-tabs-tab {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    .ant-input-affix-wrapper .ant-input:not(:first-child) {
-        padding-left: 4px;
-    }
-
-    .icon {
-        color: rgba(0, 0, 0, 0.2);
-        font-size: 20px;
-        vertical-align: middle;
-        cursor: pointer;
-        transition: color 0.3s;
-
-        &:hover {
-            color: @primary-color;
-        }
-    }
-
-    .other {
-        margin-top: 24px;
-        line-height: 22px;
-        text-align: left;
-
-        nz-tooltip {
-            vertical-align: middle;
+    .login {
+        :global {
+            .ant-tabs .ant-tabs-bar {
+                margin-bottom: 24px;
+                text-align: center;
+                border-bottom: 0;
+            }
         }
 
-        .register {
-            float: right;
+        .ant-input-prefix {
+            .icon {
+                color: @primary-color;
+            }
         }
-    }
-}
 
-.login-container .ant-tabs-nav-wrap {
-    justify-content: center;
-}
+        .getCaptcha {
+            display: block;
+            width: 100%;
+        }
 
-[data-theme='dark'] {
-    .icon {
-        color: rgba(255, 255, 255, 0.2);
+        .other {
+            margin-top: 24px;
+            line-height: 22px;
+            text-align: left;
 
-        &:hover {
-            color: #fff;
+            .register {
+                float: right;
+            }
+
+            .icon {
+                margin-left: 16px;
+                color: @text-color-secondary;
+                font-size: 24px;
+                vertical-align: middle;
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: @primary-color;
+                }
+            }
+        }
+
+        .prefixIcon {
+            color: @disabled-color;
+            font-size: @font-size-base;
+        }
+
+        .submit {
+            width: 100%;
+            margin-top: 24px;
         }
     }
 }

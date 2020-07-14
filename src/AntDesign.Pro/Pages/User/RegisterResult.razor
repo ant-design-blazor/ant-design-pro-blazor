@@ -1,8 +1,30 @@
 ﻿@namespace AntDesign.Pro.Pages
+@layout UserLayout
 @page "/user/register-result"
 
-<h3>RegisterResult</h3>
+<Result Class="registerResult"
+        Status="success"
+        SubTitle="@("激活邮件已发送到你的邮箱中，邮件有效期为24小时。请及时登录邮箱，点击邮件中的链接激活帐户。")"
+        Title="_title">
+    <Extra>
+        <div class="actions">
+            <a href="">
+                <Button Size="large" Type="primary">
+                    查看邮箱
+                </Button>
+            </a>
+            <a href="/">
+                <Button Size="large">
+                    返回首页
+                </Button>
+            </a>
+        </div>
+    </Extra>
+</Result>
 
-@code {
-
+@code
+{
+    private readonly RenderFragment _title =@<div class="title">
+                                                你的账户：AntDesign@example.com 注册成功
+                                            </div>;
 }
