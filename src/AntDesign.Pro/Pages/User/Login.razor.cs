@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Pages
@@ -27,9 +29,26 @@ namespace AntDesign.Pro.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public void HandleSubmit()
+        [Inject]
+        public ILocalStorageService LocalStorageService { get; set; }
+
+        public async Task HandleSubmit()
         {
-            NavigationManager.NavigateTo("/");
+            if (_model.UserName == "admin" && _model.Password == "ant.design")
+            {
+                await LocalStorageService.SetItemAsync("token", _model.UserName);
+                NavigationManager.NavigateTo("/");
+                return;
+            }
+
+            if (_model.UserName == "user" && _model.Password == "ant.design")
+            {
+                await LocalStorageService.SetItemAsync("token", _model.UserName);
+                NavigationManager.NavigateTo("/");
+                return;
+            }
+
+            await LocalStorageService.RemoveItemAsync("token");
         }
     }
 }
