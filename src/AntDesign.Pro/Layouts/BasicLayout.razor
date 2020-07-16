@@ -11,54 +11,53 @@
                 }
             </a>
         </div>
-        <Menu DefaultSelectedKeys=@(new[] {"dashboard.analysis"})
-              DefaultOpenKeys=@(new[] {"dashboard"})
+        <Menu 
               Mode=MenuMode.Inline
               Theme=MenuTheme.Dark
               InlineCollapsed=collapsed>
-            <SubMenu Key="dashboard" Title=dashboard>
-                <MenuItem Key="dashboard.analysis"><a href="/dashboard/analysis">分析页</a></MenuItem>
-                <MenuItem Key="dashboard.monitor"><a href="/dashboard/monitor">监控页</a></MenuItem>
-                <MenuItem Key="dashboard.workplace"><a href="/dashboard/workplace">工作台</a></MenuItem>
+            <SubMenu Title=dashboard>
+                <MenuItem RouterLink="/">分析页</MenuItem>
+                <MenuItem RouterLink="/dashboard/monitor">监控页</MenuItem>
+                <MenuItem RouterLink="/dashboard/workplace">工作台</MenuItem>
             </SubMenu>
             
-            <SubMenu Key="form" Title=form>
-                <MenuItem Key="form.basic-form"><a href="/form/basic-form">基础表单</a></MenuItem>
-                <MenuItem Key="form.step-form"><a href="/form/step-form">分布表单</a></MenuItem>
-                <MenuItem Key="form.advanced-form"><a href="/form/advanced-form">高级表单</a></MenuItem>
+            <SubMenu Title=form>
+                <MenuItem RouterLink="/form/basic-form">基础表单</MenuItem>
+                <MenuItem RouterLink="/form/step-form">分布表单</MenuItem>
+                <MenuItem RouterLink="/form/advanced-form">高级表单</MenuItem>
             </SubMenu>
             
-            <SubMenu Key="list" Title=list>
-                <MenuItem Key="list.table-list"><a href="/list/table-list">查询表格</a></MenuItem>
-                <MenuItem Key="list.basic-list"><a href="/list/basic-list">标准列表</a></MenuItem>
-                <MenuItem Key="list.card-list"><a href="/list/card-list">标准列表</a></MenuItem>
+            <SubMenu Title=list>
+                <MenuItem RouterLink="/list/table-list">查询表格</MenuItem>
+                <MenuItem RouterLink="/list/basic-list">标准列表</MenuItem>
+                <MenuItem RouterLink="/list/card-list">标准列表</MenuItem>
             </SubMenu>
             
-            <SubMenu Key="profile" Title=profile>
-                <MenuItem Key="profile.basic"><a href="/profile/basic">基础详情页</a></MenuItem>
-                <MenuItem Key="profile.advanced"><a href="/profile/advanced">高级详情页</a></MenuItem>
+            <SubMenu Title=profile>
+                <MenuItem RouterLink="/profile/basic">基础详情页</MenuItem>
+                <MenuItem RouterLink="/profile/advanced">高级详情页</MenuItem>
             </SubMenu>
 
-            <SubMenu Key="result" Title=result>
-                <MenuItem Key="result.success"><a href="/result/success">成功页</a></MenuItem>
-                <MenuItem Key="result.fail"><a href="/result/fail">失败页</a></MenuItem>
+            <SubMenu Title=result>
+                <MenuItem RouterLink="/result/success">成功页</MenuItem>
+                <MenuItem RouterLink="/result/fail">失败页</MenuItem>
             </SubMenu>
 
-            <SubMenu Key="exception" Title=exception>
-                <MenuItem Key="exception.403"><a href="/exception/403">403</a></MenuItem>
-                <MenuItem Key="exception.404"><a href="/exception/404">404</a></MenuItem>
-                <MenuItem Key="exception.500"><a href="/exception/500">500</a></MenuItem>
+            <SubMenu Title=exception>
+                <MenuItem RouterLink="/exception/403">403</MenuItem>
+                <MenuItem RouterLink="/exception/404">404</MenuItem>
+                <MenuItem RouterLink="/exception/500">500</MenuItem>
             </SubMenu>
             
-            <SubMenu Key="account" Title=account>
-                <MenuItem Key="account.center"><a href="/account/center">个人中心</a></MenuItem>
-                <MenuItem Key="account.settings"><a href="/account/settings">个人设置</a></MenuItem>
+            <SubMenu Title=account>
+                <MenuItem RouterLink="/account/center">个人中心</MenuItem>
+                <MenuItem RouterLink="/account/settings">个人设置</MenuItem>
             </SubMenu>
 
-            <SubMenu Key="user" Title=user>
-                <MenuItem Key="user.login"><a href="/user/login">登录</a></MenuItem>
-                <MenuItem Key="user.register"><a href="/user/register">注册</a></MenuItem>
-                <MenuItem Key="user.lock"><a href="/user/lock">锁屏</a></MenuItem>
+            <SubMenu Title=user>
+                <MenuItem RouterLink="/user/login">登录</MenuItem>
+                <MenuItem RouterLink="/user/register">注册</MenuItem>
+                <MenuItem RouterLink="/user/lock">锁屏</MenuItem>
             </SubMenu>
         </Menu>
     </Sider>
