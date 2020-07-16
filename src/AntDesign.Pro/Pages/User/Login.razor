@@ -4,18 +4,20 @@
 
 <div class="main">
     <div class="login">
-        <Form Model="@_model">
-            <Tabs Class="tabs">
+        <Form 
+            Model="@_model"
+            OnFinish="HandleSubmit">
+            <Tabs ActiveKey="@context.LoginType">
                 <TabPane Key="1">
                     <Tab>账户密码登录</Tab>
                     <ChildContent>
                         <FormItem>
-                            <AntDesign.Input Placeholder="用户名" Size="large" @bind-Value="@context.UserName">
+                            <AntDesign.Input Placeholder="用户名: admin or user" Size="large" @bind-Value="@context.UserName">
                                 <Prefix><Icon Type="user" /></Prefix>
                             </AntDesign.Input>
                         </FormItem>
                         <FormItem>
-                            <AntDesign.Input Placeholder="密码" Size="large" @bind-Value="@context.Password" Type="password">
+                            <AntDesign.Input Placeholder="密码: ant.design" Size="large" @bind-Value="@context.Password" Type="password">
                                 <Prefix><Icon Type="lock" /></Prefix>
                             </AntDesign.Input>
                         </FormItem>
@@ -25,7 +27,7 @@
                     <Tab>手机号登录</Tab>
                     <ChildContent>
                         <FormItem>
-                            <AntDesign.Input Placeholder="手机号" Size="large" @bind-Value="@context.UserName">
+                            <AntDesign.Input Placeholder="手机号" Size="large" @bind-Value="@context.Mobile">
                                 <Prefix><Icon Type="mobile" /></Prefix>
                             </AntDesign.Input>
                         </FormItem>
@@ -46,15 +48,15 @@
             </Tabs>
 
             <div>
-                <Checkbox>
+                <Checkbox Checked="@context.AutoLogin">
                     自动登录
                 </Checkbox>
                 <a style="float: right;">
                     忘记密码
                 </a>
             </div>
-
-            <Button Type="primary" HtmlType="submit" Class="submit" Size="large" Block OnClick="NavLogin">登&nbsp;录</Button>
+            
+            <Button Type="primary" HtmlType="submit" Class="submit" Size="large" Block>登&nbsp;录</Button>
 
             <div class="other">
                 其他登录方式
