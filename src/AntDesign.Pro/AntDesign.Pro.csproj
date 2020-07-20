@@ -6,9 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="2.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="3.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.6" />
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
   </ItemGroup>
 
@@ -34,6 +37,18 @@
   <ItemGroup>
     <Watch Include="**\*.razor" />
     <Watch Include="**\*.less" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Localization\Resource\en-US.json" />
+    <Content Remove="Localization\Resource\zh-CN.json" />
+    <Content Remove="Localization\Resource\zh-TW.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\Resource\en-US.json" />
+    <EmbeddedResource Include="Localization\Resource\zh-CN.json" />
+    <EmbeddedResource Include="Localization\Resource\zh-TW.json" />
   </ItemGroup>
 
   <ItemGroup>

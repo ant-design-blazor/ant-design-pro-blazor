@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using AntDesign.Pro.Localization.Json;
 using AntDesign.Pro.Utils;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -21,6 +22,10 @@ namespace AntDesign.Pro
             builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddAntDesign();
+            builder.Services.AddJsonLocalization(options =>
+            {
+                options.ResourcesPath = "Localization";
+            });
 
             await builder.Build().RunAsync();
         }
