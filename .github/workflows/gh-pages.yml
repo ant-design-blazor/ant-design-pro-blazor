@@ -1,56 +1,47 @@
 ﻿name: Publish Docs
 
 env:
-  Version: 0.1.0
-  NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
+    Version: 0.1.0
+    NUGET_API_KEY: ${{secrets.NUGET_API_KEY}}
 
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 
 jobs:
-  publish-and-deploy:
-    runs-on: ubuntu-latest
-    if: github.repository_owner == 'ant-design-blazor'
+    publish-and-deploy:
+        runs-on: ubuntu-latest
+        if: github.repository_owner == 'ant-design-blazor'
 
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.300
+            - name: Setup .NET Core
+              uses: actions/setup-dotnet@v1
+              with:
+                  dotnet-version: 3.1.300
 
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '10.x'
 
-      - name: Publish Docs 🎉
-        run: |
-          npm install
-          echo "/* updated `date "+%Y-%m-%d %H:%M:%S"` */" >> ./src/AntDesign.Pro/wwwroot/service-worker.published.js
-          cd ./src/AntDesign.Pro/wwwroot
-          cp -rf gh-pages/* gh-pages/.nojekyll gh-pages/.spa ./
-          cd ../../../
-          dotnet build
-          dotnet publish -c Release -o cargo
+            - name: Publish Docs 🎉
+              run: |
+                  npm install
+                  echo "/* updated `date "+%Y-%m-%d %H:%M:%S"` */" >> ./src/AntDesign.Pro/wwwroot/service-worker.published.js
+                  cd ./src/AntDesign.Pro/wwwroot
+                  cp -rf gh-pages/* gh-pages/.nojekyll gh-pages/.spa ./
+                  cd ../../../
+                  dotnet build
+                  dotnet publish -c Release -o cargo
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: cargo/wwwroot
-
-      - name: Package Nightly Nuget 📦
-        run: |
-          SUFFIX=`date "+%y%m%d%H%M%S"`
-          dotnet pack src/AntDesign.Pro.Layout/AntDesign.Pro.Layout.csproj /p:PackageVersion=$Version-nightly-${SUFFIX} -c Release -o publish --no-build --no-restore
-
-      - name: Publish to Nuget ✔
-        run: |
-          dotnet nuget push publish/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  ACCESS_TOKEN: ${{ secrets.GH_PUSH_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: cargo/wwwroot
