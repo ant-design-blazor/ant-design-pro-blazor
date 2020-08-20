@@ -28,7 +28,7 @@ jobs:
           cp -rf gh-pages/* gh-pages/.nojekyll gh-pages/.spa ./
           cd ../../../
           dotnet build ./AntDesign.Pro.sln
-          dotnet publish -c Release -o cargo
+          dotnet publish ./AntDesign.Pro.sln -c Release -o cargo
 
       - name: Test Package
         run: |
