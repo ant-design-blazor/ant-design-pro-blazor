@@ -33,7 +33,7 @@ jobs:
       - name: Test Package
         run: |
             dotnet pack templates.csproj -c Release -o pack
-            dotnet new -i .\pack\AntDesign.Templates.1.0.0.nupkg
+            dotnet new -i ./pack/AntDesign.Templates.1.0.0.nupkg
             dotnet new antdesign -n wasm --host wasm
             dotnet new antdesign -n server --host server
             dotnet new antdesign -n hosted --host hosted
