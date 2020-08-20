@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0</PackageVersion>
+    <PackageId>AntDesign.Templates</PackageId>
+    <Title>Ant Design Pro Blazor Templates</Title>
+    <Authors>ant-design-blazor</Authors>
+    <Description>An out-of-box UI solution for enterprise applications as a Blazor boilerplate.</Description>
+    <PackageTags>dotnet-new;templates;blazor;ant-design-blazor;ant-design</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include=".template.config\**\*" Exclude="**\bin\**;**\obj\**" />
+    <Content Include="**\src\**\*" Exclude="**\bin\**;**\obj\**;**\src\AntDesign.Pro\wwwroot\gh-pages\*" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

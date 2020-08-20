@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="AntDesign" Version="0.3.0-*" />
-    <PackageReference Include="AntDesign.Pro.Layout" Version="0.1.0-*" />
+    <PackageReference Include="{pro-layout}" Version="0.1.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(SolutionDir)'==''">
-    <SolutionDir>../../</SolutionDir>
+    <SolutionDir>./</SolutionDir>
   </PropertyGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SolutionDir)node_modules') ">

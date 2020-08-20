@@ -27,5 +27,16 @@ jobs:
           cd ./src/AntDesign.Pro/wwwroot
           cp -rf gh-pages/* gh-pages/.nojekyll gh-pages/.spa ./
           cd ../../../
-          dotnet build
-          dotnet publish -c Release -o cargo
+          dotnet build ./AntDesign.Pro.sln
+          dotnet publish ./AntDesign.Pro.sln -c Release -o cargo
+
+      - name: Test Package
+        run: |
+            dotnet pack templates.csproj -c Release -o pack
+            dotnet new -i ./pack/AntDesign.Templates.1.0.0.nupkg
+            dotnet new antdesign -n wasm --host wasm --full
+            dotnet new antdesign -n server --host server --full
+            dotnet new antdesign -n hosted --host hosted --full
+            dotnet build ./wasm
+            dotnet build ./server
+            dotnet build ./hosted
