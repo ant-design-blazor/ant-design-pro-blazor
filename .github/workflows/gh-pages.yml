@@ -39,6 +39,15 @@ jobs:
                   dotnet build
                   dotnet publish -c Release -o cargo
 
+            - name: Publish to Nuget ✔
+              run: |
+                  FULL_VERSION=$Version-nightly-`date "+%y%m%d%H%M"`
+                  echo "Version: ${FULL_VERSION}"
+                  echo "::set-env name=FULL_VERSION::${FULL_VERSION}"
+                # set NoDefaultExcludes=true to include .gitignore file
+                  dotnet pack templates.csproj /p:PackageVersion=${FULL_VERSION} -c Release -o publish /p:NoDefaultExcludes=true
+                  dotnet nuget push publish/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:

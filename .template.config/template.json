@@ -1,0 +1,124 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "AntDesign Blazor Team",
+    "classifications": ["Ant Design Pro"],
+    "name": "Ant Design Pro Blazor App",
+    "identity": "AntDesign.Pro",
+    "groupIdentity": "AntDesign.Pro",
+    "shortName": "antdesign",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "AntDesign.Pro",
+    "preferNameDirectory": true,
+    "symbols": {
+        "full": {
+            "type": "parameter",
+            "dataType": "bool",
+            "defaultValue": "false"
+        },
+        "host": {
+            "type": "parameter",
+            "datatype": "choice",
+            "defaultValue": "wasm",
+            "choices": [
+                {
+                    "choice": "wasm",
+                    "description": "WebAssembly"
+                },
+                {
+                    "choice": "server",
+                    "description": "Server-Side"
+                },
+                {
+                    "choice": "hosted",
+                    "description": "Asp.NET Core Hosted WebAssembly"
+                }
+            ]
+        },
+        "skipRestore": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "If specified, skips the automatic restore of the project on create.",
+            "defaultValue": "false"
+        },
+        "pro-layout": {
+            "type": "generated",
+            "generator": "constant",
+            "parameters": {
+                "value": "AntDesign.Pro.Layout"
+            },
+            "replaces": "{pro-layout}"
+        }
+    },
+    "primaryOutputs": [
+        {
+            "condition": "(host != 'hosted' )",
+            "path": "AntDesign.Pro.csproj"
+        },
+        {
+            "condition": "(host == 'hosted' )",
+            "path": "AntDesign.Pro.sln"
+        }
+    ],
+    "sources": [
+        {
+            "source": "./.template.config/templates/assets",
+            "target": "./"
+        },
+        {
+            "condition": "(host != 'hosted' )",
+            "source": "./src/AntDesign.Pro",
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(!full)",
+                    "exclude": ["Pages/**/*"]
+                }
+            ]
+        },
+        {
+            "condition": "(host == 'wasm' )",
+            "source": "./.template.config/templates/wasm",
+            "target": "./"
+        },
+        {
+            "condition": "(host == 'server' )",
+            "source": "./.template.config/templates/server",
+            "target": "./"
+        },
+        {
+            "condition": "(host == 'hosted' )",
+            "source": "./src/AntDesign.Pro",
+            "target": "./src/Client/",
+            "rename": {
+                "AntDesign.Pro": "AntDesign.Pro.Client"
+            },
+            "modifiers": [
+                {
+                    "condition": "(!full)",
+                    "exclude": ["Pages/**/*"]
+                }
+            ]
+        },
+        {
+            "condition": "(host == 'hosted' )",
+            "source": "./.template.config/templates/hosted",
+            "target": "./"
+        }
+    ],
+    "postActions": [
+        {
+            "condition": "(!skipRestore)",
+            "description": "Restore NuGet packages required by this project.",
+            "manualInstructions": [
+                {
+                    "text": "Run 'dotnet restore'"
+                }
+            ],
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "continueOnError": true
+        }
+    ]
+}

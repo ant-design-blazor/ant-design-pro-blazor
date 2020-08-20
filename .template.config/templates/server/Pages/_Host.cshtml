@@ -1,0 +1,31 @@
+﻿@page "/"
+@namespace AntDesign.Pro.Server.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AntDesign.Pro</title>
+    <base href="~/" />
+    <link href="_content/AntDesign/css/ant-design-blazor.css" rel="stylesheet" />
+    <link href="_content/{pro-layout}/css/prolayout.css" rel="stylesheet" />
+    <link href="./css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="Server" />
+    </app>
+
+    <script src="_content/AntDesign/js/ant-design-blazor.js"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g2/4.0.10/dist/g2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.11.1/dist/data-set.js"></script>
+    <script src="./js/ant-pro.js"></script>
+    
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
