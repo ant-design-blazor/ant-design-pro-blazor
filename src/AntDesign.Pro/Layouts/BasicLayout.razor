@@ -1,163 +1,26 @@
 ﻿@namespace AntDesign.Pro
 @inherits LayoutComponentBase
 
-<Layout>
-    <Sider Collapsible Collapsed=@collapsed NoTrigger Width="208">
-        <div class="ant-pro-sider-logo" id="logo">
-            <a href="/">
-                <img src="assets/logo.svg" alt="logo">
-                @if(!collapsed){
-                    <h1>Ant Design Pro</h1>
-                }
-            </a>
-        </div>
-        <Menu 
-              Mode=MenuMode.Inline
-              Theme=MenuTheme.Dark
-              InlineCollapsed=collapsed>
-            <SubMenu Title=dashboard>
-                <MenuItem RouterLink="/" RouterMatch="NavLinkMatch.All">分析页</MenuItem>
-                <MenuItem RouterLink="/dashboard/monitor">监控页</MenuItem>
-                <MenuItem RouterLink="/dashboard/workplace">工作台</MenuItem>
-            </SubMenu>
-            
-            <SubMenu Title=form>
-                <MenuItem RouterLink="/form/basic-form">基础表单</MenuItem>
-                <MenuItem RouterLink="/form/step-form">分布表单</MenuItem>
-                <MenuItem RouterLink="/form/advanced-form">高级表单</MenuItem>
-            </SubMenu>
-            
-            <SubMenu Title=list>
-                <MenuItem RouterLink="/list/table-list">查询表格</MenuItem>
-                <MenuItem RouterLink="/list/basic-list">标准列表</MenuItem>
-                <MenuItem RouterLink="/list/card-list">标准列表</MenuItem>
-            </SubMenu>
-            
-            <SubMenu Title=profile>
-                <MenuItem RouterLink="/profile/basic">基础详情页</MenuItem>
-                <MenuItem RouterLink="/profile/advanced">高级详情页</MenuItem>
-            </SubMenu>
+<AntDesign.Pro.Layout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+             MenuData="MenuData"
+             Theme="MenuTheme.Light">
+    <MenuExtraRender>
+    </MenuExtraRender>
+    <ChildContent>
+        @Body
+    </ChildContent>
+</AntDesign.Pro.Layout.BasicLayout>
+<SettingDrawer />
 
-            <SubMenu Title=result>
-                <MenuItem RouterLink="/result/success">成功页</MenuItem>
-                <MenuItem RouterLink="/result/fail">失败页</MenuItem>
-            </SubMenu>
-
-            <SubMenu Title=exception>
-                <MenuItem RouterLink="/exception/403">403</MenuItem>
-                <MenuItem RouterLink="/exception/404">404</MenuItem>
-                <MenuItem RouterLink="/exception/500">500</MenuItem>
-            </SubMenu>
-            
-            <SubMenu Title=account>
-                <MenuItem RouterLink="/account/center">个人中心</MenuItem>
-                <MenuItem RouterLink="/account/settings">个人设置</MenuItem>
-            </SubMenu>
-
-            <SubMenu Title=user>
-                <MenuItem RouterLink="/user/login">登录</MenuItem>
-                <MenuItem RouterLink="/user/register">注册</MenuItem>
-                <MenuItem RouterLink="/user/lock">锁屏</MenuItem>
-            </SubMenu>
-        </Menu>
-    </Sider>
-    <Layout Class="site-layout">
-        <Header Class="site-layout-background" Style="padding: 0;">
-            @if (collapsed)
-            {
-                <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="toggle" />
-            }
-            else
-            {
-                <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="toggle" />
-            }
-        </Header>
-        <Content Class="ant-pro-basicLayout-content ant-pro-basicLayout-has-header">
-            <div class="ant-pro-basicLayout-children-content-wrap">
-                @Body
-            </div>
-        </Content>
-    </Layout>
-</Layout>
-
-<style>
-    .trigger {
-        font-size: 18px;
-        line-height: 64px;
-        padding: 0 24px;
-        cursor: pointer;
-        transition: color 0.3s;
-    }
-
-        .trigger:hover {
-            color: #1890ff;
-        }
-
-    .logo-demo {
-        height: 32px;
-        background: rgba(255, 255, 255, 0.2);
-        margin: 16px;
-    }
-
-    .site-layout .site-layout-background {
-        background: #fff;
-    }
-</style>
-
+@inject HttpClient HttpClient
 @code
 {
-    RenderFragment dashboard =
-    @<span>
-        <Icon Type="dashboard" Theme="outline"></Icon>
-        <span>Dashboard</span>
-    </span>;
+    private MenuDataItem[] MenuData { get; set; } = {};
 
-    RenderFragment form =
-    @<span>
-        <Icon Type="form" Theme="outline"></Icon>
-        <span>表单页</span>
-    </span>;
-
-    RenderFragment list =
-    @<span>
-        <Icon Type="table" Theme="outline"></Icon>
-        <span>列表页</span>
-    </span>;
-
-    RenderFragment profile = 
-    @<span>
-        <Icon Type="profile" Theme="outline"></Icon>
-        <span>详情页</span>
-    </span>;
-
-    RenderFragment result = 
-    @<span>
-        <Icon Type="check-circle" Theme="outline"></Icon>
-        <span>结果页</span>
-    </span>;
-
-    RenderFragment exception =
-    @<span>
-        <Icon Type="exception" Theme="outline"></Icon>
-        <span>异常页</span>
-    </span>;
-
-    RenderFragment account = 
-    @<span>
-        <Icon Type="user" Theme="outline"></Icon>
-        <span>个人页</span>
-    </span>;
-
-    RenderFragment user =
-    @<span>
-        <Icon Type="login" Theme="outline"></Icon>
-        <span>登录页</span>
-    </span>;
-
-    bool collapsed;
-
-    void toggle()
+    protected override async Task OnInitializedAsync()
     {
-        collapsed = !collapsed;
+        await base.OnInitializedAsync();
+        var data = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+        MenuData = data;
     }
 }
