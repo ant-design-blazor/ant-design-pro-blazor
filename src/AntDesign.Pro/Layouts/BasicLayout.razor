@@ -1,11 +1,9 @@
 ﻿@namespace AntDesign.Pro
 @inherits LayoutComponentBase
 
-<AntDesign.Pro.Layout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-             MenuData="MenuData"
-             Theme="MenuTheme.Light">
-    <MenuExtraRender>
-    </MenuExtraRender>
+<AntDesign.Pro.Layout.BasicLayout 
+    Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+    MenuData="MenuData">
     <ChildContent>
         @Body
     </ChildContent>
@@ -20,7 +18,6 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        var data = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
-        MenuData = data;
+        MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
     }
 }
