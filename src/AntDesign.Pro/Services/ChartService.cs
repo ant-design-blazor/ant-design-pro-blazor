@@ -56,7 +56,6 @@ namespace AntDesign.Pro.Services
     public class ChartService
     {
         private readonly HttpClient _httpClient;
-        private static ChartData _chartData;
 
         public ChartService(HttpClient httpClient)
         {
@@ -80,7 +79,7 @@ namespace AntDesign.Pro.Services
 
         private async Task<ChartData> GetChartDataAsync()
         {
-            return _chartData ??= await _httpClient.GetFromJsonAsync<ChartData>("data/fake_chart_data.json");
+            return await _httpClient.GetFromJsonAsync<ChartData>("data/fake_chart_data.json");
         }
     }
 }

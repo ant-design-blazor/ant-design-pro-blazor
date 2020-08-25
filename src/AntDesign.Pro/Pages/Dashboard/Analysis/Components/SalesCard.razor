@@ -128,10 +128,10 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        OnTabChanged("1");
+        await OnTabChanged("1");
     }
 
-    private async void OnTabChanged(string activeKey)
+    private async Task OnTabChanged(string activeKey)
     {
         var data = await ChartService.GetSalesDataAsync();
         if (activeKey == "1")
