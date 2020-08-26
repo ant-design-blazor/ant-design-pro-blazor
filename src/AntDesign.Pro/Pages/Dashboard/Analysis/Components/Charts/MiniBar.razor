@@ -1,20 +1,18 @@
 @namespace AntDesign.Pro.Pages.Analysis
 @inject ChartService ChartService
-
-<Area @ref="_visitChart" TItem="ChartDataItem" Config="_visitChartConfig" />
+<AntDesign.Charts.Column @ref="_chart" TItem="ChartDataItem" Config="_chartConfig" />
 
 @code
 {
-    private IChartComponent _visitChart;
-
-    private readonly AreaConfig _visitChartConfig = new AreaConfig
+    private IChartComponent _chart;
+    private ColumnConfig _chartConfig = new ColumnConfig
     {
         XField = "x",
         YField = "y",
         Height = 45,
         Padding = new[] { 8, 8, 8, 8 },
         ForceFit = true,
-        XAxis = new ValueCatTimeAxis
+        XAxis = new CatAxis
         {
             Visible = false
         },
@@ -28,6 +26,6 @@
     {
         await base.OnInitializedAsync();
         var data = await ChartService.GetVisitDataAsync();
-        await _visitChart.ChangeData(data);
+        await _chart.ChangeData(data);
     }
 }
