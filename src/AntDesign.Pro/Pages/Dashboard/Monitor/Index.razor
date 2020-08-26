@@ -1,4 +1,4 @@
-@namespace AntDesign.Pro.Pages.Monitor
+﻿@namespace AntDesign.Pro.Pages.Monitor
 @page "/dashboard/monitor"
 
 <GridContent>
@@ -6,10 +6,18 @@
         <AntDesign.Col Span="18" Style="margin-bottom: 24px;">
             <Card>
                 <Row>
-                    <AntDesign.Col Span="6"></AntDesign.Col>
-                    <AntDesign.Col Span="6"></AntDesign.Col>
-                    <AntDesign.Col Span="6"></AntDesign.Col>
-                    <AntDesign.Col Span="6"></AntDesign.Col>
+                    <AntDesign.Col Span="6">
+                        <Statistic Title="@("Total transactions today")" Value="124543233" Suffix="@("元")" />
+                    </AntDesign.Col>
+                    <AntDesign.Col Span="6">
+                        <Statistic Title="@("Sales target completion rate")" Value="92" Suffix="@("%")" />
+                    </AntDesign.Col>
+                    <AntDesign.Col Span="6">
+                        <CountDown Title="@("Remaining time of activity")" Value="@_deadline" Format="hh:mm:ss:fff" />
+                    </AntDesign.Col>
+                    <AntDesign.Col Span="6">
+                        <Statistic Title="@("Total transactions per second")" Value="234" Suffix="@("元")" />
+                    </AntDesign.Col>
                 </Row>
                 <div class="mapChart">
                     <Map />
@@ -54,3 +62,8 @@
         </AntDesign.Col>
     </Row>
 </GridContent>
+
+@code
+{
+    private readonly DateTime _deadline = DateTime.Now.AddMilliseconds(1000 * 60 * 60 * 24 * 2 + 1000 * 30);
+}
