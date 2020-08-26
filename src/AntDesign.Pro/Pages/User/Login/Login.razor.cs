@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Pages
 {
-    public class User
+    public class LoginModel
     {
         [Required]
         public string UserName { get; set; }
@@ -11,19 +11,35 @@ namespace AntDesign.Pro.Pages
         [Required]
         public string Password { get; set; }
 
+        public string Mobile { get; set; }
+
         public string Captcha { get; set; }
+
+        public bool AutoLogin { get; set; } = true;
+
+        public string LoginType { get; set; }
     }
 
     public partial class Login
     {
-        private readonly User _model = new User();
+        private readonly LoginModel _model = new LoginModel();
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public void NavLogin()
+        public void HandleSubmit()
         {
-            NavigationManager.NavigateTo("/");
+            if (_model.UserName == "admin" && _model.Password == "ant.design")
+            {
+                NavigationManager.NavigateTo("/");
+                return;
+            }
+
+            if (_model.UserName == "user" && _model.Password == "ant.design")
+            {
+                NavigationManager.NavigateTo("/");
+                return;
+            }
         }
     }
 }
