@@ -22,8 +22,7 @@
             "type": "parameter",
             "datatype": "choice",
             "defaultValue": "wasm",
-            "choices": [
-                {
+            "choices": [{
                     "choice": "wasm",
                     "description": "WebAssembly"
                 },
@@ -50,75 +49,97 @@
                 "value": "AntDesign.Pro.Layout"
             },
             "replaces": "{pro-layout}"
+        },
+        "replace-project-dir": {
+            "condition": "(host == 'hosted')",
+            "type": "generated",
+            "generator": "constant",
+            "parameters": {
+                "value": "<SolutionDir>../../</SolutionDir>"
+            },
+            "replaces": "<SolutionDir>./</SolutionDir>"
         }
     },
-    "primaryOutputs": [
-        {
-            "condition": "(host != 'hosted' )",
-            "path": "AntDesign.Pro.csproj"
-        },
-        {
-            "condition": "(host == 'hosted' )",
-            "path": "AntDesign.Pro.sln"
-        }
-    ],
-    "sources": [
-        {
+    "primaryOutputs": [{
+        "condition": "(host != 'hosted')",
+        "path": "AntDesign.Pro.csproj"
+    }, {
+        "condition": "(host == 'hosted')",
+        "path": "AntDesign.Pro.sln"
+    }],
+    "sources": [{
             "source": "./.template.config/templates/assets",
             "target": "./"
         },
         {
-            "condition": "(host != 'hosted' )",
+            "condition": "(host != 'hosted')",
             "source": "./src/AntDesign.Pro",
             "target": "./",
-            "modifiers": [
-                {
-                    "condition": "(!full)",
-                    "exclude": ["Pages/**/*"]
-                }
-            ]
+            "modifiers": [{
+                "condition": "(!full)",
+                "exclude": ["Pages/**/*"]
+            }]
         },
         {
-            "condition": "(host == 'wasm' )",
+            "condition": "(host == 'wasm')",
             "source": "./.template.config/templates/wasm",
             "target": "./"
         },
         {
-            "condition": "(host == 'server' )",
+            "condition": "(host == 'server')",
             "source": "./.template.config/templates/server",
             "target": "./"
         },
         {
-            "condition": "(host == 'hosted' )",
+            "condition": "(host == 'hosted')",
             "source": "./src/AntDesign.Pro",
+            "target": "./src/Client/",
+            "modifiers": [{
+                "exclude": [
+                    "AntDesign.Pro.csproj"
+                ]
+            }, {
+                "condition": "(!full)",
+                "exclude": ["Pages/**/*"]
+            }]
+        },
+        {
+            "condition": "(host == 'hosted')",
+            "source": "./.template.config/templates/wasm",
             "target": "./src/Client/",
             "rename": {
                 "AntDesign.Pro": "AntDesign.Pro.Client"
-            },
-            "modifiers": [
-                {
-                    "condition": "(!full)",
-                    "exclude": ["Pages/**/*"]
-                }
-            ]
+            }
         },
         {
-            "condition": "(host == 'hosted' )",
+            "condition": "(host == 'hosted')",
             "source": "./.template.config/templates/hosted",
             "target": "./"
         }
     ],
-    "postActions": [
-        {
-            "condition": "(!skipRestore)",
-            "description": "Restore NuGet packages required by this project.",
-            "manualInstructions": [
-                {
-                    "text": "Run 'dotnet restore'"
+    "SpecialCustomOperations": {
+        "**/*.less": {
+            "operations": [{
+                "type": "conditional",
+                "configuration": {
+                    "if": ["//#if"],
+                    "else": ["//#else"],
+                    "elseif": ["//#elseif"],
+                    "endif": ["//#endif"],
+                    "trim": true,
+                    "wholeLine": true,
+                    "evaluator": "C++"
                 }
-            ],
-            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-            "continueOnError": true
+            }]
         }
-    ]
+    },
+    "postActions": [{
+        "condition": "(!skipRestore)",
+        "description": "Restore NuGet packages required by this project.",
+        "manualInstructions": [{
+            "text": "Run 'dotnet restore'"
+        }],
+        "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+        "continueOnError": true
+    }]
 }
