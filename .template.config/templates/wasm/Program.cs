@@ -6,7 +6,7 @@ using AntDesign.Pro.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AntDesign.Pro.Client
+namespace AntDesign.Pro
 {
     public class Program
     {
