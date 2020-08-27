@@ -53,12 +53,12 @@ namespace AntDesign.Pro.Services
             _httpClient = httpClient;
         }
 
-        public async Task<NoticeType[]> GetProjectNotice()
+        public async Task<NoticeType[]> GetProjectNoticeAsync()
         {
             return await _httpClient.GetFromJsonAsync<NoticeType[]>("data/notice.json");
         }
 
-        public async Task<ActivitiesType[]> GetActivities()
+        public async Task<ActivitiesType[]> GetActivitiesAsync()
         {
             return await _httpClient.GetFromJsonAsync<ActivitiesType[]>("data/activities.json");
         }

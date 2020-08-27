@@ -77,6 +77,11 @@ namespace AntDesign.Pro.Services
             return (await GetChartDataAsync()).SalesData;
         }
 
+        public async Task<RadarDataItem[]> GetRadarDataAsync()
+        {
+            return (await GetChartDataAsync()).RadarData;
+        }
+
         private async Task<ChartData> GetChartDataAsync()
         {
             return await _httpClient.GetFromJsonAsync<ChartData>("data/fake_chart_data.json");

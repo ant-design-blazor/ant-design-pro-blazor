@@ -1,5 +1,6 @@
 ﻿@namespace AntDesign.Pro.Pages.Workplace
 @page "/dashboard/workplace"
+@using System.Text.RegularExpressions
 
 <PageContainer Title="Workplace">
     <Breadcrumb>
@@ -88,14 +89,38 @@
                     BodyStyle="padding: 0px;" 
                     Class="activeCard" 
                     Title="@("动态")">
-                    <AntList DataSource="@_activities" TItem="ActivitiesType">
+                    <AntList 
+                        TItem="ActivitiesType" 
+                        DataSource="@_activities"
+                        Class="activitiesList"
+                        Size="large">
                         <Item Context="item">
                             <AntListItemMeta Avatar="@item.User.Avatar">
                                 <Title>
                                     <span>
                                         <a class="username">@item.User.Name</a>
                                         &nbsp;
-                                        <span class="event">{events}</span>
+                                        <span class="event">
+                                            @foreach (var str in Regex.Split(item.Template, @"@\{([^{}]*)\}"))
+                                            {
+                                                if (str == "group")
+                                                {
+                                                    <a href="@item.Group.Link" key="@item.Group.Name">
+                                                        @item.Group.Name
+                                                    </a>
+                                                }
+                                                else if (str == "project")
+                                                {
+                                                    <a href="@item.Project.Link" key="@item.Project.Name">
+                                                        @item.Project.Name
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    @str
+                                                }
+                                            }
+                                        </span>
                                     </span>
                                 </Title>
                             </AntListItemMeta>
@@ -104,13 +129,18 @@
                 </Card>
             </AntDesign.Col>
             <AntDesign.Col Span="8">
-                <Card Style="margin-bottom: 24px;" Title="@("快速开始 / 便捷导航")">
-
+                <Card 
+                    Style="margin-bottom: 24px;" 
+                    Title="@("快速开始 / 便捷导航")"
+                    BodyStyle="padding: 0px;">
+                    <EditableLinkGroup Links="_links" />
                 </Card>
 
-                <Card Style="margin-bottom: 24px;" Title="@("XX 指数")">
+                <Card 
+                    Style="margin-bottom: 24px;" 
+                    Title="@("XX 指数")">
                     <div class="chart">
-
+                        <AntDesign.Pro.Pages.Workplace.Radar />
                     </div>
                 </Card>
                 
@@ -142,11 +172,20 @@
 
     private NoticeType[] _projectNotice = {};
     private ActivitiesType[] _activities = {};
+    private readonly EditableLink[] _links =
+    {
+        new EditableLink{ Title = "操作一", Href = "" },
+        new EditableLink{ Title = "操作二", Href = "" },
+        new EditableLink{ Title = "操作三", Href = "" },
+        new EditableLink{ Title = "操作四", Href = "" },
+        new EditableLink{ Title = "操作五", Href = "" },
+        new EditableLink{ Title = "操作六", Href = "" },
+    };
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        _projectNotice = await ProjectService.GetProjectNotice();
-        _activities = await ProjectService.GetActivities();
+        _projectNotice = await ProjectService.GetProjectNoticeAsync();
+        _activities = await ProjectService.GetActivitiesAsync();
     }
 }
