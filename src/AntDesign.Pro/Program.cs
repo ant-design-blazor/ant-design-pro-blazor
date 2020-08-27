@@ -19,6 +19,7 @@ namespace AntDesign.Pro
             builder.Services.AddAntDesign();
             builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
             builder.Services.AddScoped<ChartService>();
+            builder.Services.AddScoped<ProjectService>();
 
             await builder.Build().RunAsync();
         }
