@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 //#if (full)
-using ServerFull.Services;
+using AntDesign.Pro.Services;
 //#endif
 
 namespace AntDesign.Pro
