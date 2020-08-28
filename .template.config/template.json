@@ -77,7 +77,7 @@
             "target": "./",
             "modifiers": [{
                 "condition": "(!full)",
-                "exclude": ["Pages/**/*"]
+                "exclude": ["Pages/**/*", "Services/**/*"]
             }]
         },
         {
@@ -119,6 +119,20 @@
     ],
     "SpecialCustomOperations": {
         "**/*.less": {
+            "operations": [{
+                "type": "conditional",
+                "configuration": {
+                    "if": ["//#if"],
+                    "else": ["//#else"],
+                    "elseif": ["//#elseif"],
+                    "endif": ["//#endif"],
+                    "trim": true,
+                    "wholeLine": true,
+                    "evaluator": "C++"
+                }
+            }]
+        },
+        "**/*.razor": {
             "operations": [{
                 "type": "conditional",
                 "configuration": {
