@@ -27,8 +27,7 @@
                        Total="8846"
                        ContentHeight="46">
                 <ChildContent>
-                    <!--todo: replace with chart-->
-                    <div id="container-mini-area"></div>
+                    <MiniArea />
                 </ChildContent>
                 <Footer>
                     <Field Label="Daily Visits" Value="1243" />
@@ -40,8 +39,7 @@
                        Total="6560"
                        ContentHeight="46">
                 <ChildContent>
-                    <!--todo: replace with chart-->
-                    <div id="container-mini-bar"></div>
+                    <MiniBar />
                 </ChildContent>
                 <Footer>
                     <Field Label="Conversion Rate" Value="60%" />
@@ -68,12 +66,3 @@
 
     <SalesCard />
 </GridContent>
-
-@inject IJSRuntime jsRuntime
-@code
-{
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await jsRuntime.InvokeVoidAsync("antPro.analysisCharts");
-    }
-}

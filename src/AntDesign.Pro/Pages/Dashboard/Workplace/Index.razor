@@ -1,4 +1,191 @@
-@namespace AntDesign.Pro.Pages.Workplace
+﻿@namespace AntDesign.Pro.Pages.Workplace
 @page "/dashboard/workplace"
+@using System.Text.RegularExpressions
 
-<h1>Workplace</h1>
+<PageContainer Title="Workplace">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>Home</BreadcrumbItem>
+            <BreadcrumbItem>Dashboard</BreadcrumbItem>
+            <BreadcrumbItem>Workplace</BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+    <Content>
+        <div class="pageHeaderContent">
+            <div class="avatar">
+                <Avatar size="large" src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
+            </div>
+            <div class="content">
+                <div class="contentTitle">
+                    早安，
+                    Serati Ma
+                    ，祝你开心每一天！
+                </div>
+                <div>
+                    交互专家 |蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED
+                </div>
+            </div>
+        </div>
+    </Content>
+    <ExtraContent>
+        <div class="extraContent">
+            <div class="statItem">
+                <Statistic Title="@("项目数")" Value="56"/>
+            </div>
+            <div class="statItem">
+                <Statistic Title="@("团队内排名")" Value="8" Suffix="@("/ 24")"/>
+            </div>
+            <div class="statItem">
+                <Statistic Title="@("项目访问")" Value="2223"/>
+            </div>
+        </div>
+    </ExtraContent>
+    <ChildContent>
+        <Row Gutter="24">
+            <AntDesign.Col Span="16">
+                <Card 
+                    Class="projectList" 
+                    Style="margin-bottom: 24px;" 
+                    Title="@("进行中的项目")"
+                    BodyStyle="padding: 0px;">
+                    <Extra>
+                        <a href="/">全部项目</a>
+                    </Extra>
+                    <ChildContent>
+                        @foreach (var item in _projectNotice)
+                        {
+                            <CardGrid Hoverable>
+                                <Card BodyStyle="padding: 0px;">
+                                    <CardMeta>
+                                        <Title>
+                                            <div class="cardTitle">
+                                                <Avatar Size="small" Src="@item.Logo"></Avatar>
+                                                <a href="@item.Href">@item.Title</a>
+                                            </div>
+                                        </Title>
+                                        <Description>
+                                            <!--todo: submit a pr to card component-->
+                                            <div class="ant-card-meta-description">
+                                                @item.Description
+                                            </div>
+                                        </Description>
+                                    </CardMeta>
+                                    <div class="projectItemContent">
+                                        <a href="@item.MemberLink">@item.Member</a>
+                                        @if (!string.IsNullOrEmpty(item.UpdatedAt))
+                                        {
+                                            <span class="datetime" title="@item.UpdatedAt">
+                                                
+                                            </span>
+                                        }
+                                    </div>
+                                </Card>
+                            </CardGrid>
+                        }
+                    </ChildContent>
+                </Card>
+
+                <Card 
+                    BodyStyle="padding: 0px;" 
+                    Class="activeCard" 
+                    Title="@("动态")">
+                    <AntList 
+                        TItem="ActivitiesType" 
+                        DataSource="@_activities"
+                        Class="activitiesList"
+                        Size="large">
+                        <Item Context="item">
+                            <AntListItemMeta Avatar="@item.User.Avatar">
+                                <Title>
+                                    <span>
+                                        <a class="username">@item.User.Name</a>
+                                        &nbsp;
+                                        <span class="event">
+                                            @foreach (var str in Regex.Split(item.Template, @"@\{([^{}]*)\}"))
+                                            {
+                                                if (str == "group")
+                                                {
+                                                    <a href="@item.Group.Link" key="@item.Group.Name">
+                                                        @item.Group.Name
+                                                    </a>
+                                                }
+                                                else if (str == "project")
+                                                {
+                                                    <a href="@item.Project.Link" key="@item.Project.Name">
+                                                        @item.Project.Name
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    @str
+                                                }
+                                            }
+                                        </span>
+                                    </span>
+                                </Title>
+                            </AntListItemMeta>
+                        </Item>
+                    </AntList>
+                </Card>
+            </AntDesign.Col>
+            <AntDesign.Col Span="8">
+                <Card 
+                    Style="margin-bottom: 24px;" 
+                    Title="@("快速开始 / 便捷导航")"
+                    BodyStyle="padding: 0px;">
+                    <EditableLinkGroup Links="_links" />
+                </Card>
+
+                <Card 
+                    Style="margin-bottom: 24px;" 
+                    Title="@("XX 指数")">
+                    <div class="chart">
+                        <AntDesign.Pro.Pages.Workplace.Radar />
+                    </div>
+                </Card>
+                
+                <Card 
+                    BodyStyle="padding-top: 12px; padding-bottom: 12px;" 
+                    Title="@("团队")">
+                    <div class="members">
+                        <Row Gutter="48">
+                            @foreach (var item in _projectNotice)
+                            {
+                                <AntDesign.Col Span="12" Style="padding-left: 24px; padding-right: 24px;">
+                                    <a href="@item.Href">
+                                        <Avatar Src="@item.Logo" Size="small"/>
+                                        <span class="member">@item.Member</span>
+                                    </a>
+                                </AntDesign.Col>
+                            }
+                        </Row>
+                    </div>
+                </Card>
+            </AntDesign.Col>
+        </Row>
+    </ChildContent>
+</PageContainer>
+
+@inject ProjectService ProjectService
+@code
+{
+
+    private NoticeType[] _projectNotice = {};
+    private ActivitiesType[] _activities = {};
+    private readonly EditableLink[] _links =
+    {
+        new EditableLink{ Title = "操作一", Href = "" },
+        new EditableLink{ Title = "操作二", Href = "" },
+        new EditableLink{ Title = "操作三", Href = "" },
+        new EditableLink{ Title = "操作四", Href = "" },
+        new EditableLink{ Title = "操作五", Href = "" },
+        new EditableLink{ Title = "操作六", Href = "" },
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _projectNotice = await ProjectService.GetProjectNoticeAsync();
+        _activities = await ProjectService.GetActivitiesAsync();
+    }
+}
