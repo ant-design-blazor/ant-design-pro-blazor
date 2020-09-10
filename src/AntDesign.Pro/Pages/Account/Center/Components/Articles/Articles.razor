@@ -1,27 +1,17 @@
-@namespace AntDesign.Pro.Pages.Account.Center
+@namespace AntDesign.Pro.Pages.Account
 
-<AntList DataSource="@data" TItem="BasicItem">
+<AntList 
+    TItem="ListItemDataType"
+    Size="large"
+    Class="articleList"
+    ItemLayout="AntDirectionVHType.Vertical"
+    DataSource="List">
     <Item Context="item">
-        <AntListItemMeta  Avatar="@("https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png")" Description="Ant Design, a design language for background applications, is refined by Ant UED Team">
+        <AntListItemMeta Avatar="@item.Avatar" Description="">
             <Title>
                 <a href="https://ng.ant.design">@item.Title</a>
             </Title>
         </AntListItemMeta>
+        <ArticleListContent Data="@item" />
     </Item>
 </AntList>
-
-@code
-{
-    public class BasicItem
-    {
-        public string Title { get; set; }
-    }
-
-    public List<BasicItem> data = new List<BasicItem>
-    {
-        new BasicItem { Title = "Ant Design Title 1"},
-        new BasicItem { Title = "Ant Design Title 2"},
-        new BasicItem { Title = "Ant Design Title 3"},
-        new BasicItem { Title = "Ant Design Title 4"},
-    };
-}

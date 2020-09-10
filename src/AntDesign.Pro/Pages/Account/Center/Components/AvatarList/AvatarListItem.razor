@@ -1,0 +1,16 @@
+@namespace AntDesign.Pro.Pages.Account
+@inherits AntDomComponentBase
+@using Tooltip = AntDesign.Tooltip
+
+<li class="@ClassMapper.Class" @onclick="OnClick">
+    @if (string.IsNullOrEmpty(Tips))
+    {
+        <Tooltip Title="@Tips">
+            <Avatar Src="@Src" Size="@Size" Style="cursor: pointer;" />
+        </Tooltip>
+    }
+    else
+    {
+        <Avatar Src="@Src" Size="@Size" />
+    }
+</li>

@@ -1,6 +1,7 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using AntDesign.Pro.Pages.Account;
 
 namespace AntDesign.Pro.Services
 {
@@ -61,6 +62,11 @@ namespace AntDesign.Pro.Services
         public async Task<ActivitiesType[]> GetActivitiesAsync()
         {
             return await _httpClient.GetFromJsonAsync<ActivitiesType[]>("data/activities.json");
+        }
+
+        public async Task<ListItemDataType[]> GetFakeListAsync()
+        {
+            return await _httpClient.GetFromJsonAsync<ListItemDataType[]>("data/fake_list.json");
         }
     }
 }
