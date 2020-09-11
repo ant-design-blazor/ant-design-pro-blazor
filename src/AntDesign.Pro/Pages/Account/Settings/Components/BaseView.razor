@@ -1,0 +1,70 @@
+﻿@namespace AntDesign.Pro.Pages.Account.Settings
+
+<div class="baseView">
+    <div class="left" style="min-width: 310px;">
+        <Form 
+            Layout="vertical"
+            OnFinish="HandleFinish"
+            Model="@_currentUser">
+            <FormItem Label="Email">
+                <AntDesign.Input @bind-Value="@context.Value" />
+            </FormItem>
+            <FormItem Label="Nickname">
+                <AntDesign.Input @bind-Value="@context.Value" />
+            </FormItem>
+            <FormItem Label="Personal profile">
+                <AntDesign.TextArea />
+            </FormItem>
+            <FormItem Label="Country/Region">
+                <Select Style="max-width: 220px;">
+                    <SelectOption Value="China">中国</SelectOption>
+                </Select>
+            </FormItem>
+            <FormItem Label="Province or city">
+                <GeographicView />
+            </FormItem>
+            <FormItem Label="Street Address">
+                <AntDesign.Input @bind-Value="@context.Value" />
+            </FormItem>
+            <FormItem Label="Phone Number">
+                <PhoneView />
+            </FormItem>
+            <FormItem>
+                <Button HtmlType="submit" Type="primary">
+                    Update Information
+                </Button>
+            </FormItem>
+        </Form>
+    </div>
+    <div class="right__b__1">
+        <div class="avatar_title">
+            Avatar
+        </div>
+        <div class="avatar">
+            <img src="@_currentUser.Avatar" alt="avatar" />
+        </div>
+        <Upload ShowUploadList="false">
+            <div class="button_view">
+                <Button Icon="upload">
+                    Change avatar
+                </Button>
+            </div>
+        </Upload>
+    </div>
+</div>
+
+@code
+{
+    public class Model
+    {
+        public string Value { get; set; }
+        public string Avatar { get; set; } = "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png";
+    }
+
+    private Model _currentUser = new Model();
+
+    private void HandleFinish()
+    {
+
+    }
+}

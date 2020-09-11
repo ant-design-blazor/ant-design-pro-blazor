@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AntDesign.Pro.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Account
+namespace AntDesign.Pro.Pages.Account.Center
 {
     public class CurrentUser
     {
@@ -21,22 +21,22 @@ namespace AntDesign.Pro.Pages.Account
         {
             Avatar = "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
             Name = "Serati Ma",
-            Signature = "º£ÄÉ°Ù´¨£¬ÓĞÈİÄË´ó",
-            Title = "½»»¥×¨¼Ò",
-            Group = "ÂìÒÏ½ğ·ş£­Ä³Ä³Ä³ÊÂÒµÈº£­Ä³Ä³Æ½Ì¨²¿£­Ä³Ä³¼¼Êõ²¿£­UED",
-            Geographic = "Õã½­Ê¡º¼ÖİÊĞ"
+            Signature = "æµ·çº³ç™¾å·ï¼Œæœ‰å®¹ä¹ƒå¤§",
+            Title = "äº¤äº’ä¸“å®¶",
+            Group = "èš‚èšé‡‘æœï¼æŸæŸæŸäº‹ä¸šç¾¤ï¼æŸæŸå¹³å°éƒ¨ï¼æŸæŸæŠ€æœ¯éƒ¨ï¼UED",
+            Geographic = "æµ™æ±Ÿçœæ­å·å¸‚"
         };
         private bool inputVisible = false;
         private string inputValue = string.Empty;
 
         private string[] lstTags = new string[]
         {
-            "ºÜÓĞÏë·¨µÄ",
-            "×¨×¢Éè¼Æ",
-            "À±~",
-            "´ó³¤ÍÈ",
-            "´¨ÃÃ×Ó",
-            "º£ÄÉ°Ù´¨"
+            "å¾ˆæœ‰æƒ³æ³•çš„",
+            "ä¸“æ³¨è®¾è®¡",
+            "è¾£~",
+            "å¤§é•¿è…¿",
+            "å·å¦¹å­",
+            "æµ·çº³ç™¾å·"
         };
 
         private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
