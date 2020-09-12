@@ -18,8 +18,10 @@ namespace AntDesign.Pro
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddAntDesign();
             builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
-            builder.Services.AddScoped<ChartService>();
-            builder.Services.AddScoped<ProjectService>();
+            builder.Services.AddScoped<IChartService, ChartService>();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             await builder.Build().RunAsync();
         }

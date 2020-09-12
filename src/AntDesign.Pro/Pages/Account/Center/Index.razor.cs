@@ -46,7 +46,7 @@ namespace AntDesign.Pro.Pages.Account.Center
 
         }
 
-        [Inject] public ProjectService ProjectService { get; set; }
+        [Inject] public IProjectService ProjectService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

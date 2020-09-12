@@ -1,31 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Threading.Tasks;
+using AntDesign.Pro.Models;
+using AntDesign.Pro.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Pages
 {
-    public class LoginModel
-    {
-        [Required]
-        public string UserName { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
-        public string Mobile { get; set; }
-
-        public string Captcha { get; set; }
-
-        public bool AutoLogin { get; set; } = true;
-
-        public string LoginType { get; set; }
-    }
-
     public partial class Login
     {
-        private readonly LoginModel _model = new LoginModel();
+        private readonly LoginParamsType _model = new LoginParamsType();
 
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
+        [Inject] public NavigationManager NavigationManager { get; set; }
+
+        [Inject] public IAccountService AccountService { get; set; }
+
+        [Inject] public MessageService Message { get; set; }
 
         public void HandleSubmit()
         {
@@ -35,11 +24,13 @@ namespace AntDesign.Pro.Pages
                 return;
             }
 
-            if (_model.UserName == "user" && _model.Password == "ant.design")
-            {
-                NavigationManager.NavigateTo("/");
-                return;
-            }
+            if (_model.UserName == "user" && _model.Password == "ant.design") NavigationManager.NavigateTo("/");
+        }
+
+        public async Task GetCaptcha()
+        {
+            var captcha = await AccountService.GetCaptchaAsync(_model.Mobile);
+            await Message.Success($"获取验证码成功！验证码为：{captcha}");
         }
     }
 }
