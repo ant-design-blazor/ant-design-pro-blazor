@@ -18,7 +18,9 @@
     <SpaceItem>
         <NoticeIcon ClearText="清空"
                     ViewMoreText="查看更多"
-                    Count="_count">
+                    Count="_count"
+                    OnClear="HandleClear"
+                    OnViewMore="HandleViewMore">
             <NoticeList TabKey="notification"
                         Title="通知"
                         EmptyText="你已查看所有通知"
@@ -45,3 +47,4 @@
         <SelectLang OnItemSelected="HandleSelectLang" />
     </SpaceItem>
 </Space>
+<Message/>

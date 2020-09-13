@@ -39,6 +39,7 @@ namespace AntDesign.Pro.Components
 
         [Inject] protected IUserService UserService { get; set; }
         [Inject] protected IProjectService ProjectService { get; set; }
+        [Inject] protected MessageService MessageService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -77,6 +78,28 @@ namespace AntDesign.Pro.Components
 
         public void HandleSelectLang(MenuItem item)
         {
+        }
+
+        public async Task HandleClear(string key)
+        {
+            switch (key)
+            {
+                case "notification":
+                    _notifications = new NoticeIconData[] { };
+                    break;
+                case "message":
+                    _messages = new NoticeIconData[] { };
+                    break;
+                case "event":
+                    _events = new NoticeIconData[] { };
+                    break;
+            }
+            await MessageService.Success($"清空了{key}");
+        }
+
+        public async Task HandleViewMore(string key)
+        {
+            await MessageService.Info("Click on view more");
         }
     }
 }
