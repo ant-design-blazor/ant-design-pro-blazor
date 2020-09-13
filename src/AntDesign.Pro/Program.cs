@@ -22,6 +22,7 @@ namespace AntDesign.Pro
             builder.Services.AddScoped<IProjectService, ProjectService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IProfileService, ProfileService>();
 
             await builder.Build().RunAsync();
         }
