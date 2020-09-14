@@ -63,7 +63,7 @@
       },
       {
         "path": "/list/card-list",
-        "name": "标准列表",
+        "name": "卡片列表",
         "key": "list.card-list"
       }
     ]

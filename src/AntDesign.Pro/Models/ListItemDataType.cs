@@ -2,7 +2,7 @@ using System;
 using System.Text.Json.Serialization;
 using AntDesign.Pro.Utils;
 
-namespace AntDesign.Pro.Pages.Account.Center
+namespace AntDesign.Pro.Models
 {
     public class Member
     {

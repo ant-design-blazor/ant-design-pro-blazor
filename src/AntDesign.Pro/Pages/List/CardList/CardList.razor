@@ -1,0 +1,84 @@
+﻿@namespace AntDesign.Pro.Pages.Lists
+@page "/list/card-list"
+
+<PageContainer>
+    <Content>
+        <div class="pageHeaderContent">
+            <p>
+                段落示意：蚂蚁金服务设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，
+                提供跨越设计与开发的体验解决方案。
+            </p>
+            <div class="contentLink">
+                <a>
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" />&nbsp;
+                    快速开始
+                </a>
+                <a>
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" />&nbsp;
+                    产品简介
+                </a>
+                <a>
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" />&nbsp;
+                    产品文档
+                </a>
+            </div>
+        </div>
+    </Content>
+    <ExtraContent>
+        <div class="extraImg">
+            <img alt="这是一个标题"
+                 src="https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png" />
+        </div>
+    </ExtraContent>
+    <ChildContent>
+        <div class="cardList">
+            <AntList 
+                TItem="ListItemDataType" 
+                DataSource="_data" 
+                ItemLayout="AntDirectionVHType.Horizontal"
+                Grid="_listGridType">
+                <Item Context="item">
+                    <Card>
+                        <CardMeta >
+                            <Avatar>
+                                <img alt="" class="cardAvatar" src="@item.Avatar" />
+                            </Avatar>
+                            <Title>
+                                <a>@item.Title</a>
+                            </Title>
+                            <Description>
+                                <Paragraph class="item" Ellipsis>
+                                    @item.Description
+                                </Paragraph>
+                            </Description>
+                        </CardMeta>
+                    </Card>
+                </Item>
+            </AntList>
+        </div>
+    </ChildContent>
+</PageContainer>
+
+@code
+{
+    private readonly ListGridType _listGridType = new ListGridType
+    {
+        Gutter = 24,
+        Xs = 24,
+        Sm = 12,
+        Md = 12,
+        Lg = 12,
+        Xl = 6,
+        Xxl = 6
+    };
+    private ListItemDataType[] _data = { };
+
+    [Inject]
+    protected IProjectService ProjectService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _data = await ProjectService.GetFakeListAsync();
+    }
+}

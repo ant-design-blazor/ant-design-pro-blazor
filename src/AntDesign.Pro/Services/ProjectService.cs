@@ -1,4 +1,4 @@
-using AntDesign.Pro.Pages.Account.Center;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace AntDesign.Pro.Services
     {
         Task<NoticeType[]> GetProjectNoticeAsync();
         Task<ActivitiesType[]> GetActivitiesAsync();
-        Task<ListItemDataType[]> GetFakeListAsync();
+        Task<ListItemDataType[]> GetFakeListAsync(int count = 0);
         Task<NoticeItem[]> GetNoticesAsync();
     }
 
@@ -38,9 +38,10 @@ namespace AntDesign.Pro.Services
             return await _httpClient.GetFromJsonAsync<ActivitiesType[]>("data/activities.json");
         }
 
-        public async Task<ListItemDataType[]> GetFakeListAsync()
+        public async Task<ListItemDataType[]> GetFakeListAsync(int count = 0)
         {
-            return await _httpClient.GetFromJsonAsync<ListItemDataType[]>("data/fake_list.json");
+            var data = await _httpClient.GetFromJsonAsync<ListItemDataType[]>("data/fake_list.json");
+            return count > 0 ? data.Take(count).ToArray() : data;
         }
     }
 }
