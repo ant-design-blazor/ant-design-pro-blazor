@@ -9,12 +9,7 @@ namespace AntDesign.Pro.Pages.Account.Center
         private readonly ListGridType _listGridType = new ListGridType
         {
             Gutter = 24,
-            Xs = 24,
-            Sm = 12,
-            Md = 12,
-            Lg = 12,
-            Xl = 6,
-            Xxl = 6
+            Column = 4
         };
 
         [Parameter]

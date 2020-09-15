@@ -1,24 +1,37 @@
 ﻿@namespace AntDesign.Pro.Pages.Lists
 @page "/list/card-list"
 
-<PageContainer>
+<PageContainer Title="Card List">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                Home
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                List
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                Card List
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
     <Content>
-        <div class="pageHeaderContent">
+        <div class="pageHeaderContent__b__1">
             <p>
                 段落示意：蚂蚁金服务设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，
                 提供跨越设计与开发的体验解决方案。
             </p>
             <div class="contentLink">
                 <a>
-                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" />&nbsp;
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"/>
                     快速开始
                 </a>
                 <a>
-                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" />&nbsp;
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"/>
                     产品简介
                 </a>
                 <a>
-                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" />&nbsp;
+                    <img alt="" src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"/>
                     产品文档
                 </a>
             </div>
@@ -27,32 +40,42 @@
     <ExtraContent>
         <div class="extraImg">
             <img alt="这是一个标题"
-                 src="https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png" />
+                 src="https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png"/>
         </div>
     </ExtraContent>
     <ChildContent>
         <div class="cardList">
-            <AntList 
-                TItem="ListItemDataType" 
-                DataSource="_data" 
+            <AntList
+                TItem="ListItemDataType"
+                DataSource="_data"
                 ItemLayout="AntDirectionVHType.Horizontal"
                 Grid="_listGridType">
                 <Item Context="item">
-                    <Card>
-                        <CardMeta >
-                            <Avatar>
-                                <img alt="" class="cardAvatar" src="@item.Avatar" />
-                            </Avatar>
-                            <Title>
-                                <a>@item.Title</a>
-                            </Title>
-                            <Description>
-                                <Paragraph class="item" Ellipsis>
-                                    @item.Description
-                                </Paragraph>
-                            </Description>
-                        </CardMeta>
-                    </Card>
+                    @if (string.IsNullOrEmpty(item.Id))
+                    {
+                        <Button Type="dashed" class="newButton">
+                            <Icon Type="plus" Theme="outline" /> 新增产品
+                        </Button>
+                    }
+                    else
+                    {
+                        <Card Hoverable Bordered Class="card" Actions="_actions">
+                            <CardMeta>
+                                <Avatar>
+                                    <img alt="" class="cardAvatar" src="@item.Avatar"/>
+                                </Avatar>
+                                <Title>
+                                    <a>@item.Title</a>
+                                </Title>
+                                <Description>
+                                    <Paragraph class="item" Ellipsis>
+                                        <!--todo: Ellipsis not working-->
+                                        @item.Description
+                                    </Paragraph>
+                                </Description>
+                            </CardMeta>
+                        </Card>
+                    }
                 </Item>
             </AntList>
         </div>
@@ -64,14 +87,18 @@
     private readonly ListGridType _listGridType = new ListGridType
     {
         Gutter = 24,
-        Xs = 24,
-        Sm = 12,
-        Md = 12,
-        Lg = 12,
-        Xl = 6,
-        Xxl = 6
+        Column = 4
     };
-    private ListItemDataType[] _data = { };
+
+    private static readonly RenderFragment Operate = @<a key="option1">操作一</a>;
+
+    private readonly RenderFragment[] _actions =
+    {
+        Operate,
+        @<a key="option2">操作二</a>,
+    };
+
+    private ListItemDataType[] _data = {};
 
     [Inject]
     protected IProjectService ProjectService { get; set; }
@@ -79,6 +106,9 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        _data = await ProjectService.GetFakeListAsync();
+        var list = new List<ListItemDataType> {new ListItemDataType()};
+        var data = await ProjectService.GetFakeListAsync(8);
+        list.AddRange(data);
+        _data = list.ToArray();
     }
 }

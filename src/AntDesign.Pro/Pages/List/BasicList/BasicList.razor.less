@@ -2,7 +2,7 @@
 @import './utils/utils.less';
 
 .standardList {
-  :global {
+  //:global {
     .ant-card-head {
       border-bottom: none;
     }
@@ -22,7 +22,7 @@
       height: 48px;
       line-height: 48px;
     }
-  }
+  //}
   .headerInfo {
     position: relative;
     text-align: center;
@@ -74,7 +74,7 @@
 
 @media screen and (max-width: @screen-xs) {
   .standardList {
-    :global {
+    //:global {
       .ant-list-item-content {
         display: block;
         flex: none;
@@ -83,7 +83,7 @@
       .ant-list-item-action {
         margin-left: 0;
       }
-    }
+    //}
     .listContent {
       margin-left: 0;
       & > div {
@@ -91,11 +91,11 @@
       }
     }
     .listCard {
-      :global {
+      //:global {
         .ant-card-head-title {
           overflow: visible;
         }
-      }
+      //}
     }
   }
 }
@@ -128,12 +128,12 @@
     }
   }
   .listCard {
-    :global {
+    //:global {
       .ant-radio-group {
         display: block;
         margin-bottom: 8px;
       }
-    }
+    //}
   }
 }
 
@@ -176,7 +176,7 @@
 }
 
 .standardListForm {
-  :global {
+  //:global {
     .ant-form-item {
       margin-bottom: 12px;
       &:last-child {
@@ -184,7 +184,7 @@
         padding-top: 4px;
       }
     }
-  }
+  //}
 }
 
 .formResult {
