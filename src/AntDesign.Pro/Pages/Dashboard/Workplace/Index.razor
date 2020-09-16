@@ -90,9 +90,10 @@
                     <AntList TItem="ActivitiesType"
                              DataSource="@_activities"
                              Class="activitiesList"
-                             Size="large">
+                             Size="large"
+                             ItemLayout="AntDirectionVHType.Horizontal">
                         <Item Context="item">
-                            <AntListItemMeta Avatar="@item.User.Avatar">
+                            <AntListItemMeta Avatar="@item.User.Avatar" Description="@item.UpdatedAt.ToFriendlyDisplay()">
                                 <Title>
                                     <span>
                                         <a class="username">@item.User.Name</a>

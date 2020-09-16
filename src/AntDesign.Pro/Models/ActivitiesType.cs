@@ -1,9 +1,11 @@
+using System;
+
 namespace AntDesign.Pro.Models
 {
     public class ActivitiesType
     {
         public string Id { get; set; }
-        public string UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public ActivityUser User { get; set; }
         public ActivityGroup Group { get; set; }
         public ActivityProject Project { get; set; }

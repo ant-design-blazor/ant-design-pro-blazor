@@ -6,24 +6,25 @@
         <AntDesign.Col Span="7">
             <Card Style="margin-bottom: 24px;">
                 <div class="avatarHolder">
-                    <img alt="" src="@currentUser.Avatar" />
-                    <div className="name">@currentUser.Name</div>
-                    <div>@currentUser.Signature</div>
+                    <img alt="" src="@_currentUser.Avatar" />
+                    <div className="name">@_currentUser.Name</div>
+                    <div>@_currentUser.Signature</div>
                 </div>
 
-                <div className={styles.detail}>
+                <div class="detail">
                     <p>
                         <Icon Type="contacts" Theme="outline" Style="margin-right:8px;" />
-                        @currentUser.Title
+                        @_currentUser.Title
                     </p>
                     <p>
                         <Icon Type="cluster" Theme="outline" Style="margin-right:8px;" />
-                        @currentUser.Group
+                        @_currentUser.Group
                     </p>
                     <p>
                         <Icon Type="home" Theme="outline" Style="margin-right:8px;" />
                         <!--todo: add userinfo-->
-                        @currentUser.Geographic
+                        @_currentUser.Geographic.Province.Label
+                        @_currentUser.Geographic.City.Label
                     </p>
                 </div>
 
@@ -31,11 +32,26 @@
 
                 <div class="tags">
                     <div class="tagsTitle">标签</div>
-                    @foreach (var item in lstTags)
+                    @foreach (var tag in _currentUser.Tags)
                     {
-                        <Tag>@item</Tag>
+                        <Tag>@tag.Label</Tag>
                     }
-
+                    
+                    @if (_inputVisible)
+                    {
+                        <AntDesign.Input
+                            Type="text"
+                            Size="small"
+                            Style="width: 78px"
+                            @bind-Value="InputValue"
+                            OnBlur="HandleInputConfirm"/>
+                    }
+                    else
+                    {
+                        <Tag OnClick="ShowInput" Style="border-style: dashed">
+                            <Icon Type="plus" Theme="outline" />
+                        </Tag>
+                    }
                 </div>
 
                 <Divider Dashed Style="margin-top: 16px;" />

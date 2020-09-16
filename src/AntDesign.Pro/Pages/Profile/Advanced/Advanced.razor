@@ -3,7 +3,8 @@
 
 <PageContainer
     Title="单号：234231029431"
-    Class="pageHeader">
+    Class="pageHeader"
+    TabList="_tabList">
     <Breadcrumb>
         <Breadcrumb>
             <BreadcrumbItem>
@@ -190,14 +191,4 @@
                                                      <Icon Type="info-circle" Theme="outline" Style="color: rgba(0, 0, 0, 0.43); margin-left: 4px;" />
                                                  </AntDesign.Tooltip>
                                              </span>;
-    private AdvancedProfileData _data = new AdvancedProfileData();
-
-    [Inject]
-    protected IProfileService ProfileService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _data = await ProfileService.GetAdvancedAsync();
-    }
 }
