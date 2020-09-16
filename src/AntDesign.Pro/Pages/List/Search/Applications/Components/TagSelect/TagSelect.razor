@@ -1,0 +1,25 @@
+@namespace AntDesign.Pro.Pages.Lists
+@inherits AntDomComponentBase
+
+<div class="@ClassMapper.Class" style="@Style">
+    @if (!HideCheckAll)
+    {
+        <Tag>@SelectAllText</Tag>
+    }
+
+    @ChildContent
+
+    @if (Expandable)
+    {
+        <a class="trigger" @onclick="HandleExpand">
+            @if (_expand)
+            {
+                @CollapseText <Icon Type="Up" Theme="outline" />
+            }
+            else
+            {
+                @ExpandText <Icon Type="Down" Theme="outline" />
+            }
+        </a>
+    }
+</div>
