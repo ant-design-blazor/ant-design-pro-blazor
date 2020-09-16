@@ -65,8 +65,8 @@
                         Direction="horizontal"
                         Current="1">
                         <ChildContent>
-                            <Step Title="@("创建项目")" Description="@_desc1" />
-                            <Step Title="@("部门初审")" Description="@_desc2" />
+                            <Step Title="@("创建项目")" DescriptionTemplate="@_desc1" />
+                            <Step Title="@("部门初审")" DescriptionTemplate="@_desc2" />
                             <Step Title="@("财务复核")" />
                             <Step Title="@("完成")" />
                         </ChildContent>
@@ -86,7 +86,7 @@
                     <Descriptions Style="margin-bottom: 24px;" Title="@("信息组")">
                         <DescriptionsItem Title="@("某某数据")">725</DescriptionsItem>
                         <DescriptionsItem Title="@("该数据更新时间")">2017-08-08</DescriptionsItem>
-                        <DescriptionsItem Title="@_title">
+                        <DescriptionsItem TitleTemplate="@_title">
                             725
                         </DescriptionsItem>
                         <DescriptionsItem Title="@("该数据更新时间")">2017-08-08</DescriptionsItem>
