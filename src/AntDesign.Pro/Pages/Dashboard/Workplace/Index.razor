@@ -91,26 +91,26 @@
                              DataSource="@_activities"
                              Class="activitiesList"
                              Size="large"
-                             ItemLayout="AntDirectionVHType.Horizontal">
-                        <Item Context="item">
-                            <AntListItemMeta Avatar="@item.User.Avatar" Description="@item.UpdatedAt.ToFriendlyDisplay()">
-                                <Title>
+                             ItemLayout="ListItemLayout.Horizontal">
+                        <ListItem>
+                            <ListItemMeta Avatar="@context.User.Avatar" Description="@context.UpdatedAt.ToFriendlyDisplay()">
+                                <TitleTemplate>
                                     <span>
-                                        <a class="username">@item.User.Name</a>
+                                        <a class="username">@context.User.Name</a>
                                         &nbsp;
                                         <span class="event">
-                                            @foreach (var str in Regex.Split(item.Template, @"@\{([^{}]*)\}"))
+                                            @foreach (var str in Regex.Split(context.Template, @"@\{([^{}]*)\}"))
                                             {
                                                 if (str == "group")
                                                 {
-                                                    <a href="@item.Group.Link" key="@item.Group.Name">
-                                                        @item.Group.Name
+                                                    <a href="@context.Group.Link" key="@context.Group.Name">
+                                                        @context.Group.Name
                                                     </a>
                                                 }
                                                 else if (str == "project")
                                                 {
-                                                    <a href="@item.Project.Link" key="@item.Project.Name">
-                                                        @item.Project.Name
+                                                    <a href="@context.Project.Link" key="@context.Project.Name">
+                                                        @context.Project.Name
                                                     </a>
                                                 }
                                                 else
@@ -120,9 +120,9 @@
                                             }
                                         </span>
                                     </span>
-                                </Title>
-                            </AntListItemMeta>
-                        </Item>
+                                </TitleTemplate>
+                            </ListItemMeta>
+                        </ListItem>
                     </AntList>
                 </Card>
             </AntDesign.Col>

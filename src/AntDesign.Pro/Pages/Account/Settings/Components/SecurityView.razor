@@ -2,14 +2,14 @@
 
 <AntList 
     TItem="Item"
-    ItemLayout="AntDirectionVHType.Horizontal"
+    ItemLayout="ListItemLayout.Horizontal"
     DataSource="Data"
     Actions="Actions">
-    <Item Context="item">
-        <AntListItemMeta AvatarTemplate="@_avatar" Description="@item.Description">
-            <Title>@item.Title</Title>
-        </AntListItemMeta>
-    </Item>
+    <ListItem>
+        <ListItemMeta Avatar="" Description="@context.Description">
+            <TitleTemplate>@context.Title</TitleTemplate>
+        </ListItemMeta>
+    </ListItem>
 </AntList>
 
 @code
@@ -20,7 +20,6 @@
         public string Description { get; set; }
     }
 
-    private RenderFragment _avatar = null;
     private RenderFragment _modify = @<a key="modify">Modify</a>;
 
     public List<RenderFragment> Actions => new List<RenderFragment> {_modify};

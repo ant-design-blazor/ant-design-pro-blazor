@@ -6,29 +6,29 @@
     Class="filterCardList"
     Grid="_listGridType"
     DataSource="List">
-    <Item Context="item">
+    <ListItem NoFlex Grid="_listGridType">
         <Card
             Bordered
             Hoverable
             BodyStyle="padding-bottom: 20px;"
             Actions="Actions">
-            <CardMeta Avatar="@Avatar(item.Avatar)">
-                <Title>@item.Title</Title>
+            <CardMeta Avatar="@Avatar(context.Avatar)">
+                <Title>@context.Title</Title>
             </CardMeta>
             <div class="cardItemContent">
                 <div class="cardInfo">
                     <div>
                         <p>活跃用户</p>
-                        <p>@FormatWan(item.ActiveUser)</p>
+                        <p>@FormatWan(context.ActiveUser)</p>
                     </div>
                     <div>
                         <p>新增用户</p>
-                        <p>@item.NewUser.ToString("0,0")</p>
+                        <p>@context.NewUser.ToString("0,0")</p>
                     </div>
                 </div>
             </div>
         </Card>
-    </Item>
+    </ListItem>
 </AntList>
 
 @code

@@ -2,14 +2,14 @@
 
 <AntList 
     TItem="Item"
-    ItemLayout="AntDirectionVHType.Horizontal"
+    ItemLayout="ListItemLayout.Horizontal"
     DataSource="Data"
     Actions="Actions">
-    <Item Context="item">
-        <AntListItemMeta AvatarTemplate="@item.Avater" Description="@item.Description">
-            <Title>@item.Title</Title>
-        </AntListItemMeta>
-    </Item>
+    <ListItem>
+        <ListItemMeta AvatarTemplate="@context.Avater" Description="@context.Description">
+            <Title>@context.Title</Title>
+        </ListItemMeta>
+    </ListItem>
 </AntList>
 
 @code

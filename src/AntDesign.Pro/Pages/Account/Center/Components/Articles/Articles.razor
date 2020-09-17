@@ -4,14 +4,13 @@
     TItem="ListItemDataType"
     Size="large"
     Class="articleList"
-    ItemLayout="AntDirectionVHType.Vertical"
     DataSource="List">
-    <Item Context="item">
-        <AntListItemMeta Avatar="@item.Avatar" Description="">
-            <Title>
-                <a href="https://ng.ant.design">@item.Title</a>
-            </Title>
-        </AntListItemMeta>
-        <ArticleListContent Data="@item" />
-    </Item>
+    <ListItem NoFlex>
+        <ListItemMeta Description="">
+            <TitleTemplate>
+                <a href="https://ng.ant.design">@context.Title</a>
+            </TitleTemplate>
+        </ListItemMeta>
+        <ArticleListContent Data="@context" />
+    </ListItem>
 </AntList>

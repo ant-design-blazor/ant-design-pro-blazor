@@ -52,33 +52,33 @@
         TItem="ListItemDataType"
         Grid="_listGridType"
         DataSource="_fakeList">
-        <Item Context="item">
+        <ListItem NoFlex Grid="_listGridType">
             <Card 
                 Hoverable
                 BodyStyle="padding-bottom: 20px;"
                 Actions="Actions">
                 <CardMeta>
                     <Title>
-                        @item.Title
+                        @context.Title
                     </Title>
                     <Avatar>
-                        <Avatar Size="small" Src="@item.Avatar"/>
+                        <Avatar Size="small" Src="@context.Avatar"/>
                     </Avatar>
                 </CardMeta>
                 <div class="cardItemContent">
                     <div class="cardInfo">
                         <div>
                             <p>活跃用户</p>
-                            <p>@FormatWan(item.ActiveUser)</p>
+                            <p>@FormatWan(context.ActiveUser)</p>
                         </div>
                         <div>
                             <p>新增用户</p>
-                            <p>@item.NewUser.ToString("0,0")</p>
+                            <p>@context.NewUser.ToString("0,0")</p>
                         </div>
                     </div>
                 </div>
             </Card>
-        </Item>
+        </ListItem>
     </AntList>
 </div>
 

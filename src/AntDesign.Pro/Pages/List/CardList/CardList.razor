@@ -48,10 +48,10 @@
             <AntList
                 TItem="ListItemDataType"
                 DataSource="_data"
-                ItemLayout="AntDirectionVHType.Horizontal"
+                ItemLayout="ListItemLayout.Horizontal"
                 Grid="_listGridType">
-                <Item Context="item">
-                    @if (string.IsNullOrEmpty(item.Id))
+                <ListItem>
+                    @if (string.IsNullOrEmpty(context.Id))
                     {
                         <Button Type="dashed" class="newButton">
                             <Icon Type="plus" Theme="outline" /> 新增产品
@@ -62,21 +62,21 @@
                         <Card Hoverable Bordered Class="card" Actions="_actions">
                             <CardMeta>
                                 <Avatar>
-                                    <img alt="" class="cardAvatar" src="@item.Avatar"/>
+                                    <img alt="" class="cardAvatar" src="@context.Avatar"/>
                                 </Avatar>
                                 <Title>
-                                    <a>@item.Title</a>
+                                    <a>@context.Title</a>
                                 </Title>
                                 <Description>
                                     <Paragraph class="item" Ellipsis>
                                         <!--todo: Ellipsis not working-->
-                                        @item.Description
+                                        @context.Description
                                     </Paragraph>
                                 </Description>
                             </CardMeta>
                         </Card>
                     }
-                </Item>
+                </ListItem>
             </AntList>
         </div>
     </ChildContent>

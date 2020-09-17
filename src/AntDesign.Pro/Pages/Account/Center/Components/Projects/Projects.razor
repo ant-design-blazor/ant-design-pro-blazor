@@ -5,21 +5,21 @@
     Class="coverCardList"
     Grid="_listGridType"
     DataSource="List">
-    <Item Context="item">
+    <ListItem NoFlex Grid="_listGridType">
         <Card Class="card" Hoverable Bordered>
             <Cover>
-                <img alt="@item.Title" src="@item.Cover"/>
+                <img alt="@context.Title" src="@context.Cover"/>
             </Cover>
             <ChildContent>
                 <CardMeta>
-                    <Description>@item.SubDescription</Description>
-                    <Title><a>@item.Title</a></Title>
+                    <Description>@context.SubDescription</Description>
+                    <Title><a>@context.Title</a></Title>
                 </CardMeta>
                 <div class="cardItemContent">
-                    <span>@item.UpdatedAt.ToFriendlyDisplay()</span>
+                    <span>@context.UpdatedAt.ToFriendlyDisplay()</span>
                     <div class="avatarList">
                         <AvatarList>
-                            @foreach (var member in item.Members)
+                            @foreach (var member in context.Members)
                             {
                                 <AvatarListItem
                                     Size="small"
@@ -31,5 +31,5 @@
                 </div>
             </ChildContent>
         </Card>
-    </Item>
+    </ListItem>
 </AntList>
