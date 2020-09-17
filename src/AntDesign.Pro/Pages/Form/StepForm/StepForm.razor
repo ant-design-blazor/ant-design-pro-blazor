@@ -4,15 +4,9 @@
 <PageContainer Title="Step Form">
     <Breadcrumb>
         <Breadcrumb>
-            <BreadcrumbItem>
-                Home
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                Form
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                Step Form
-            </BreadcrumbItem>
+            <BreadcrumbItem>Home</BreadcrumbItem>
+            <BreadcrumbItem>Form</BreadcrumbItem>
+            <BreadcrumbItem>Step Form</BreadcrumbItem>
         </Breadcrumb>
     </Breadcrumb>
     <Content>
@@ -42,25 +36,3 @@
         </Card>
     </ChildContent>
 </PageContainer>
-
-@code
-{
-    private int _current = 0;
-
-    public void Next()
-    {
-        // todo: Not re-rendered
-        _current += 1;
-        StateHasChanged();
-    }
-
-    public void Prev()
-    {
-        // todo: Not re-rendered
-        if (_current > 0)
-        {
-            _current -= 1;
-            StateHasChanged();
-        }
-    }
-}

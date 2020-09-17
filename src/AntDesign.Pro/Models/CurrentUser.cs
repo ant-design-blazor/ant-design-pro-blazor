@@ -30,4 +30,11 @@
         public string Address { get; set; }
         public string Phone { get; set; }
     }
+
+    public class UserLiteItem
+    {
+        public string Avater { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
 }

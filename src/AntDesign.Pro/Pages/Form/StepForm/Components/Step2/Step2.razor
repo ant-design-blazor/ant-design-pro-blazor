@@ -10,11 +10,11 @@
            Message="确认转账后，资金将直接打入对方账户，无法退回。"
            Style="margin-bottom: 24px;" />
     <Descriptions Column="@(1)">
-        <DescriptionsItem Title="@("付款账户")">@_model.PayAccount</DescriptionsItem>
-        <DescriptionsItem Title="@("收款账户")">@_model.ReceiverAccount</DescriptionsItem>
-        <DescriptionsItem Title="@("收款人姓名")">@_model.ReceiverName</DescriptionsItem>
-        <DescriptionsItem Title="@("转账金额")">
-            <Statistic Value="@_model.Amount" Suffix="@("元")" />
+        <DescriptionsItem Title="付款账户">@_model.PayAccount</DescriptionsItem>
+        <DescriptionsItem Title="收款账户">@_model.ReceiverAccount</DescriptionsItem>
+        <DescriptionsItem Title="收款人姓名">@_model.ReceiverName</DescriptionsItem>
+        <DescriptionsItem Title="转账金额">
+            <Statistic Value="@_model.Amount" Suffix="元" />
         </DescriptionsItem>
     </Descriptions>
     <Divider Style="margin: 24px 0"/>
@@ -26,30 +26,3 @@
         <Button OnClick="Preview">上一步</Button>
     </FormItem>
 </Form>
-
-@code
-{
-    public class FormModel
-    {
-        public string PayAccount { get; set; } = "ant-design@alipay.com";
-        public string ReceiverAccount { get; set; } = "test@example.com";
-        public string ReceiverName { get; set; } = "Alex";
-        public string Amount { get; set; } = "500";
-        public string Password { get; set; } = "12345678";
-    }
-
-    private readonly FormModel _model = new FormModel();
-
-    [CascadingParameter]
-    public StepForm StepForm { get; set; }
-
-    public void OnValidateForm()
-    {
-        StepForm.Next();
-    }
-
-    public void Preview()
-    {
-        StepForm.Prev();
-    }
-}

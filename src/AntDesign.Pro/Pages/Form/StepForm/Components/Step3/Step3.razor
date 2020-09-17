@@ -24,22 +24,3 @@
         </div>
     </ChildContent>
 </Result>
-
-@code
-{
-    public class FormModel
-    {
-        public string PayAccount { get; set; } = "ant-design@alipay.com";
-        public string ReceiverAccount { get; set; } = "test@example.com";
-        public string ReceiverName { get; set; } = "Alex";
-        public string Amount { get; set; } = "500";
-        public string Password { get; set; } = "12345678";
-    }
-
-    private readonly FormModel _model = new FormModel();
-
-    public void OnFinish()
-    {
-
-    }
-}

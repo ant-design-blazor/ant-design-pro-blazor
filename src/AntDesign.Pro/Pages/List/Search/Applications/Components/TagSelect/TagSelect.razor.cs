@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Pages.Lists
 {
     public partial class TagSelect
     {
+        private readonly IList<TagSelectOption> _options = new List<TagSelectOption>();
         private bool _expand = false;
+        private bool _checkedAll;
+
         [Parameter] public bool Expandable { get; set; }
 
         [Parameter] public bool HideCheckAll { get; set; }
@@ -15,7 +20,7 @@ namespace AntDesign.Pro.Pages.Lists
 
         [Parameter] public string ExpandText { get; set; } = "展开";
 
-        [Parameter] public string Value { get; set; }
+        [Parameter] public IList<string> Value { get; set; }
 
         [Parameter] public RenderFragment ChildContent { get; set; }
 
@@ -36,7 +41,31 @@ namespace AntDesign.Pro.Pages.Lists
 
         private void HandleExpand()
         {
+            _expand = !_expand;
+        }
 
+        private void HandleCheckedChange(bool isChecked)
+        {
+            _checkedAll = isChecked;
+            foreach (var option in _options)
+            {
+                option.Check(_checkedAll);
+            }
+        }
+
+        public void AddOption(TagSelectOption option)
+        {
+            _options.Add(option);
+        }
+
+        public void SelectItem(string value)
+        {
+            Value?.Add(value);
+        }
+
+        public void UnSelectItem(string value)
+        {
+            Value?.Remove(value);
         }
     }
 }

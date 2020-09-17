@@ -4,15 +4,9 @@
 <PageContainer Title="Basic Form">
     <Breadcrumb>
         <Breadcrumb>
-            <BreadcrumbItem>
-                Home
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                Form
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                Basic Form
-            </BreadcrumbItem>
+            <BreadcrumbItem>Home</BreadcrumbItem>
+            <BreadcrumbItem>Form</BreadcrumbItem>
+            <BreadcrumbItem>Basic Form</BreadcrumbItem>
         </Breadcrumb>
     </Breadcrumb>
     <Content>
@@ -67,25 +61,3 @@
         </Card>
     </ChildContent>
 </PageContainer>
-
-@code
-{
-    public class FormModel
-    {
-        public string Title { get; set; }
-        public string Client { get; set; }
-        public string Invites { get; set; }
-        public int Disclosure { get; set; }
-        public int Weight { get; set; }
-        public string Standard { get; set; }
-        public string Goal { get; set; }
-        public DateTime?[] DateRange { get; set; }
-    }
-
-    private FormModel _model = new FormModel();
-
-    private void HandleSubmit()
-    {
-
-    }
-}

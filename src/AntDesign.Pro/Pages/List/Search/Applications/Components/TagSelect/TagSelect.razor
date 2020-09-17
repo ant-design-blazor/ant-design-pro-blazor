@@ -4,10 +4,12 @@
 <div class="@ClassMapper.Class" style="@Style">
     @if (!HideCheckAll)
     {
-        <Tag>@SelectAllText</Tag>
+        <Tag Mode="checkable" Checked="_checkedAll" CheckedChange="HandleCheckedChange">@SelectAllText</Tag>
     }
-
-    @ChildContent
+    
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
 
     @if (Expandable)
     {

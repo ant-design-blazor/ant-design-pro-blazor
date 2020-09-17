@@ -45,24 +45,3 @@
         如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。
     </p>
 </div>
-
-@code
-{
-    public class FormModel
-    {
-        public string ReceiverAccountType { get; set; }
-        public string ReceiverAccount { get; set; }
-        public string ReceiverName { get; set; }
-        public string PayAccount { get; set; }
-    }
-
-    private FormModel _model = new FormModel();
-
-    [CascadingParameter]
-    public StepForm StepForm { get; set; }
-
-    public void OnValidateForm()
-    {
-        StepForm.Next();
-    }
-}

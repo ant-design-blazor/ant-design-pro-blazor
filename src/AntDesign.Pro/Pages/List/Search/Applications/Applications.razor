@@ -10,7 +10,7 @@
             Layout="inline">
             <StandardFormRow Title="所属类目" Block Style="padding-bottom: 11px">
                 <FormItem>
-                    <TagSelect Expandable>
+                    <TagSelect Expandable Value="_selectCategories">
                         <TagSelectOption Value="cat1">类目一</TagSelectOption>
                         <TagSelectOption Value="cat2">类目二</TagSelectOption>
                         <TagSelectOption Value="cat3">类目三</TagSelectOption>
@@ -30,14 +30,14 @@
                 <Row Gutter="16">
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="作者">
-                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.ActiveUser">
                                 <SelectOption Value="lisa">王昭君</SelectOption>
                             </Select>
                         </FormItem>
                     </AntDesign.Col>
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="好评度">
-                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.Satisfaction">
                                 <SelectOption Value="good">优秀</SelectOption>
                                 <SelectOption Value="normal">普通</SelectOption>
                             </Select>
@@ -84,13 +84,6 @@
 
 @code
 {
-    public class FormModel
-    {
-        
-    }
-
-    public FormModel _model = new FormModel();
-
     private static readonly RenderFragment Download = @<Tooltip Title="@("下载")">
                                                           <Icon Type="download" Theme="outline"/>
                                                       </Tooltip>;
@@ -114,21 +107,5 @@
                    @val
                    <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
                </span>;
-    }
-
-    private readonly ListGridType _listGridType = new ListGridType
-    {
-        Gutter = 24,
-        Column = 4
-    };
-
-    private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
-
-    [Inject] public IProjectService ProjectService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _fakeList = await ProjectService.GetFakeListAsync(8);
     }
 }

@@ -5,15 +5,9 @@
     <PageContainer Title="Basic List">
         <Breadcrumb>
             <Breadcrumb>
-                <BreadcrumbItem>
-                    Home
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    List
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    Basic List
-                </BreadcrumbItem>
+                <BreadcrumbItem>Home</BreadcrumbItem>
+                <BreadcrumbItem>List</BreadcrumbItem>
+                <BreadcrumbItem>Basic List </BreadcrumbItem>
             </Breadcrumb>
         </Breadcrumb>
         <ChildContent>
@@ -33,17 +27,17 @@
                 </Card>
 
                 <Card Class="listCard"
-                      Title="@("基本列表")"
+                      Title="基本列表"
                       Style="margin-top: 24px;"
                       BodyStyle="padding: 0 32px 40px 32px">
                     <Extra>
                         <div class="extraContent">
-                            <RadioGroup @bind-Value="@_status">
+                            <RadioGroup @bind-Value="_model.Status">
                                 <Radio RadioButton Value="@("all")">全部</Radio>
                                 <Radio RadioButton Value="@("progress")">进行中</Radio>
                                 <Radio RadioButton Value="@("waiting")">等待中</Radio>
                             </RadioGroup>
-                            <Search Class="extraContentSearch" Placeholder="请输入" />
+                            <Search Class="extraContentSearch" Placeholder="请输入" @bind-Value="_model.SearchKeyword" />
                         </div>
                     </Extra>
                     <ChildContent>
@@ -54,8 +48,11 @@
                             添加
                         </Button>
 
-                        <AntList TItem="ListItemDataType" DataSource="_data" ItemLayout="ListItemLayout.Horizontal" Actions="_actions">
-                            <ListItem>
+                        <AntList 
+                            TItem="ListItemDataType" 
+                            DataSource="_data" 
+                            ItemLayout="ListItemLayout.Horizontal">
+                            <ListItem Actions="_actions">
                                 <ListItemMeta Avatar="@context.Avatar" Description="@context.SubDescription">
                                     <TitleTemplate>
                                         <a href="@context.Href">@context.Title</a>
@@ -71,7 +68,11 @@
                                         <p>@context.CreatedAt.ToString("yyyy-MM-dd HH:mm")</p>
                                     </div>
                                     <div class="listContentItem">
-                                        <AntDesign.Progress Percent="@context.Percent" Status="@_pStatus[context.Status]" StrokeWidth="6" Style="width: 180px;"/>
+                                        <AntDesign.Progress 
+                                            Percent="@context.Percent" 
+                                            Status="@_pStatus[context.Status]" 
+                                            StrokeWidth="6" 
+                                            Style="width: 180px;"/>
                                     </div>
                                 </div>
                             </ListItem>
@@ -85,26 +86,14 @@
 
 @code
 {
-    private string _status = "all";
-
     private static readonly RenderFragment Edit = @<a key="edit">
                                                       编辑
                                                    </a>;
 
-    private readonly List<RenderFragment> _actions = new List<RenderFragment>
+    private readonly RenderFragment[] _actions =
     {
         Edit
     }; 
-
-    private ListItemDataType[] _data = {};
-
-    private readonly IDictionary<string, ProgressStatus> _pStatus = new Dictionary<string, ProgressStatus>
-    {
-        {"active", ProgressStatus.Active},
-        {"exception", ProgressStatus.Exception},
-        {"normal", ProgressStatus.Normal},
-        {"success", ProgressStatus.Success}
-    };
 
     private RenderFragment Info(string title, string value, bool bordered = false)
     {
@@ -116,18 +105,5 @@
                        <em/>
                    }
                </div>;
-    }
-
-    private void ShowModal()
-    {
-    }
-
-    [Inject]
-    protected IProjectService ProjectService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _data = await ProjectService.GetFakeListAsync(5);
     }
 }

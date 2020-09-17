@@ -28,14 +28,14 @@
                 <Row Gutter="16">
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="作者">
-                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.ActiveUser">
                                 <SelectOption Value="lisa">王昭君</SelectOption>
                             </Select>
                         </FormItem>
                     </AntDesign.Col>
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="好评度">
-                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                            <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.Satisfaction">
                                 <SelectOption Value="good">优秀</SelectOption>
                                 <SelectOption Value="normal">普通</SelectOption>
                             </Select>
@@ -79,29 +79,3 @@
         </AntList>
     </div>
 </div>
-
-@code
-{
-    public class FormModel
-    {
-
-    }
-
-    public FormModel _model = new FormModel();
-
-    private readonly ListGridType _listGridType = new ListGridType
-    {
-        Gutter = 24,
-        Column = 4
-    };
-
-    private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
-
-    [Inject] public IProjectService ProjectService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _fakeList = await ProjectService.GetFakeListAsync(8);
-    }
-}

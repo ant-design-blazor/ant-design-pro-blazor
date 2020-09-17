@@ -4,15 +4,9 @@
 <PageContainer Title="Card List">
     <Breadcrumb>
         <Breadcrumb>
-            <BreadcrumbItem>
-                Home
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                List
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                Card List
-            </BreadcrumbItem>
+            <BreadcrumbItem>Home</BreadcrumbItem>
+            <BreadcrumbItem>List</BreadcrumbItem>
+            <BreadcrumbItem>Card List</BreadcrumbItem>
         </Breadcrumb>
     </Breadcrumb>
     <Content>
@@ -50,7 +44,7 @@
                 DataSource="_data"
                 ItemLayout="ListItemLayout.Horizontal"
                 Grid="_listGridType">
-                <ListItem>
+                <ListItem NoFlex Grid="_listGridType">
                     @if (string.IsNullOrEmpty(context.Id))
                     {
                         <Button Type="dashed" class="newButton">
@@ -84,12 +78,6 @@
 
 @code
 {
-    private readonly ListGridType _listGridType = new ListGridType
-    {
-        Gutter = 24,
-        Column = 4
-    };
-
     private static readonly RenderFragment Operate = @<a key="option1">操作一</a>;
 
     private readonly RenderFragment[] _actions =
@@ -97,18 +85,4 @@
         Operate,
         @<a key="option2">操作二</a>,
     };
-
-    private ListItemDataType[] _data = {};
-
-    [Inject]
-    protected IProjectService ProjectService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        var list = new List<ListItemDataType> {new ListItemDataType()};
-        var data = await ProjectService.GetFakeListAsync(8);
-        list.AddRange(data);
-        _data = list.ToArray();
-    }
 }

@@ -1,11 +1,10 @@
 @namespace AntDesign.Pro.Pages.Account.Settings
 
 <AntList 
-    TItem="Item"
+    TItem="UserLiteItem"
     ItemLayout="ListItemLayout.Horizontal"
-    DataSource="Data"
-    Actions="Actions">
-    <ListItem>
+    DataSource="_data">
+    <ListItem  Actions="_actions">
         <ListItemMeta Avatar="" Description="@context.Description">
             <TitleTemplate>@context.Title</TitleTemplate>
         </ListItemMeta>
@@ -14,32 +13,6 @@
 
 @code
 {
-    public class Item
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-    }
-
-    private RenderFragment _switch = @<Switch CheckedChildren="@("Open")" UnCheckedChildren="@("Close")" Checked="true"/>;
-
-    public List<RenderFragment> Actions => new List<RenderFragment> { _switch };
-
-    public IList<Item> Data { get; set; } = new List<Item>
-    {
-        new Item
-        {
-            Title = "Account Password",
-            Description = "Messages from other users will be notified in the form of a station letter",
-        },
-        new Item
-        {
-            Title = "System Messages",
-            Description = "System messages will be notified in the form of a station letter",
-        },
-        new Item
-        {
-            Title = "To-do Notification",
-            Description = "The to-do list will be notified in the form of a letter from the station",
-        },
-    };
+    private static RenderFragment _switch = @<Switch CheckedChildren="@("Open")" UnCheckedChildren="@("Close")" Checked="true"/>;
+    private readonly RenderFragment[] _actions = {_switch};
 }

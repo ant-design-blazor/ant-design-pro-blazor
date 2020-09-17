@@ -7,16 +7,16 @@
             OnFinish="HandleFinish"
             Model="@_currentUser">
             <FormItem Label="Email">
-                <AntDesign.Input @bind-Value="@context.Value" />
+                <AntDesign.Input @bind-Value="@context.Email" />
             </FormItem>
             <FormItem Label="Nickname">
-                <AntDesign.Input @bind-Value="@context.Value" />
+                <AntDesign.Input @bind-Value="@context.Name" />
             </FormItem>
             <FormItem Label="Personal profile">
-                <AntDesign.TextArea />
+                <AntDesign.TextArea @bind-Value="@context.Signature" />
             </FormItem>
             <FormItem Label="Country/Region">
-                <Select Style="max-width: 220px;">
+                <Select Style="max-width: 220px;" @bind-Value="@context.Country">
                     <SelectOption Value="China">中国</SelectOption>
                 </Select>
             </FormItem>
@@ -24,7 +24,7 @@
                 <GeographicView />
             </FormItem>
             <FormItem Label="Street Address">
-                <AntDesign.Input @bind-Value="@context.Value" />
+                <AntDesign.Input @bind-Value="@context.Address" />
             </FormItem>
             <FormItem Label="Phone Number">
                 <PhoneView />
@@ -52,19 +52,3 @@
         </Upload>
     </div>
 </div>
-
-@code
-{
-    public class Model
-    {
-        public string Value { get; set; }
-        public string Avatar { get; set; } = "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png";
-    }
-
-    private Model _currentUser = new Model();
-
-    private void HandleFinish()
-    {
-
-    }
-}

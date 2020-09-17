@@ -1,49 +1,21 @@
 @namespace AntDesign.Pro.Pages.Account.Settings
 
 <AntList 
-    TItem="Item"
+    TItem="UserLiteItem"
     ItemLayout="ListItemLayout.Horizontal"
-    DataSource="Data"
-    Actions="Actions">
-    <ListItem>
-        <ListItemMeta AvatarTemplate="@context.Avater" Description="@context.Description">
-            <Title>@context.Title</Title>
+    DataSource="_data">
+    <ListItem Actions="_actions">
+        <ListItemMeta Title="@context.Title" Description="@context.Description">
+            <AvatarTemplate>
+                <Icon Type="@context.Avater" Theme="outline" Class="@context.Avater" />
+            </AvatarTemplate>
         </ListItemMeta>
     </ListItem>
 </AntList>
 
 @code
 {
-    public class Item
-    {
-        public RenderFragment Avater { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-    }
+    private static RenderFragment _modify = @<a key="bind">Bind</a>;
 
-    private RenderFragment _modify = @<a key="bind">Bind</a>;
-
-    public List<RenderFragment> Actions => new List<RenderFragment> {_modify};
-
-    public IList<Item> Data { get; set; } = new List<Item>
-    {
-        new Item
-        {
-            Avater = @<Icon Type="taobao" Theme="outline" Class="taobao" />,
-            Title = "Binding Taobao",
-            Description = "Currently unbound Taobao account",
-        },
-        new Item
-        {
-            Avater = @<Icon Type="alipay" Theme="outline" Class="alipay" />,
-            Title = "Binding Alipay",
-            Description = "Currently unbound Alipay account",
-        },
-        new Item
-        {
-            Avater = @<Icon Type="dingding" Theme="outline" Class="dingding" />,
-            Title = "Binding DingTalk",
-            Description = "Currently unbound DingTalk account",
-        },
-    };
+    private readonly RenderFragment[] _actions = {_modify};
 }

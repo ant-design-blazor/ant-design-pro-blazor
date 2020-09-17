@@ -1,11 +1,10 @@
 @namespace AntDesign.Pro.Pages.Account.Settings
 
 <AntList 
-    TItem="Item"
+    TItem="UserLiteItem"
     ItemLayout="ListItemLayout.Horizontal"
-    DataSource="Data"
-    Actions="Actions">
-    <ListItem>
+    DataSource="_data">
+    <ListItem Actions="_actions">
         <ListItemMeta Avatar="" Description="@context.Description">
             <TitleTemplate>@context.Title</TitleTemplate>
         </ListItemMeta>
@@ -14,42 +13,6 @@
 
 @code
 {
-    public class Item
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-    }
-
-    private RenderFragment _modify = @<a key="modify">Modify</a>;
-
-    public List<RenderFragment> Actions => new List<RenderFragment> {_modify};
-
-    public IList<Item> Data { get; set; } = new List<Item>
-    {
-        new Item
-        {
-            Title = "Account Password",
-            Description = "Current password strength: : Strong",
-        },
-        new Item
-        {
-            Title = "Security Phone",
-            Description = "Bound phone: : 138****8293",
-        },
-        new Item
-        {
-            Title = "Security Question",
-            Description = "The security question is not set, and the security policy can effectively protect the account security",
-        },
-        new Item
-        {
-            Title = "Backup Email",
-            Description = "Bound Email: : ant***sign.com",
-        },
-        new Item
-        {
-            Title = "MFA Device",
-            Description = "Unbound MFA device, after binding, can be confirmed twice",
-        },
-    };
+    private static RenderFragment _modify = @<a key="modify">Modify</a>;
+    private readonly RenderFragment[] _actions = {_modify};
 }

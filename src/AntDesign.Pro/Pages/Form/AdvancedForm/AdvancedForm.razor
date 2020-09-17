@@ -110,24 +110,3 @@
         </ChildContent>
     </PageContainer>
 </Form>
-
-@code
-{
-    public class FormModel
-    {
-        public string Name { get; set; }
-        public string Url { get; set; }
-        public string Owner { get; set; }
-        public string Approver { get; set; }
-        public DateTime?[] DateRange { get; set; }
-        public string Type { get; set; }
-        public string Name2 { get; set; }
-        public string Url2 { get; set; }
-        public string Owner2 { get; set; }
-        public string Approver2 { get; set; }
-        public DateTime? DateRange2 { get; set; }
-        public string Type2 { get; set; }
-    }
-
-    private FormModel _model = new FormModel();
-}

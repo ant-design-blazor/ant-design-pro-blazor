@@ -23,7 +23,7 @@
             </TagSelect>
         </StandardFormRow>
         <StandardFormRow Title="owner" Grid>
-            <Select Mode="multiple" Placeholder="选择 owner">
+            <Select Mode="multiple" Placeholder="选择 owner" DefaultValue="_defaultOwners" @bind-Value="_model.Owner">
                 @foreach (var owner in _owners)
                 {
                     <SelectOption Value="@owner.Id">
@@ -39,14 +39,14 @@
             <Row Gutter="16">
                 <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                     <FormItem Label="活跃用户">
-                        <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                        <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.ActiveUser">
                             <SelectOption Value="lisa">李三</SelectOption>
                         </Select>
                     </FormItem>
                 </AntDesign.Col>
                 <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                     <FormItem Label="好评度">
-                        <Select Placeholder="不限" Style="max-width: 200px; width: 100%;">
+                        <Select Placeholder="不限" Style="max-width: 200px; width: 100%;" @bind-Value="_model.Satisfaction">
                             <SelectOption Value="good">优秀</SelectOption>
                         </Select>
                     </FormItem>
@@ -74,43 +74,3 @@
         </ListItem>
     </AntList>
 </Card>
-
-@code
-{
-    public class FormItem
-    {
-
-    }
-
-    private class Owner
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    private FormItem _model = new FormItem();
-
-    private Owner[] _owners =
-    {
-        new Owner {Id = "wzj", Name = "我自己"},
-        new Owner {Id = "wjh", Name = "吴家豪"},
-        new Owner {Id = "zxx", Name = "周星星"},
-        new Owner {Id = "zly", Name = "赵丽颖"},
-        new Owner {Id = "ym", Name = "姚明"},
-    };
-
-    private void SetOwner()
-    {
-
-    }
-
-    private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
-
-    [Inject] public IProjectService ProjectService { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _fakeList = await ProjectService.GetFakeListAsync(8);
-    }
-}
