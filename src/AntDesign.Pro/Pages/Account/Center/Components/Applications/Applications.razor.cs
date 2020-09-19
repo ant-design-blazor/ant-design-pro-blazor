@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using AntDesign.Pro.Template.Models;
 using Microsoft.AspNetCore.Components;
+using AntDesign;
 
 namespace AntDesign.Pro.Template.Pages.Account.Center
 {
@@ -12,7 +13,6 @@ namespace AntDesign.Pro.Template.Pages.Account.Center
             Column = 4
         };
 
-        [Parameter]
-        public IList<ListItemDataType> List { get; set; }
+        [Parameter] public IList<ListItemDataType> List { get; set; }
     }
 }
