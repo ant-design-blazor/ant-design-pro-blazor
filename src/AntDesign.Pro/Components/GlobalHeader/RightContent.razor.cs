@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AntDesign.Pro.Layout;
-using AntDesign.Pro.Models;
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Models;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Components
+namespace AntDesign.Pro.Template.Components
 {
     public partial class RightContent
     {

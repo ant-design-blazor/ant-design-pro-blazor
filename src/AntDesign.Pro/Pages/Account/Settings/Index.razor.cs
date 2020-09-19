@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace AntDesign.Pro.Pages.Account.Settings
+namespace AntDesign.Pro.Template.Pages.Account.Settings
 {
     public partial class Index
     {

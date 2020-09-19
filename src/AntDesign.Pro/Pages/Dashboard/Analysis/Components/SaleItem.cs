@@ -1,4 +1,4 @@
-namespace AntDesign.Pro.Pages.Analysis
+namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
 {
     public partial class SalesCard
     {

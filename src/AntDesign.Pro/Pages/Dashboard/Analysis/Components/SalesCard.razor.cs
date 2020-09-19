@@ -1,15 +1,15 @@
 using System.Threading.Tasks;
 using AntDesign.Charts;
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Analysis
+namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
 {
     public partial class SalesCard
     {
         private readonly ColumnConfig _saleChartConfig = new ColumnConfig
         {
-            Title = new Charts.Title
+            Title = new AntDesign.Charts.Title
             {
                 Visible = true,
                 Text = "Stores Sales Trend"
@@ -22,7 +22,7 @@ namespace AntDesign.Pro.Pages.Analysis
 
         private readonly ColumnConfig _visitChartConfig = new ColumnConfig
         {
-            Title = new Charts.Title
+            Title = new AntDesign.Charts.Title
             {
                 Visible = true,
                 Text = "Visits Trend"

@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using AntDesign.Pro.Models;
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Models;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Workplace
+namespace AntDesign.Pro.Template.Pages.Dashboard.Workplace
 {
     public partial class Index
     {

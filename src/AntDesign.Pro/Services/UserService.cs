@@ -1,9 +1,9 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using AntDesign.Pro.Models;
+using AntDesign.Pro.Template.Models;
 
-namespace AntDesign.Pro.Services
+namespace AntDesign.Pro.Template.Services
 {
     public interface IUserService
     {

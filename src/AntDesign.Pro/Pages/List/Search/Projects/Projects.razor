@@ -1,4 +1,4 @@
-﻿@namespace AntDesign.Pro.Pages.Lists
+﻿@namespace AntDesign.Pro.Template.Pages.List
 @layout SearchList
 @page "/list/search/projects"
 
@@ -62,15 +62,15 @@
                         <div class="cardItemContent">
                             <span>@context.UpdatedAt.ToFriendlyDisplay()</span>
                             <div class="avatarList">
-                                <AntDesign.Pro.Pages.Account.Center.AvatarList>
+                                <AntDesign.Pro.Template.Pages.Account.Center.AvatarList>
                                     @foreach (var member in context.Members)
                                     {
-                                        <AntDesign.Pro.Pages.Account.Center.AvatarListItem
+                                        <AntDesign.Pro.Template.Pages.Account.Center.AvatarListItem
                                             Size="small"
                                             Src="@member.Avatar"
                                             Tips="@member.Name"/>
                                     }
-                                </AntDesign.Pro.Pages.Account.Center.AvatarList>
+                                </AntDesign.Pro.Template.Pages.Account.Center.AvatarList>
                             </div>
                         </div>
                     </ChildContent>

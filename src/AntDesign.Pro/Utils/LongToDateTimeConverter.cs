@@ -3,7 +3,7 @@ using System.Buffers.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace AntDesign.Pro.Utils
+namespace AntDesign.Pro.Template.Utils
 {
     public class LongToDateTimeConverter : JsonConverter<DateTime>
     {

@@ -1,6 +1,6 @@
-using AntDesign.Pro.Models;
+using AntDesign.Pro.Template.Models;
 
-namespace AntDesign.Pro.Pages.Account.Settings
+namespace AntDesign.Pro.Template.Pages.Account.Settings
 {
     public partial class NotificationView
     {

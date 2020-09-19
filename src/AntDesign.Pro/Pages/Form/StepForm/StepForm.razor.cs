@@ -1,4 +1,4 @@
-namespace AntDesign.Pro.Pages.Form
+namespace AntDesign.Pro.Template.Pages.Form
 {
     public partial class StepForm
     {

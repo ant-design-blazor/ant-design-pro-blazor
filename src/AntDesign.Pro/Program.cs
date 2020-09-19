@@ -2,11 +2,11 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AntDesign.Pro.Layout;
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AntDesign.Pro
+namespace AntDesign.Pro.Template
 {
     public class Program
     {

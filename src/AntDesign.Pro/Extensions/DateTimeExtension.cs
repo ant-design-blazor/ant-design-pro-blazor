@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AntDesign.Pro
+namespace AntDesign.Pro.Template
 {
     public static class DateTimeExtension
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Text.Json.Serialization;
-using AntDesign.Pro.Utils;
+using AntDesign.Pro.Template.Utils;
 
-namespace AntDesign.Pro.Models
+namespace AntDesign.Pro.Template.Models
 {
     public class Member
     {

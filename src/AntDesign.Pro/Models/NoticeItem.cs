@@ -1,6 +1,6 @@
 ﻿using AntDesign.Pro.Layout;
 
-namespace AntDesign.Pro.Models
+namespace AntDesign.Pro.Template.Models
 {
     public class NoticeItem : NoticeIconData
     {

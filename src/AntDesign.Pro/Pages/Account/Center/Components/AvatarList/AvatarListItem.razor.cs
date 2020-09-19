@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Account.Center
+namespace AntDesign.Pro.Template.Pages.Account.Center
 {
     public partial class AvatarListItem
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AntDesign.Pro.Models
+namespace AntDesign.Pro.Template.Models
 {
     public class LoginParamsType
     {

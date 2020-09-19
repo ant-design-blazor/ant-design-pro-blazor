@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using AntDesign.Pro.Models;
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Models;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Profile
+namespace AntDesign.Pro.Template.Pages.Profile
 {
     public partial class Basic
     {

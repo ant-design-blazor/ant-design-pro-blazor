@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using AntDesign.Pro.Models;
+using AntDesign.Pro.Template.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Account.Center
+namespace AntDesign.Pro.Template.Pages.Account.Center
 {
     public partial class Applications
     {

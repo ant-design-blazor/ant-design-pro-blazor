@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Lists
+namespace AntDesign.Pro.Template.Pages.List
 {
     public partial class TagSelect
     {

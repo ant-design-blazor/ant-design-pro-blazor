@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Lists
+namespace AntDesign.Pro.Template.Pages.List
 {
     public partial class TagSelectOption
     {

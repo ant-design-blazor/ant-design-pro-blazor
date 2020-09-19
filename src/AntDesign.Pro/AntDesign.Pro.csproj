@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>AntDesign.Pro.Template</AssemblyName>
+    <RootNamespace>AntDesign.Pro.Template</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,5 +44,9 @@
   <ItemGroup>
     <Watch Include="**\*.razor" />
     <Watch Include="**\*.less" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AntDesign.Pro.csproj.DotSettings" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
-using AntDesign.Pro.Models;
+using AntDesign.Pro.Template.Models;
 
-namespace AntDesign.Pro.Pages.Form
+namespace AntDesign.Pro.Template.Pages.Form
 {
     public partial class AdvancedForm
     {

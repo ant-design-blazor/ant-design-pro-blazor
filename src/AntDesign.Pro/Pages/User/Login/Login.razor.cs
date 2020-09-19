@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using AntDesign.Pro.Models;
-using AntDesign.Pro.Services;
+﻿using System.Threading.Tasks;
+using AntDesign.Pro.Template.Models;
+using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages
+namespace AntDesign.Pro.Template.Pages.User
 {
     public partial class Login
     {

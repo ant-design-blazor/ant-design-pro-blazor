@@ -1,4 +1,4 @@
-﻿@namespace AntDesign.Pro
+﻿@namespace AntDesign.Pro.Template
 @using OneOf
 @inherits LayoutComponentBase
 
@@ -27,10 +27,10 @@
 
 @code
 {
-    private readonly LinkItem[] _links = new LinkItem[]
+    private readonly LinkItem[] _links =
     {
-        new LinkItem{ Key = "", BlankTarget = true, Title = "Ant Design Pro"}, 
-        new LinkItem{ Key = "", BlankTarget = true, Title = OneOf<string, RenderFragment>.FromT1(@<Icon Type="github" />)}, 
-        new LinkItem{ Key = "", BlankTarget = true, Title = "Ant Design"}, 
+        new LinkItem{ Key = "", BlankTarget = true, Title = "Ant Design Pro"},
+        new LinkItem{ Key = "", BlankTarget = true, Title = OneOf<string, RenderFragment>.FromT1(@<Icon Type="github" />)},
+        new LinkItem{ Key = "", BlankTarget = true, Title = "Ant Design"},
     };
 }

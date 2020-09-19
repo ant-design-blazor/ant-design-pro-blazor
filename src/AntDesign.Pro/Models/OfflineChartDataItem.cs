@@ -1,4 +1,4 @@
-﻿namespace AntDesign.Pro.Models
+﻿namespace AntDesign.Pro.Template.Models
 {
     public class OfflineChartDataItem
     {
