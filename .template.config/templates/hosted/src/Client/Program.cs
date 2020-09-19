@@ -1,12 +1,14 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using {pro-layout};
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Layout;
+//#if (full)
+using AntDesign.Pro.Template.Services;
+//#endif
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AntDesign.Pro.Client
+namespace AntDesign.Pro.Template.Client
 {
     public class Program
     {
@@ -18,7 +20,13 @@ namespace AntDesign.Pro.Client
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddAntDesign();
             builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
-            builder.Services.AddScoped<ChartService>();
+//#if (full)
+            builder.Services.AddScoped<IChartService, ChartService>();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IProfileService, ProfileService>();
+//#endif
 
             await builder.Build().RunAsync();
         }

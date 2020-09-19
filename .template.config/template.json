@@ -1,7 +1,9 @@
 {
     "$schema": "http://json.schemastore.org/template",
     "author": "AntDesign Blazor Team",
-    "classifications": ["Ant Design Pro"],
+    "classifications": [
+        "Ant Design Pro"
+    ],
     "name": "Ant Design Pro Blazor App",
     "identity": "AntDesign.Pro",
     "groupIdentity": "AntDesign.Pro",
@@ -10,7 +12,7 @@
         "language": "C#",
         "type": "project"
     },
-    "sourceName": "AntDesign.Pro",
+    "sourceName": "AntDesign.Pro.Template",
     "preferNameDirectory": true,
     "symbols": {
         "full": {
@@ -22,7 +24,8 @@
             "type": "parameter",
             "datatype": "choice",
             "defaultValue": "wasm",
-            "choices": [{
+            "choices": [
+                {
                     "choice": "wasm",
                     "description": "WebAssembly"
                 },
@@ -60,100 +63,194 @@
             "replaces": "<SolutionDir>./</SolutionDir>"
         }
     },
-    "primaryOutputs": [{
-        "condition": "(host != 'hosted')",
-        "path": "AntDesign.Pro.csproj"
-    }, {
-        "condition": "(host == 'hosted')",
-        "path": "AntDesign.Pro.sln"
-    }],
-    "sources": [{
-            "source": "./.template.config/templates/assets",
-            "target": "./"
+    "primaryOutputs": [
+        {
+            "condition": "(host != 'hosted')",
+            "path": "AntDesign.Pro.csproj"
         },
+        {
+            "condition": "(host == 'hosted')",
+            "path": "AntDesign.Pro.sln"
+        }
+    ],
+    "sources": [
         {
             "condition": "(host != 'hosted')",
             "source": "./src/AntDesign.Pro",
             "target": "./",
-            "modifiers": [{
-                "condition": "(!full)",
-                "exclude": ["Pages/**/*", "Services/**/*"]
-            }]
+            "modifiers": [
+                {
+                    "exclude": [
+                        "AntDesign.Pro.csproj",
+                        "AntDesign.Pro.csproj.DotSettings"
+                    ]
+                },
+                {
+                    "condition": "(!full)",
+                    "exclude": [
+                        "Components/**/*",
+                        "Extensions/**/*",
+                        "Layouts/**/*",
+                        "Models/**/*",
+                        "Pages/**/*",
+                        "Services/**/*",
+                        "Utils/**/*",
+                        "wwwroot/**/*"
+                    ]
+                }
+            ]
+        },
+        {
+            "source": "./.template.config/templates/assets",
+            "target": "./"
         },
         {
             "condition": "(host == 'wasm')",
             "source": "./.template.config/templates/wasm",
-            "target": "./"
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                        "Pages/Welcome.razor",
+                        "Pages/Welcome.razor.less"
+                    ]
+                }
+            ]
         },
         {
             "condition": "(host == 'server')",
             "source": "./.template.config/templates/server",
-            "target": "./"
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                        "Pages/Welcome.razor",
+                        "Pages/Welcome.razor.less"
+                    ]
+                }
+            ]
         },
         {
             "condition": "(host == 'hosted')",
             "source": "./src/AntDesign.Pro",
             "target": "./src/Client/",
-            "modifiers": [{
-                "exclude": [
-                    "AntDesign.Pro.csproj"
-                ]
-            }, {
-                "condition": "(!full)",
-                "exclude": ["Pages/**/*"]
-            }]
+            "modifiers": [
+                {
+                    "exclude": [
+                        "AntDesign.Pro.csproj",
+                        "AntDesign.Pro.csproj.DotSettings"
+                    ]
+                },
+                {
+                    "condition": "(!full)",
+                    "exclude": [
+                        "Components/**/*",
+                        "Extensions/**/*",
+                        "Layouts/**/*",
+                        "Models/**/*",
+                        "Pages/**/*",
+                        "Services/**/*",
+                        "Utils/**/*",
+                        "wwwroot/**/*"
+                    ]
+                }
+            ]
         },
         {
             "condition": "(host == 'hosted')",
             "source": "./.template.config/templates/wasm",
             "target": "./src/Client/",
             "rename": {
-                "AntDesign.Pro": "AntDesign.Pro.Client"
-            }
+                "AntDesign.Pro.Template": "AntDesign.Pro.Template.Client"
+            },
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                        "Pages/Welcome.razor",
+                        "Pages/Welcome.razor.less"
+                    ]
+                }
+            ]
         },
         {
             "condition": "(host == 'hosted')",
             "source": "./.template.config/templates/hosted",
-            "target": "./"
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                        "src/Client/Pages/Welcome.razor",
+                        "src/Client/Pages/Welcome.razor.less"
+                    ]
+                }
+            ]
         }
     ],
     "SpecialCustomOperations": {
         "**/*.less": {
-            "operations": [{
-                "type": "conditional",
-                "configuration": {
-                    "if": ["//#if"],
-                    "else": ["//#else"],
-                    "elseif": ["//#elseif"],
-                    "endif": ["//#endif"],
-                    "trim": true,
-                    "wholeLine": true,
-                    "evaluator": "C++"
+            "operations": [
+                {
+                    "type": "conditional",
+                    "configuration": {
+                        "if": [
+                            "//#if"
+                        ],
+                        "else": [
+                            "//#else"
+                        ],
+                        "elseif": [
+                            "//#elseif"
+                        ],
+                        "endif": [
+                            "//#endif"
+                        ],
+                        "trim": true,
+                        "wholeLine": true,
+                        "evaluator": "C++"
+                    }
                 }
-            }]
+            ]
         },
         "**/*.razor": {
-            "operations": [{
-                "type": "conditional",
-                "configuration": {
-                    "if": ["//#if"],
-                    "else": ["//#else"],
-                    "elseif": ["//#elseif"],
-                    "endif": ["//#endif"],
-                    "trim": true,
-                    "wholeLine": true,
-                    "evaluator": "C++"
+            "operations": [
+                {
+                    "type": "conditional",
+                    "configuration": {
+                        "if": [
+                            "//#if"
+                        ],
+                        "else": [
+                            "//#else"
+                        ],
+                        "elseif": [
+                            "//#elseif"
+                        ],
+                        "endif": [
+                            "//#endif"
+                        ],
+                        "trim": true,
+                        "wholeLine": true,
+                        "evaluator": "C++"
+                    }
                 }
-            }]
+            ]
         }
     },
-    "postActions": [{
-        "condition": "(!skipRestore)",
-        "description": "Restore NuGet packages required by this project.",
-        "manualInstructions": [{
-            "text": "Run 'dotnet restore'"
-        }],
-        "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-        "continueOnError": true
-    }]
+    "postActions": [
+        {
+            "condition": "(!skipRestore)",
+            "description": "Restore NuGet packages required by this project.",
+            "manualInstructions": [
+                {
+                    "text": "Run 'dotnet restore'"
+                }
+            ],
+            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+            "continueOnError": true
+        }
+    ]
 }

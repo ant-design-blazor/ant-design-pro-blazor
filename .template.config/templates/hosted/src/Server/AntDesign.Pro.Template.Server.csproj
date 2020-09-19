@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\AntDesign.Pro.Client.csproj" />
+    <ProjectReference Include="..\Client\AntDesign.Pro.Template.Client.csproj" />
   </ItemGroup>
 
 

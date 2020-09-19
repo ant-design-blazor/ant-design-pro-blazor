@@ -10,11 +10,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AntDesign.Pro.Layout;
 //#if (full)
-using AntDesign.Pro.Services;
+using AntDesign.Pro.Template.Services;
 //#endif
 
-namespace AntDesign.Pro
+namespace AntDesign.Pro.Template
 {
     public class Startup
     {
@@ -36,9 +37,13 @@ namespace AntDesign.Pro
             {
                 BaseAddress = new Uri(sp.GetService<NavigationManager>().BaseUri)
             });
+            services.Configure<ProSettings>(Configuration.GetSection("ProSettings"));
 //#if (full)
-            services.AddScoped<ChartService>();
-            services.AddScoped<ProjectService>();
+            services.AddScoped<IChartService, ChartService>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IProfileService, ProfileService>();
 //#endif
         }
 
