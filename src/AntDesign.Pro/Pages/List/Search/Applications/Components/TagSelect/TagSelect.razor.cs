@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace AntDesign.Pro.Pages.Lists
@@ -7,8 +6,8 @@ namespace AntDesign.Pro.Pages.Lists
     public partial class TagSelect
     {
         private readonly IList<TagSelectOption> _options = new List<TagSelectOption>();
-        private bool _expand = false;
         private bool _checkedAll;
+        private bool _expand = false;
 
         [Parameter] public bool Expandable { get; set; }
 
@@ -47,10 +46,7 @@ namespace AntDesign.Pro.Pages.Lists
         private void HandleCheckedChange(bool isChecked)
         {
             _checkedAll = isChecked;
-            foreach (var option in _options)
-            {
-                option.Check(_checkedAll);
-            }
+            foreach (var option in _options) option.Check(_checkedAll);
         }
 
         public void AddOption(TagSelectOption option)
