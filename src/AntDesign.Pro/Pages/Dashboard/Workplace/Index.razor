@@ -45,7 +45,7 @@
             <AntDesign.Col Span="16">
                 <Card Class="projectList"
                       Style="margin-bottom: 24px;"
-                      Title="@("进行中的项目")"
+                      Title="进行中的项目"
                       BodyStyle="padding: 0px;">
                     <Extra>
                         <a href="/">全部项目</a>
@@ -54,20 +54,20 @@
                         @foreach (var item in _projectNotice)
                         {
                             <CardGrid Hoverable>
-                                <Card BodyStyle="padding: 0px;">
+                                <Card BodyStyle="padding: 0px;" Bordered="false">
                                     <CardMeta>
-                                        <Title>
+                                        <TitleTemplate>
                                             <div class="cardTitle">
                                                 <Avatar Size="small" Src="@item.Logo"></Avatar>
                                                 <a href="@item.Href">@item.Title</a>
                                             </div>
-                                        </Title>
-                                        <Description>
+                                        </TitleTemplate>
+                                        <DescriptionTemplate>
                                             <!--todo: submit a pr to card component-->
                                             <div class="ant-card-meta-description">
                                                 @item.Description
                                             </div>
-                                        </Description>
+                                        </DescriptionTemplate>
                                     </CardMeta>
                                     <div class="projectItemContent">
                                         <a href="@item.MemberLink">@item.Member</a>
@@ -86,7 +86,7 @@
 
                 <Card BodyStyle="padding: 0px;"
                       Class="activeCard"
-                      Title="@("动态")">
+                      Title="动态">
                     <AntList TItem="ActivitiesType"
                              DataSource="@_activities"
                              Class="activitiesList"
@@ -128,20 +128,20 @@
             </AntDesign.Col>
             <AntDesign.Col Span="8">
                 <Card Style="margin-bottom: 24px;"
-                      Title="@("快速开始 / 便捷导航")"
+                      Title="快速开始 / 便捷导航"
                       BodyStyle="padding: 0px;">
                     <EditableLinkGroup Links="_links" />
                 </Card>
 
                 <Card Style="margin-bottom: 24px;"
-                      Title="@("XX 指数")">
+                      Title="XX 指数">
                     <div class="chart">
                         <AntDesign.Pro.Template.Pages.Dashboard.Workplace.Radar />
                     </div>
                 </Card>
 
                 <Card BodyStyle="padding-top: 12px; padding-bottom: 12px;"
-                      Title="@("团队")">
+                      Title="团队">
                     <div class="members">
                         <Row Gutter="48">
                             @foreach (var item in _projectNotice)

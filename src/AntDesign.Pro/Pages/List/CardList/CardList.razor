@@ -55,18 +55,18 @@
                     {
                         <Card Hoverable Bordered Class="card" Actions="_actions">
                             <CardMeta>
-                                <Avatar>
+                                <AvatarTemplate>
                                     <img alt="" class="cardAvatar" src="@context.Avatar"/>
-                                </Avatar>
-                                <Title>
+                                </AvatarTemplate>
+                                <TitleTemplate>
                                     <a>@context.Title</a>
-                                </Title>
-                                <Description>
+                                </TitleTemplate>
+                                <DescriptionTemplate>
                                     <Paragraph class="item" Ellipsis>
                                         <!--todo: Ellipsis not working-->
                                         @context.Description
                                     </Paragraph>
-                                </Description>
+                                </DescriptionTemplate>
                             </CardMeta>
                         </Card>
                     }

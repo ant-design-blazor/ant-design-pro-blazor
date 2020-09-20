@@ -11,8 +11,11 @@
             Hoverable
             BodyStyle="padding-bottom: 20px;"
             Actions="Actions">
-            <CardMeta Avatar="@Avatar(context.Avatar)">
-                <Title>@context.Title</Title>
+            <CardMeta>
+                <AvatarTemplate>
+                    <Avatar Size="small" Src="@context.Avatar" />
+                </AvatarTemplate>
+                <TitleTemplate>@context.Title</TitleTemplate>
             </CardMeta>
             <div class="cardItemContent">
                 <div class="cardInfo">
@@ -32,8 +35,6 @@
 
 @code
 {
-    private static readonly RenderFragment<string> Avatar = src => @<Avatar Size="small" Src="@src"/>;
-
     private static readonly RenderFragment Download = @<Tooltip Title="@("下载")">
                                                            <Icon Type="download" Theme="outline"/>
                                                        </Tooltip>;

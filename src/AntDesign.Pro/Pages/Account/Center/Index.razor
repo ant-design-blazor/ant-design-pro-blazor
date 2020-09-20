@@ -64,26 +64,28 @@
         </AntDesign.Col>
         <AntDesign.Col Span="17">
             <Card Class="tabsCard">
-                <Tabs DefaultActiveKey="1">
-                    <TabPane Key="1">
-                        <Tab>文章 (@_fakeList.Count)</Tab>
-                        <ChildContent>
-                            <Articles List="_fakeList"/>
-                        </ChildContent>
-                    </TabPane>
-                    <TabPane Key="2">
-                        <Tab>应用 (@_fakeList.Count)</Tab>
-                        <ChildContent>
-                            <Applications List="_fakeList"/>
-                        </ChildContent>
-                    </TabPane>
-                    <TabPane Key="3">
-                        <Tab>项目 (@_fakeList.Count)</Tab>
-                        <ChildContent>
-                            <Projects List="_fakeList"/>
-                        </ChildContent>
-                    </TabPane>
-                </Tabs>
+                <CardTabs>
+                    <Tabs DefaultActiveKey="1">
+                        <TabPane Key="1">
+                            <Tab>文章 (@_fakeList.Count)</Tab>
+                            <ChildContent>
+                                <Articles List="_fakeList"/>
+                            </ChildContent>
+                        </TabPane>
+                        <TabPane Key="2">
+                            <Tab>应用 (@_fakeList.Count)</Tab>
+                            <ChildContent>
+                                <Applications List="_fakeList"/>
+                            </ChildContent>
+                        </TabPane>
+                        <TabPane Key="3">
+                            <Tab>项目 (@_fakeList.Count)</Tab>
+                            <ChildContent>
+                                <Projects List="_fakeList"/>
+                            </ChildContent>
+                        </TabPane>
+                    </Tabs>
+                </CardTabs>
             </Card>
         </AntDesign.Col>
     </Row>
