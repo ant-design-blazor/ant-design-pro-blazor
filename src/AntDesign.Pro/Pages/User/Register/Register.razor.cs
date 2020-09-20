@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AntDesign.Pro.Pages
+namespace AntDesign.Pro.Template.Pages.User
 {
     public class RegisterModel
     {

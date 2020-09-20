@@ -44,3 +44,41 @@
   - 注册
   - 注册成功
 ```
+
+## 使用
+### 安装模板
+```bash
+dotnet new -i AntDesign.Templates::0.1.0-*
+```
+
+### 卸载模板
+```bash
+dotnet new -u AntDesign.Templates
+```
+
+### 新建项目
+```bash
+# Create an empty wasm project
+dotnet new antdesign --host=wasm
+
+# Create wasm project with full pages
+dotnet new antdesign --host=wasm --full
+
+# Create an empty server-side project
+dotnet new antdesign --host=server
+
+# Create server-side project with full pages
+dotnet new antdesign --host=server --full
+
+# Create an empty hosted project
+dotnet new antdesign --host=hosted
+
+# Create hosted project with full pages
+dotnet new antdesign --host=hosted --full
+```
+
+### 覆盖项目
+```bash
+## You can override an existing project with the --force
+dotnet new antdesign --host=wasm --force
+```

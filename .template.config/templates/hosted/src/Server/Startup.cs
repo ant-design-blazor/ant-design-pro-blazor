@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 
-namespace AntDesign.Pro.Server
+namespace AntDesign.Pro.Template.Server
 {
     public class Startup
     {

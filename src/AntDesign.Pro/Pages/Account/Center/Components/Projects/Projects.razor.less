@@ -2,7 +2,8 @@
 
 .coverCardList {
   .card {
-    :global {
+    //todo: global break style
+    //:global {
       .ant-card-meta-title {
         margin-bottom: 4px;
         & > a {
@@ -16,14 +17,14 @@
         overflow: hidden;
         line-height: 22px;
       }
-    }
+    //}
 
     &:hover {
-      :global {
+      //:global {
         .ant-card-meta-title > a {
           color: @primary-color;
         }
-      }
+      //}
     }
   }
 
@@ -46,9 +47,9 @@
     margin-top: 24px;
   }
 
-  :global {
+  //:global {
     .ant-list .ant-list-item-content-single {
       max-width: 100%;
     }
-  }
+  //}
 }

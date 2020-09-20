@@ -1,4 +1,4 @@
-@namespace AntDesign.Pro.Pages.Workplace
+@namespace AntDesign.Pro.Template.Pages.Dashboard.Workplace
 
 <AntDesign.Charts.Radar @ref="_chart" TItem="RadarDataItem" Config="_chartConfig" />
 
@@ -17,7 +17,7 @@
     </Row>
 }
 
-@inject ChartService ChartService
+@inject IChartService ChartService
 @code
 {
     [Parameter] public bool HasLegend { get; set; }

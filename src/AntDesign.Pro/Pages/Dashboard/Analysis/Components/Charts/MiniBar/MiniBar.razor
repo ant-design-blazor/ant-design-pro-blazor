@@ -1,5 +1,6 @@
-@namespace AntDesign.Pro.Pages.Analysis
-@inject ChartService ChartService
+@using AntDesign.Pro.Template.Services
+@namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
+@inject IChartService ChartService
 <AntDesign.Charts.Column @ref="_chart" TItem="ChartDataItem" Config="_chartConfig" />
 
 @code

@@ -1,19 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0</PackageVersion>
     <PackageId>AntDesign.Templates</PackageId>
     <Title>Ant Design Pro Blazor Templates</Title>
     <Authors>ant-design-blazor</Authors>
     <Description>An out-of-box UI solution for enterprise applications as a Blazor boilerplate.</Description>
+    <PackageProjectUrl>https://github.com/ant-design-blazor/ant-design-pro-blazor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ant-design-blazor/ant-design-pro-blazor</RepositoryUrl>
     <PackageTags>dotnet-new;templates;blazor;ant-design-blazor;ant-design</PackageTags>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="logo.png" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include=".template.config\**\*" Exclude="**\bin\**;**\obj\**" />

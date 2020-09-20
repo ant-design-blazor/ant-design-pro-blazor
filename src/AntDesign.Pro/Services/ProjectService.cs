@@ -1,50 +1,20 @@
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using AntDesign.Pro.Template.Models;
 
-namespace AntDesign.Pro.Services
+namespace AntDesign.Pro.Template.Services
 {
-    public class NoticeType
+    public interface IProjectService
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public string Logo { get; set; }
-        public string Description { get; set; }
-        public string UpdatedAt { get; set; }
-        public string Member { get; set; }
-        public string Href { get; set; }
-        public string MemberLink { get; set; }
+        Task<NoticeType[]> GetProjectNoticeAsync();
+        Task<ActivitiesType[]> GetActivitiesAsync();
+        Task<ListItemDataType[]> GetFakeListAsync(int count = 0);
+        Task<NoticeItem[]> GetNoticesAsync();
     }
 
-    public class ActivityUser
-    {
-        public string Name { get; set; }
-        public string Avatar { get; set; }
-    }
-
-    public class ActivityGroup
-    {
-        public string Name { get; set; }
-        public string Link { get; set; }
-    }
-
-    public class ActivityProject
-    {
-        public string Name { get; set; }
-        public string Link { get; set; }
-    }
-
-    public class ActivitiesType
-    {
-        public string Id { get; set; }
-        public string UpdatedAt { get; set; }
-        public ActivityUser User { get; set; }
-        public ActivityGroup Group { get; set; }
-        public ActivityProject Project { get; set; }
-        public string Template { get; set; }
-    }
-
-    public class ProjectService
+    public class ProjectService : IProjectService
     {
         private readonly HttpClient _httpClient;
 
@@ -58,9 +28,20 @@ namespace AntDesign.Pro.Services
             return await _httpClient.GetFromJsonAsync<NoticeType[]>("data/notice.json");
         }
 
+        public async Task<NoticeItem[]> GetNoticesAsync()
+        {
+            return await _httpClient.GetFromJsonAsync<NoticeItem[]>("data/notices.json");
+        }
+
         public async Task<ActivitiesType[]> GetActivitiesAsync()
         {
             return await _httpClient.GetFromJsonAsync<ActivitiesType[]>("data/activities.json");
+        }
+
+        public async Task<ListItemDataType[]> GetFakeListAsync(int count = 0)
+        {
+            var data = await _httpClient.GetFromJsonAsync<ListItemDataType[]>("data/fake_list.json");
+            return count > 0 ? data.Take(count).ToArray() : data;
         }
     }
 }
