@@ -1,4 +1,4 @@
-﻿@namespace AntDesign.Pro.Pages
+﻿@namespace AntDesign.Pro.Template.Pages.User
 @layout UserLayout
 @page "/user/login"
 
@@ -37,7 +37,7 @@
                                     </AntDesign.Input>
                                 </AntDesign.Col>
                                 <AntDesign.Col Span="8">
-                                    <Button Size="large" Block>获取验证码</Button>
+                                    <Button Size="large" Block OnClick="GetCaptcha">获取验证码</Button>
                                 </AntDesign.Col>
                             </Row>
                         </FormItem>
@@ -63,3 +63,4 @@
         </Form>
     </div>
 </div>
+<Message />

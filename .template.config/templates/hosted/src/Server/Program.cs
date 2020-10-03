@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace AntDesign.Pro.Server
+namespace AntDesign.Pro.Template.Server
 {
     public class Program
     {

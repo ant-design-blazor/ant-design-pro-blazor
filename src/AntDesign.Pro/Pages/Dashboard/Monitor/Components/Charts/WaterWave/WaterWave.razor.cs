@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Monitor.Components
+namespace AntDesign.Pro.Template.Pages.Dashboard.Monitor
 {
     public partial class WaterWave
     {

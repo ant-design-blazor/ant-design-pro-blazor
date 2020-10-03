@@ -1,23 +1,40 @@
-﻿@namespace AntDesign.Pro
+﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
 
-<{pro-layout}.BasicLayout 
+<AntDesign.Pro.Layout.BasicLayout 
     Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-    MenuData="MenuData">
+    MenuData="_menuData">
+    <RightContentRender>
+        <RightContent />
+    </RightContentRender>
     <ChildContent>
         @Body
     </ChildContent>
-</{pro-layout}.BasicLayout>
+</AntDesign.Pro.Layout.BasicLayout>
 <SettingDrawer />
 
-@inject HttpClient HttpClient
 @code
 {
-    private MenuDataItem[] MenuData { get; set; } = {};
+//#if (full)    
+    private MenuDataItem[] _menuData = {};
+
+    [Inject] public HttpClient HttpClient { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+        _menuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
     }
+//#else
+    private readonly MenuDataItem[] _menuData = 
+    {
+        new MenuDataItem
+        {
+            Path = "/",
+            Name = "welcome",
+            Key = "welcome",
+            Icon = "smile",
+        }
+    };
+//#endif
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Pages.Workplace
+namespace AntDesign.Pro.Template.Pages.Dashboard.Workplace
 {
     public class EditableLink
     {

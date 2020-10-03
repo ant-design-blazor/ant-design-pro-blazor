@@ -3,12 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>AntDesign.Pro.Template</AssemblyName>
+    <RootNamespace>AntDesign.Pro.Template</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AntDesign" Version="0.3.0-*" />
+    <PackageReference Include="AntDesign" Version="0.4.0-*" />
     <PackageReference Include="AntDesign.Charts" Version="0.2.0-*" />
-    <PackageReference Include="AntDesign.Pro.Layout" Version="0.1.0-nightly-200824114222" />
+    <PackageReference Include="AntDesign.Pro.Layout" Version="0.1.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
@@ -42,5 +44,9 @@
   <ItemGroup>
     <Watch Include="**\*.razor" />
     <Watch Include="**\*.less" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AntDesign.Pro.csproj.DotSettings" />
   </ItemGroup>
 </Project>

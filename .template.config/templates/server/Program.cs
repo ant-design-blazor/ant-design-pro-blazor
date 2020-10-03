@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace AntDesign.Pro
+namespace AntDesign.Pro.Template
 {
     public class Program
     {

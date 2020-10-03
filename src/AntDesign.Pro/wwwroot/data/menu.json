@@ -52,6 +52,28 @@
     "icon": "table",
     "children": [
       {
+        "path": "/list/search",
+        "name": "搜索列表",
+        "key": "list.search",
+        "children": [
+          {
+            "path": "/list/search/articles",
+            "name": "搜索列表（文章）",
+            "key": "list.search.articles"
+          },
+          {
+            "path": "/list/search/projects",
+            "name": "搜索列表（项目）",
+            "key": "list.search.projects"
+          },
+          {
+            "path": "/list/search/applications",
+            "name": "搜索列表（应用）",
+            "key": "list.search.applications"
+          }
+        ] 
+      },
+      {
         "path": "/list/table-list",
         "name": "查询表格",
         "key": "list.table-list"
@@ -63,7 +85,7 @@
       },
       {
         "path": "/list/card-list",
-        "name": "标准列表",
+        "name": "卡片列表",
         "key": "list.card-list"
       }
     ]
