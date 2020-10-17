@@ -148,9 +148,6 @@
             "condition": "(host == 'hosted')",
             "source": "./.template.config/templates/wasm",
             "target": "./src/Client/",
-            "rename": {
-                "AntDesign.Pro.Template": "AntDesign.Pro.Template.Client"
-            },
             "modifiers": [
                  {
                     "exclude": [
