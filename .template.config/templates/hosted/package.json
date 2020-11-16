@@ -3,19 +3,13 @@
     "version": "1.0.0",
     "description": "An out-of-box UI solution for enterprise applications as a Blazor boilerplate.",
     "scripts": {
-        "start": "dotnet watch -p ./src/Client run",
+        "start": "dotnet watch -p ./src/Server run",
         "build": "dotnet publish -o dist",
         "gulp:pro": "gulp --gulpfile ./src/Client/gulpfile.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "@ant-design/icons": "^4.0.0",
-        "@ant-design/pro-layout": "^6.0.0",
-        "@ant-design/pro-table": "^2.4.0",
-        "@antv/data-set": "^0.11.0",
-        "@antv/l7-react": "^2.1.9",
-        "@antv/g2": "^4.0.12",
-        "antd": "^4.4.0"
+        "antd": "^4.6.0"
     },
     "devDependencies": {
         "gulp": "^4.0.2",
