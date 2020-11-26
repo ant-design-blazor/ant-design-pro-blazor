@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AntDesign" Version="0.5.0-*" />
     <PackageReference Include="AntDesign.Charts" Version="0.2.0-*" />
     <PackageReference Include="AntDesign.Pro.Layout" Version="0.1.0-*" />
-    <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
   
   <PropertyGroup Condition=" '$(SolutionDir)'==''">
@@ -33,9 +33,4 @@
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm run gulp:pro" />
   </Target>
-
-  <ItemGroup>
-    <Watch Include="**\*.razor" />
-    <Watch Include="**\*.less" />
-  </ItemGroup>
 </Project>
