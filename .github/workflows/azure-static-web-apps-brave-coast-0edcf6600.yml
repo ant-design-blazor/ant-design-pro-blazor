@@ -27,9 +27,7 @@ jobs:
         run: |
             npm install
             echo "/* updated `date "+%Y-%m-%d %H:%M:%S"` */" >> ./src/AntDesign.Pro/wwwroot/service-worker.published.js
-            cd ./src/AntDesign.Pro/wwwroot
-            cp -rf gh-pages/* gh-pages/.nojekyll gh-pages/.spa ./
-            cd ../../../
+            cp -rf .github/deploy/azure-static-webapp/* ./src/AntDesign.Pro/wwwroot
             dotnet build ./AntDesign.Pro.sln
             dotnet publish ./src/AntDesign.Pro/AntDesign.Pro.csproj -c Release -o cargo
 
