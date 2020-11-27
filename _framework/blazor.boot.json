@@ -11,7 +11,7 @@
     "assembly": {
       "AntDesign.dll": "sha256-MntNn4LiB1UfZUFrIkyIcuKP5GmqCCZGzh21Zps6\/GA=",
       "AntDesign.Charts.dll": "sha256-sIRlsM0mV1Bmyr2+os63Cj6hgudQQOicQtLqScNq0HI=",
-      "AntDesign.Pro.Layout.dll": "sha256-5Ilz056RaMbCO71XQ7AkYJLn5sIrXwr0EqSiLJEa9BQ=",
+      "AntDesign.Pro.Layout.dll": "sha256-O3u4Wdn2\/YEghBeQ6s1d7OWj7KFZVvSwj2es+KlpDXM=",
       "Microsoft.AspNetCore.Components.dll": "sha256-r2OmBUMDR5tk9EnDwSOFSJqV4gciR\/V0jBCcRg5Iy6w=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll": "sha256-\/k13EIUR7d6F9916XDK2BP2y5B6ME5TNsxCPsWhSlIE=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-L2R\/n\/9HcMIKg3iCdtRMjPgbbaHupeQ6CkAImZ9dmmE=",
@@ -32,7 +32,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-E1ZVZc8ppcbuan9B4K4NDw+BijA0pjKkIIwlnGerx9g=",
       "OneOf.dll": "sha256-DlJFmOEiKlnRV6pAQEg5pxuFkKtlCRCoS9UGMk0VT9Y=",
       "System.IO.Pipelines.dll": "sha256-CETD5tkXtiKEgbXyN\/lp0Ejf6LcHIhgeQIEyow2mhmY=",
-      "AntDesign.Pro.Template.dll": "sha256-a83kOsL793CfwLBhAoybHl6NUemjStMYSOtKCPLsjzI=",
+      "AntDesign.Pro.Template.dll": "sha256-Z3NaHYG12m8uaA77BsXIgfZTm12uGCXh41hI6bagYyc=",
       "System.Collections.Concurrent.dll": "sha256-e6KnT0USDRBEKjCxhRyDeSAagIWszWdgvau5o9PW\/kc=",
       "System.Collections.Immutable.dll": "sha256-RdTMrYp1PXxf19\/JyuWG9ej94OwCfXDvoaK\/73ZWHKk=",
       "System.Collections.NonGeneric.dll": "sha256-8IO6PmMt1rS48xiTr92uM2MKLyB2urrceM5U\/R8kWM8=",
