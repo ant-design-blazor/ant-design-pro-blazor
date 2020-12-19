@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <Content Include=".template.config\**\*" Exclude="**\bin\**;**\obj\**" />
-    <Content Include="**\src\**\*" Exclude="**\bin\**;**\obj\**;**\src\AntDesign.Pro\wwwroot\gh-pages\*" />
+    <Content Include="**\src\**\*" Exclude="**\bin\**;**\obj\**" />
     <Compile Remove="**\*" />
   </ItemGroup>
 
