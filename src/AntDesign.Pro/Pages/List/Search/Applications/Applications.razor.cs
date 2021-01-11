@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using AntDesign.Pro.Template.Models;
 using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
-using AntDesign;
 
 namespace AntDesign.Pro.Template.Pages.List
 {
@@ -11,12 +10,17 @@ namespace AntDesign.Pro.Template.Pages.List
     {
         private readonly ListGridType _listGridType = new ListGridType
         {
-            Gutter = 24,
-            Column = 4
+            Gutter = 16,
+            Xs = 1,
+            Sm = 2,
+            Md = 3,
+            Lg = 3,
+            Xl = 4,
+            Xxl = 4,
         };
 
         private readonly ListFormModel _model = new ListFormModel();
-        private IList<string> _selectCategories = new List<string>();
+        private readonly IList<string> _selectCategories = new List<string>();
 
         private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
 
