@@ -49,7 +49,7 @@ An out-of-box UI solution for enterprise applications as a Blazor boilerplate.
 ## Usage
 ### Install Template
 ```bash
-dotnet new -i AntDesign.Templates::0.1.0-*
+dotnet new -i AntDesign.Templates::0.1.5-*
 ```
 
 ### Uninstall Template
