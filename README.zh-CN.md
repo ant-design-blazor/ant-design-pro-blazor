@@ -4,7 +4,7 @@
 
 <div align="center">
 
-开箱即用的中台前端/设计解决方案。
+开箱即用的中台前端/设计解决方案，Blazor 项目模板。
 
 ![](https://user-images.githubusercontent.com/8186664/44953195-581e3d80-aec4-11e8-8dcb-54b9db38ec11.png)
 
@@ -48,7 +48,7 @@
 ## 使用
 ### 安装模板
 ```bash
-dotnet new -i AntDesign.Templates::0.1.0-*
+dotnet new -i AntDesign.Templates::0.1.6-*
 ```
 
 ### 卸载模板
@@ -59,26 +59,26 @@ dotnet new -u AntDesign.Templates
 ### 新建项目
 ```bash
 # Create an empty wasm project
-dotnet new antdesign --host=wasm
+dotnet new antdesign --host wasm
 
 # Create wasm project with full pages
-dotnet new antdesign --host=wasm --full
+dotnet new antdesign --host wasm --full
 
 # Create an empty server-side project
-dotnet new antdesign --host=server
+dotnet new antdesign --host server
 
 # Create server-side project with full pages
-dotnet new antdesign --host=server --full
+dotnet new antdesign --host server --full
 
 # Create an empty hosted project
-dotnet new antdesign --host=hosted
+dotnet new antdesign --host hosted
 
 # Create hosted project with full pages
-dotnet new antdesign --host=hosted --full
+dotnet new antdesign --host hosted --full
 ```
 
 ### 覆盖项目
 ```bash
 ## You can override an existing project with the --force
-dotnet new antdesign --host=wasm --force
+dotnet new antdesign --host wasm --force
 ```
