@@ -46,12 +46,13 @@
 ```
 
 ## 使用
+
 ### 安装模板
 ```bash
-dotnet new -i AntDesign.Templates::0.1.6-*
+dotnet new -i AntDesign.Templates
 ```
 
-### 卸载模板
+### 如果已安装过，请先卸载模板
 ```bash
 dotnet new -u AntDesign.Templates
 ```
