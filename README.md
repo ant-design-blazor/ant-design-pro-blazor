@@ -47,12 +47,15 @@ An out-of-box UI solution for enterprise applications as a Blazor boilerplate.
 ```
 
 ## Usage
+
 ### Install Template
+
 ```bash
-dotnet new -i AntDesign.Templates::0.1.0-*
+dotnet new -i AntDesign.Templates
 ```
 
-### Uninstall Template
+### Uninstall template (If you have installed it)
+
 ```bash
 dotnet new -u AntDesign.Templates
 ```
@@ -60,26 +63,26 @@ dotnet new -u AntDesign.Templates
 ### Create New Project
 ```bash
 # Create an empty wasm project
-dotnet new antdesign --host=wasm
+dotnet new antdesign --host wasm
 
 # Create wasm project with full pages
-dotnet new antdesign --host=wasm --full
+dotnet new antdesign --host wasm --full
 
 # Create an empty server-side project
-dotnet new antdesign --host=server
+dotnet new antdesign --host server
 
 # Create server-side project with full pages
-dotnet new antdesign --host=server --full
+dotnet new antdesign --host server --full
 
 # Create an empty hosted project
-dotnet new antdesign --host=hosted
+dotnet new antdesign --host hosted
 
 # Create hosted project with full pages
-dotnet new antdesign --host=hosted --full
+dotnet new antdesign --host hosted --full
 ```
 
 ### Override Existing Project
 ```bash
 ## You can override an existing project with the --force
-dotnet new antdesign --host=wasm --force
+dotnet new antdesign --host wasm --force
 ```
