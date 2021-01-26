@@ -1,16 +1,14 @@
 ﻿@namespace AntDesign.Pro.Template.Pages.Account.Center
 
-<AntList 
-    TItem="ListItemDataType"
-    Class="filterCardList"
-    Grid="_listGridType"
-    DataSource="List">
+<AntList TItem="ListItemDataType"
+         Class="filterCardList"
+         Grid="_listGridType"
+         DataSource="List">
     <ListItem NoFlex Grid="_listGridType">
-        <Card
-            Bordered
-            Hoverable
-            BodyStyle="padding-bottom: 20px;"
-            Actions="Actions">
+        <Card Bordered
+              Hoverable
+              BodyStyle="padding-bottom: 20px;"
+              Actions="Actions">
             <CardMeta>
                 <AvatarTemplate>
                     <Avatar Size="small" Src="@context.Avatar" />
@@ -35,16 +33,25 @@
 
 @code
 {
-    private static readonly RenderFragment Download = @<Tooltip Title="@("下载")">
-                                                           <Icon Type="download" Theme="outline"/>
-                                                       </Tooltip>;
+
+    private static RenderFragment<(ForwardRef refBack, string type)> _icon => (data) =>@<Icon RefBack="@data.refBack" Type="@data.type" Theme="outline" />;
+
+    private static RenderFragment<(string tooltipTitle, RenderFragment<(ForwardRef, string)> icon, string iconType)> _tooltipTemplate => (data) => __builder =>
+    {
+        __builder.OpenComponent<AntDesign.Tooltip>(0);
+        __builder.AddAttribute(1, "Title",
+            Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<OneOf.OneOf<System.String, RenderFragment, MarkupString>>(data.tooltipTitle));
+        __builder.AddAttribute(2, "Unbound", (RenderFragment<ForwardRef>)((context) =>
+            data.icon((context, data.iconType)) ));
+            __builder.CloseComponent();
+    };
 
     private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
     {
-        Download,
-        @<Tooltip Title="@("编辑")"><Icon Type="edit" Theme="outline"/></Tooltip>,
-        @<Tooltip Title="@("分享")"><Icon Type="share-alt" Theme="outline"/></Tooltip>,
-        @<Dropdown><Icon Type="ellipsis" Theme="outline"/></Dropdown>
+        _tooltipTemplate(("下载", _icon , "download")),
+        _tooltipTemplate(("编辑", _icon , "edit")),
+        _tooltipTemplate(("分享", _icon , "share-alt")),
+        @<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>        
     };
 
     private static RenderFragment FormatWan(int val)
@@ -55,8 +62,8 @@
         }
 
         return @<span>
-                   @val
-                   <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
-               </span>;
-    }
+            @val
+            <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
+        </span>;
+ }
 }

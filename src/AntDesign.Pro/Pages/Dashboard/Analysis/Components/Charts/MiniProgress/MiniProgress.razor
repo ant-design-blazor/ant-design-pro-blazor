@@ -2,12 +2,14 @@
 @inherits AntDomComponentBase
 
 <div class="miniProgress">
-    <Tooltip Title="TargetLabel">
-        <div class="target" style="left: @(Target.HasValue ? $"{Target}%" : "")">
-            <span style="background-color: @Color" />
-            <span style="background-color: @Color" />
-        </div>
-    </Tooltip>
+    <AntDesign.Tooltip Title="@("TargetLabel")">
+        <Unbound>
+            <div @ref="@context.Current" class="target" style="left: @(Target.HasValue ? $"{Target}%" : "")">
+                <span style="background-color: @Color" />
+                <span style="background-color: @Color" />
+            </div>
+        </Unbound>
+    </AntDesign.Tooltip>
     <div class="progressWrap">
         <div class="progress"
              style="
