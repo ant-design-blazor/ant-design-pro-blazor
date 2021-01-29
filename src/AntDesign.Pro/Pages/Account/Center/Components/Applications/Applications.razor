@@ -34,34 +34,26 @@
 @code
 {
 
-    private static RenderFragment<(ForwardRef refBack, string type)> _icon => (data) =>@<Icon RefBack="@data.refBack" Type="@data.type" Theme="outline" />;
-
-    private static RenderFragment<(string tooltipTitle, RenderFragment<(ForwardRef, string)> icon, string iconType)> _tooltipTemplate => (data) => __builder =>
-    {
-        __builder.OpenComponent<AntDesign.Tooltip>(0);
-        __builder.AddAttribute(1, "Title",
-            Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<OneOf.OneOf<System.String, RenderFragment, MarkupString>>(data.tooltipTitle));
-        __builder.AddAttribute(2, "Unbound", (RenderFragment<ForwardRef>)((context) =>
-            data.icon((context, data.iconType)) ));
-            __builder.CloseComponent();
-    };
+    private static readonly RenderFragment Download =@<AntDesign.Tooltip Title="@("下载")">
+        <Icon Type="download" Theme="outline" />
+    </AntDesign.Tooltip>;
 
     private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
     {
-        _tooltipTemplate(("下载", _icon , "download")),
-        _tooltipTemplate(("编辑", _icon , "edit")),
-        _tooltipTemplate(("分享", _icon , "share-alt")),
-        @<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>        
+        Download,
+        @<AntDesign.Tooltip Title="@("编辑")"><Icon Type="edit" Theme="outline" /></AntDesign.Tooltip>,
+        @<AntDesign.Tooltip Title="@("分享")"><Icon Type="share-alt" Theme="outline" /></AntDesign.Tooltip>,
+        @<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>
     };
 
-    private static RenderFragment FormatWan(int val)
-    {
-        if (val > 10000)
+        private static RenderFragment FormatWan(int val)
         {
-            val = (int)Math.Floor((double)val / 10000);
-        }
+            if (val > 10000)
+            {
+                val = (int)Math.Floor((double)val / 10000);
+            }
 
-        return @<span>
+            return @<span>
             @val
             <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
         </span>;
