@@ -9,11 +9,13 @@
                       Options="DefaultOptions" />
     </SpaceItem>
     <SpaceItem>
-        <Tooltip Title="@("Help")" Placement="@PlacementType.Bottom">
-            <span class="action">
-                <Icon Type="question-circle" Theme="outline" />
-            </span>
-        </Tooltip>
+        <AntDesign.Tooltip Title="@("Help")" Placement="@PlacementType.Bottom">
+            <Unbound>
+                <span @ref="@context.Current" class="action">
+                    <Icon Type="question-circle" Theme="outline" />
+                </span>
+            </Unbound>
+        </AntDesign.Tooltip>
     </SpaceItem>
     <SpaceItem>
         <NoticeIcon ClearText="清空"

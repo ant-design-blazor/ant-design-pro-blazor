@@ -4,9 +4,8 @@
 
 <div class="filterCardList">
     <Card>
-        <Form 
-            Model="_model"
-            Layout="inline">
+        <Form Model="_model"
+              Layout="inline">
             <StandardFormRow Title="所属类目" Block Style="padding-bottom: 11px">
                 <FormItem>
                     <TagSelect Expandable Value="_selectCategories">
@@ -29,29 +28,27 @@
                 <Row Gutter="16">
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="作者">
-                            <Select 
-                                TItem="string"
-                                TItemValue="string"
-                                Placeholder="不限" 
-                                Style="max-width: 200px; width: 100%;" 
-                                @bind-Value="_model.ActiveUser">
+                            <Select TItem="string"
+                                    TItemValue="string"
+                                    Placeholder="不限"
+                                    Style="max-width: 200px; width: 100%;"
+                                    @bind-Value="_model.ActiveUser">
                                 <SelectOptions>
-                                    <SelectOption TItem="string" TItemValue="string" Value="@("lisa")" Label="王昭君"/>
+                                    <SelectOption TItem="string" TItemValue="string" Value="@("lisa")" Label="王昭君" />
                                 </SelectOptions>
                             </Select>
                         </FormItem>
                     </AntDesign.Col>
                     <AntDesign.Col Lg="8" Md="10" Sm="10" Xs="24">
                         <FormItem Label="好评度">
-                            <Select
-                                TItem="string"
-                                TItemValue="string"
-                                Placeholder="不限"
-                                Style="max-width: 200px; width: 100%;"
-                                @bind-Value="_model.Satisfaction">
+                            <Select TItem="string"
+                                    TItemValue="string"
+                                    Placeholder="不限"
+                                    Style="max-width: 200px; width: 100%;"
+                                    @bind-Value="_model.Satisfaction">
                                 <SelectOptions>
-                                    <SelectOption TItem="string" TItemValue="string" Value="@("good")" Label="优秀"/>
-                                    <SelectOption TItem="string" TItemValue="string" Value="@("normal")" Label="普通"/>
+                                    <SelectOption TItem="string" TItemValue="string" Value="@("good")" Label="优秀" />
+                                    <SelectOption TItem="string" TItemValue="string" Value="@("normal")" Label="普通" />
                                 </SelectOptions>
                             </Select>
                         </FormItem>
@@ -61,21 +58,19 @@
         </Form>
     </Card>
     <br />
-    <AntList
-        TItem="ListItemDataType"
-        Grid="_listGridType"
-        DataSource="_fakeList">
+    <AntList TItem="ListItemDataType"
+             Grid="_listGridType"
+             DataSource="_fakeList">
         <ListItem NoFlex Grid="_listGridType">
-            <Card 
-                Hoverable
-                BodyStyle="padding-bottom: 20px;"
-                Actions="Actions">
+            <Card Hoverable
+                  BodyStyle="padding-bottom: 20px;"
+                  Actions="Actions">
                 <CardMeta>
                     <TitleTemplate>
                         @context.Title
                     </TitleTemplate>
                     <AvatarTemplate>
-                        <Avatar Size="small" Src="@context.Avatar"/>
+                        <Avatar Size="small" Src="@context.Avatar" />
                     </AvatarTemplate>
                 </CardMeta>
                 <div class="cardItemContent">
@@ -97,28 +92,28 @@
 
 @code
 {
-    private static readonly RenderFragment Download = @<Tooltip Title="@("下载")">
-                                                          <Icon Type="download" Theme="outline"/>
-                                                      </Tooltip>;
+    private static readonly RenderFragment Download =@<AntDesign.Tooltip Title="@("下载")">
+        <Icon Type="download" Theme="outline" />
+    </AntDesign.Tooltip>;
 
-    private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
-    {
+private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
+{
         Download,
-        @<Tooltip Title="@("编辑")"><Icon Type="edit" Theme="outline"/></Tooltip>,
-        @<Tooltip Title="@("分享")"><Icon Type="share-alt" Theme="outline"/></Tooltip>,
-        @<Dropdown><Icon Type="ellipsis" Theme="outline"/></Dropdown>
+@<AntDesign.Tooltip Title="@("编辑")"><Icon Type="edit" Theme="outline" /></AntDesign.Tooltip>,
+@<AntDesign.Tooltip Title="@("分享")"><Icon Type="share-alt" Theme="outline" /></AntDesign.Tooltip>,
+@<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>
     };
 
-    private static RenderFragment FormatWan(int val)
-    {
-        if (val > 10000)
+        private static RenderFragment FormatWan(int val)
         {
-            val = (int)Math.Floor((double)val / 10000);
-        }
+            if (val > 10000)
+            {
+                val = (int)Math.Floor((double)val / 10000);
+            }
 
-        return @<span>
-                   @val
-                   <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
-               </span>;
-    }
+            return @<span>
+            @val
+            <span style="position: relative; top: -2px; font-size: 14px; font-style: normal; margin-left: 2px;">万</span>
+        </span>;
+}
 }
