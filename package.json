@@ -21,8 +21,8 @@
         "gulp-rename": "^2.0.0",
         "gulp-sourcemaps": "^2.6.5",
         "gulp-uglify": "^3.0.2",
-        "less-plugin-npm-import": "^2.1.0",
         "husky": "^4.2.3",
+        "less-plugin-npm-import": "^2.1.0",
         "vinyl-buffer": "^1.0.1",
         "vinyl-source-stream": "^2.0.0"
     }
