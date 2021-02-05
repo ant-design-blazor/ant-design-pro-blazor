@@ -9,7 +9,9 @@ gulp.task('less', function () {
   return gulp
     .src([
       '**/*.less',
-      '!node_modules/**'
+      '!node_modules/**',
+      '!**/bin/**',
+      '!**/obj/**'
     ])
     .pipe(less({
       javascriptEnabled: true,
