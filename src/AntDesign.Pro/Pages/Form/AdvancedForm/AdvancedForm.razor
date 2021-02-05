@@ -1,5 +1,6 @@
 ﻿@namespace AntDesign.Pro.Template.Pages.Form
 @page "/form/advanced-form"
+@using OneOf
 
 <Form 
     Layout="@FormLayout.Vertical"
@@ -8,13 +9,17 @@
         <Content>高级表单常见于一次性输入和提交大批量数据的场景。</Content>
         <ChildContent>
             <Card Title="@("仓库管理")" Class="card">
-                <Row Gutter="24">
-                    <AntDesign.Col Span="8">
+                <Row Gutter="16">
+                    <AntDesign.Col Lg="6" Md="12" Sm="24">
                         <FormItem Label="仓库名">
                             <Input Placeholder="请输入仓库名称" @bind-Value="@context.Name" />
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col 
+                        Xl="new EmbeddedProperty{Span = 6, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 8}"
+                        Md="new EmbeddedProperty{Span = 12}"
+                        Sm="24">
                         <FormItem Label="仓库域名">
                             <AntDesign.Input Style="width: 100%" Placeholder="请输入" @bind-Value="@context.Url">
                                 <AddOnBefore>http://</AddOnBefore>
@@ -22,7 +27,11 @@
                             </AntDesign.Input>
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col
+                        Xl="new EmbeddedProperty{Span = 8, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 10}"
+                        Md="new EmbeddedProperty{Span = 24}"
+                        Sm="24">
                         <FormItem Label="仓库管理员">
                             <Select
                                 TItem="string"
@@ -37,8 +46,8 @@
                         </FormItem>
                     </AntDesign.Col>
                 </Row>
-                <Row Gutter="24">
-                    <AntDesign.Col Span="8">
+                <Row Gutter="16">
+                    <AntDesign.Col Lg="6" Md="12" Sm="24">
                         <FormItem Label="审批人">
                             <Select 
                                 TItem="string"
@@ -52,12 +61,20 @@
                             </Select>
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col 
+                        Xl="new EmbeddedProperty{Span = 6, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 8}"
+                        Md="new EmbeddedProperty{Span = 12}"
+                        Sm="24">
                         <FormItem Label="生效日期">
                             <RangePicker Placeholder="@(new [] {"开始日期", "结束日期"})" Style="width: 100%" @bind-Value="@context.DateRange" />
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col
+                        Xl="new EmbeddedProperty{Span = 8, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 10}"
+                        Md="new EmbeddedProperty{Span = 24}"
+                        Sm="24">
                         <FormItem Label="仓库类型">
                             <Select
                                 TItem="string"
@@ -75,18 +92,26 @@
             </Card>
 
             <Card Title="@("任务管理")">
-                <Row Gutter="24">
-                    <AntDesign.Col Span="8">
+                <Row Gutter="16">
+                    <AntDesign.Col Lg="6" Md="12" Sm="24">
                         <FormItem Label="任务名">
                             <Input Placeholder="请输入" @bind-Value="@context.Name2" />
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col
+                        Xl="new EmbeddedProperty{Span = 6, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 8}"
+                        Md="new EmbeddedProperty{Span = 12}"
+                        Sm="24">
                         <FormItem Label="任务描述">
                             <Input Placeholder="请输入" @bind-Value="@context.Url2" />
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col
+                        Xl="new EmbeddedProperty{Span = 8, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 10}"
+                        Md="new EmbeddedProperty{Span = 24}"
+                        Sm="24">
                         <FormItem Label="执行人">
                             <Select
                                 TItem="string"
@@ -101,8 +126,8 @@
                         </FormItem>
                     </AntDesign.Col>
                 </Row>
-                <Row Gutter="24">
-                    <AntDesign.Col Span="8">
+                <Row Gutter="16">
+                    <AntDesign.Col Lg="6" Md="12" Sm="24">
                         <FormItem Label="责任人">
                             <Select 
                                 TItem="string"
@@ -116,12 +141,20 @@
                             </Select>
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col 
+                        Xl="new EmbeddedProperty{Span = 6, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 8}"
+                        Md="new EmbeddedProperty{Span = 12}"
+                        Sm="24">
                         <FormItem Label="生效日期">
                             <TimePicker Placeholder="@("提醒时间")" Style="width: 100%" @bind-Value="@context.DateRange2" />
                         </FormItem>
                     </AntDesign.Col>
-                    <AntDesign.Col Span="8">
+                    <AntDesign.Col 
+                        Xl="new EmbeddedProperty{Span = 8, Offset = 2}" 
+                        Lg="new EmbeddedProperty{Span = 10}"
+                        Md="new EmbeddedProperty{Span = 24}"
+                        Sm="24">
                         <FormItem Label="任务类型">
                             <Select 
                                 TItem="string"

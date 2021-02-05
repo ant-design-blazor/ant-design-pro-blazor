@@ -21,8 +21,8 @@
     <FormItem Label="支付密码">
         <Input Type="password" Style="width: 80%" @bind-Value="@context.Password" />
     </FormItem>
-    <FormItem>
+    <FormItem Style="margin-bottom: 8px;" WrapperCol="_formLayout.WrapperCol">
         <Button Type="primary" OnClick="OnValidateForm">提交</Button>
-        <Button OnClick="Preview">上一步</Button>
+        <Button OnClick="Preview" Style="margin-left: 8px;">上一步</Button>
     </FormItem>
 </Form>
