@@ -10,18 +10,17 @@
         </Breadcrumb>
     </Breadcrumb>
     <Content>
-        <span>将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</span>
+        <span>Divide a lengthy or unfamiliar form task into multiple steps to guide users through.</span>
     </Content>
     <ChildContent>
         <Card>
             <Steps Current="@_current" Class="steps">
-                <Step Title="@("填写转账信息")" />
-                <Step Title="@("确认转账信息")" />
-                <Step Title="@("完成")" />
+                <Step Title="@("Fill in the transfer information")" />
+                <Step Title="@("Confirm transfer information")" />
+                <Step Title="@("Proceed")" />
             </Steps>
             <CascadingValue Value="this">
-                @switch (_current)
-                {
+                @switch (_current) {
                     case 0:
                         <Step1 />
                         break;

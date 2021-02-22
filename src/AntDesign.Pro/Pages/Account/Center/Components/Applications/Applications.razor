@@ -18,11 +18,11 @@
             <div class="cardItemContent">
                 <div class="cardInfo">
                     <div>
-                        <p>活跃用户</p>
+                        <p>Active User</p>
                         <p>@FormatWan(context.ActiveUser)</p>
                     </div>
                     <div>
-                        <p>新增用户</p>
+                        <p>New Users</p>
                         <p>@context.NewUser.ToString("0,0")</p>
                     </div>
                 </div>
@@ -35,22 +35,20 @@
 {
 
     private static readonly RenderFragment Download =@<AntDesign.Tooltip Title="@("下载")">
-        <Icon Type="download" Theme="outline" />
-    </AntDesign.Tooltip>;
+    <Icon Type="download" Theme="outline" />
+</AntDesign.Tooltip>;
 
-    private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
-    {
+private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
+{
         Download,
-        @<AntDesign.Tooltip Title="@("编辑")"><Icon Type="edit" Theme="outline" /></AntDesign.Tooltip>,
-        @<AntDesign.Tooltip Title="@("分享")"><Icon Type="share-alt" Theme="outline" /></AntDesign.Tooltip>,
-        @<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>
+@<AntDesign.Tooltip Title="@("Edit")"><Icon Type="edit" Theme="outline" /></AntDesign.Tooltip>,
+@<AntDesign.Tooltip Title="@("Share")"><Icon Type="share-alt" Theme="outline" /></AntDesign.Tooltip>,
+@<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>
     };
 
-        private static RenderFragment FormatWan(int val)
-        {
-            if (val > 10000)
-            {
-                val = (int)Math.Floor((double)val / 10000);
+        private static RenderFragment FormatWan(int val) {
+            if (val > 10000) {
+                val = (int) Math.Floor((double) val / 10000);
             }
 
             return @<span>
