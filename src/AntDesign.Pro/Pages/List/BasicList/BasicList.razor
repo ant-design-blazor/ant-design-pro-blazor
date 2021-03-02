@@ -15,43 +15,42 @@
                 <Card>
                     <Row Gutter="24">
                         <AntDesign.Col Sm="8" Xs="24">
-                            @Info("我的待办", "8个任务", true)
+                            @Info("My to do", "8 tasks", true)
                         </AntDesign.Col>
                         <AntDesign.Col Sm="8" Xs="24">
-                            @Info("本周任务平均处理时间", "32分钟", true)
+                            @Info("Average task processing time this week", "32 minutes", true)
                         </AntDesign.Col>
                         <AntDesign.Col Sm="8" Xs="24">
-                            @Info("本周完成任务数", "24个任务")
+                            @Info("Number of tasks completed this week", "24 tasks")
                         </AntDesign.Col>
                     </Row>
                 </Card>
 
                 <Card Class="listCard"
-                      Title="基本列表"
+                      Title="Basic list"
                       Style="margin-top: 24px;"
                       BodyStyle="padding: 0 32px 40px 32px">
                     <Extra>
                         <div class="extraContent">
                             <RadioGroup @bind-Value="_model.Status">
-                                <Radio RadioButton Value="@("all")">全部</Radio>
-                                <Radio RadioButton Value="@("progress")">进行中</Radio>
-                                <Radio RadioButton Value="@("waiting")">等待中</Radio>
+                                <Radio RadioButton Value="@("all")">All</Radio>
+                                <Radio RadioButton Value="@("progress")">Processing</Radio>
+                                <Radio RadioButton Value="@("waiting")">Waiting</Radio>
                             </RadioGroup>
-                            <Search Class="extraContentSearch" Placeholder="请输入" @bind-Value="_model.SearchKeyword" />
+                            <Search Class="extraContentSearch" Placeholder="Please Enter" @bind-Value="_model.SearchKeyword" />
                         </div>
                     </Extra>
                     <ChildContent>
                         <Button Type="dashed"
                                 Style="width: 100%; margin-bottom: 8px;"
                                 OnClick="ShowModal">
-                            <Icon Type="plus" Theme="outline"/>
-                            添加
+                            <Icon Type="plus" Theme="outline" />
+                            Add
                         </Button>
 
-                        <AntList 
-                            TItem="ListItemDataType" 
-                            DataSource="_data" 
-                            ItemLayout="ListItemLayout.Horizontal">
+                        <AntList TItem="ListItemDataType"
+                                 DataSource="_data"
+                                 ItemLayout="ListItemLayout.Horizontal">
                             <ListItem Actions="_actions">
                                 <ListItemMeta Avatar="@context.Avatar" Description="@context.SubDescription">
                                     <TitleTemplate>
@@ -64,15 +63,14 @@
                                         <p>@context.Owner</p>
                                     </div>
                                     <div class="listContentItem">
-                                        <span>开始时间</span>
+                                        <span>Starting time</span>
                                         <p>@context.CreatedAt.ToString("yyyy-MM-dd HH:mm")</p>
                                     </div>
                                     <div class="listContentItem">
-                                        <AntDesign.Progress 
-                                            Percent="@context.Percent" 
-                                            Status="@_pStatus[context.Status]" 
-                                            StrokeWidth="6" 
-                                            Style="width: 180px;"/>
+                                        <AntDesign.Progress Percent="@context.Percent"
+                                                            Status="@_pStatus[context.Status]"
+                                                            StrokeWidth="6"
+                                                            Style="width: 180px;" />
                                     </div>
                                 </div>
                             </ListItem>
@@ -87,23 +85,21 @@
 @code
 {
     private static readonly RenderFragment Edit = @<a key="edit">
-                                                      编辑
-                                                   </a>;
+    Edit
+</a>;
 
-    private readonly RenderFragment[] _actions =
-    {
+private readonly RenderFragment[] _actions =
+{
         Edit
-    }; 
+    };
 
-    private RenderFragment Info(string title, string value, bool bordered = false)
-    {
-        return @<div class="headerInfo">
-                   <span>@title</span>
-                   <p>@value</p>
-                   @if (bordered)
-                   {
-                       <em/>
-                   }
-               </div>;
+private RenderFragment Info(string title, string value, bool bordered = false) {
+return @<div class="headerInfo">
+    <span>@title</span>
+    <p>@value</p>
+    @if (bordered) {
+        <em />
     }
+</div>;
+}
 }

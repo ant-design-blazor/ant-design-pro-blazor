@@ -4,34 +4,30 @@ using AntDesign.Pro.Template.Models;
 using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Template.Pages.List
-{
-    public partial class Articles
-    {
-        private readonly string[] _defaultOwners = {"wzj", "wjh"};
-        private readonly ListFormModel _model = new ListFormModel();
+namespace AntDesign.Pro.Template.Pages.List {
+  public partial class Articles {
+    private readonly string[] _defaultOwners = {"wzj", "wjh"};
+    private readonly ListFormModel _model = new ListFormModel();
 
-        private readonly Owner[] _owners =
+    private readonly Owner[] _owners =
         {
-            new Owner {Id = "wzj", Name = "我自己"},
-            new Owner {Id = "wjh", Name = "吴家豪"},
-            new Owner {Id = "zxx", Name = "周星星"},
-            new Owner {Id = "zly", Name = "赵丽颖"},
-            new Owner {Id = "ym", Name = "姚明"}
+            new Owner {Id = "wzj", Name = "Myself"},
+            new Owner {Id = "wjh", Name = "Wu Jiahao"},
+            new Owner {Id = "zxx", Name = "Zhou Xingxing"},
+            new Owner {Id = "zly", Name = "Zhao Liying"},
+            new Owner {Id = "ym", Name = "Yao Ming"}
         };
 
-        private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
+    private IList<ListItemDataType> _fakeList = new List<ListItemDataType>();
 
-        [Inject] public IProjectService ProjectService { get; set; }
+    [Inject] public IProjectService ProjectService { get; set; }
 
-        private void SetOwner()
-        {
-        }
-
-        protected override async Task OnInitializedAsync()
-        {
-            await base.OnInitializedAsync();
-            _fakeList = await ProjectService.GetFakeListAsync(8);
-        }
+    private void SetOwner() {
     }
+
+    protected override async Task OnInitializedAsync() {
+      await base.OnInitializedAsync();
+      _fakeList = await ProjectService.GetFakeListAsync(8);
+    }
+  }
 }

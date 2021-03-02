@@ -8,9 +8,9 @@ namespace AntDesign.Pro.Template.Pages.List
     {
         private readonly IList<TabPaneItem> _tabList = new List<TabPaneItem>
         {
-            new TabPaneItem {Key = "articles", Tab = "文章"},
-            new TabPaneItem {Key = "projects", Tab = "项目"},
-            new TabPaneItem {Key = "applications", Tab = "应用"}
+            new TabPaneItem {Key = "articles", Tab = "Articles"},
+            new TabPaneItem {Key = "projects", Tab = "Projects"},
+            new TabPaneItem {Key = "applications", Tab = "Applications"}
         };
 
         [Inject] protected NavigationManager NavigationManager { get; set; }

@@ -4,7 +4,7 @@
 <Space Class="@ClassMapper.Class">
     <SpaceItem>
         <HeaderSearch Class="action search"
-                      Placeholder="站内搜索"
+                      Placeholder="Site Search"
                       DefaultValue="umi ui"
                       Options="DefaultOptions" />
     </SpaceItem>
@@ -18,26 +18,26 @@
         </AntDesign.Tooltip>
     </SpaceItem>
     <SpaceItem>
-        <NoticeIcon ClearText="清空"
-                    ViewMoreText="查看更多"
+        <NoticeIcon ClearText="Empty"
+                    ViewMoreText="see more"
                     Count="_count"
                     OnClear="HandleClear"
                     OnViewMore="HandleViewMore">
             <NoticeList TabKey="notification"
-                        Title="通知"
-                        EmptyText="你已查看所有通知"
+                        Title="Notifications"
+                        EmptyText="You have viewed all notifications"
                         ShowViewMore
-                        Data="_notifications"/>
+                        Data="_notifications" />
             <NoticeList TabKey="message"
-                        Title="消息"
-                        EmptyText="您已读完所有消息"
+                        Title="Messages"
+                        EmptyText="You have read all messages"
                         ShowViewMore
-                        Data="_messages"/>
+                        Data="_messages" />
             <NoticeList TabKey="event"
-                        Title="待办"
-                        EmptyText="你已完成所有待办"
+                        Title="Upcoming"
+                        EmptyText="You have completed all to do"
                         ShowViewMore
-                        Data="_events"/>
+                        Data="_events" />
         </NoticeIcon>
     </SpaceItem>
     <SpaceItem>

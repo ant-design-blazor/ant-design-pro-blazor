@@ -31,23 +31,19 @@
                 <Divider Dashed />
 
                 <div class="tags">
-                    <div class="tagsTitle">标签</div>
-                    @foreach (var tag in _currentUser.Tags)
-                    {
+                    <div class="tagsTitle">Tags</div>
+                    @foreach (var tag in _currentUser.Tags) {
                         <Tag>@tag.Label</Tag>
                     }
-                    
-                    @if (_inputVisible)
-                    {
-                        <AntDesign.Input
-                            Type="text"
-                            Size="small"
-                            Style="width: 78px"
-                            @bind-Value="InputValue"
-                            OnBlur="HandleInputConfirm"/>
+
+                    @if (_inputVisible) {
+                        <AntDesign.Input Type="text"
+                                         Size="small"
+                                         Style="width: 78px"
+                                         @bind-Value="InputValue"
+                                         OnBlur="HandleInputConfirm" />
                     }
-                    else
-                    {
+                    else {
                         <Tag OnClick="ShowInput" Style="border-style: dashed">
                             <Icon Type="plus" Theme="outline" />
                         </Tag>
@@ -55,9 +51,9 @@
                 </div>
 
                 <Divider Dashed Style="margin-top: 16px;" />
-                
+
                 <div class="team">
-                    <div class="teamTitle">团队</div>
+                    <div class="teamTitle">Team</div>
                     <!--todo: add notice-->
                 </div>
             </Card>
@@ -67,21 +63,21 @@
                 <CardTabs>
                     <Tabs DefaultActiveKey="1">
                         <TabPane Key="1">
-                            <Tab>文章 (@_fakeList.Count)</Tab>
+                            <Tab>Articles (@_fakeList.Count)</Tab>
                             <ChildContent>
-                                <Articles List="_fakeList"/>
+                                <Articles List="_fakeList" />
                             </ChildContent>
                         </TabPane>
                         <TabPane Key="2">
-                            <Tab>应用 (@_fakeList.Count)</Tab>
+                            <Tab>Applications (@_fakeList.Count)</Tab>
                             <ChildContent>
-                                <Applications List="_fakeList"/>
+                                <Applications List="_fakeList" />
                             </ChildContent>
                         </TabPane>
                         <TabPane Key="3">
-                            <Tab>项目 (@_fakeList.Count)</Tab>
+                            <Tab>Projects (@_fakeList.Count)</Tab>
                             <ChildContent>
-                                <Projects List="_fakeList"/>
+                                <Projects List="_fakeList" />
                             </ChildContent>
                         </TabPane>
                     </Tabs>
