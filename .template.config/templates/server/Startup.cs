@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AntDesign.Pro.Layout;
+using AntDesign.ProLayout;
 //#if (full)
 using AntDesign.Pro.Template.Services;
 //#endif
@@ -33,18 +33,18 @@ namespace AntDesign.Pro.Template
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddAntDesign();
-			services.AddScoped(sp => new HttpClient
+            services.AddScoped(sp => new HttpClient
             {
                 BaseAddress = new Uri(sp.GetService<NavigationManager>().BaseUri)
             });
             services.Configure<ProSettings>(Configuration.GetSection("ProSettings"));
-//#if (full)
+            //#if (full)
             services.AddScoped<IChartService, ChartService>();
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IProfileService, ProfileService>();
-//#endif
+            //#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

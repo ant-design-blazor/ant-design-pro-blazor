@@ -1,4 +1,4 @@
-﻿using AntDesign.Pro.Layout;
+﻿using AntDesign.ProLayout;
 
 namespace AntDesign.Pro.Template.Models
 {
