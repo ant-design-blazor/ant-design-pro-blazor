@@ -1,7 +1,7 @@
 ﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
 
-<AntDesign.Pro.Layout.BasicLayout 
+<AntDesign.ProLayout.BasicLayout 
     Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
     MenuData="MenuData">
     <RightContentRender>
@@ -10,13 +10,13 @@
     <ChildContent>
         @Body
     </ChildContent>
-</AntDesign.Pro.Layout.BasicLayout>
+</AntDesign.ProLayout.BasicLayout>
 <SettingDrawer />
 
 @inject HttpClient HttpClient
 @code
 {
-    private MenuDataItem[] MenuData { get; set; } = {};
+    private MenuDataItem[] MenuData { get; set; } = { };
 
     protected override async Task OnInitializedAsync()
     {

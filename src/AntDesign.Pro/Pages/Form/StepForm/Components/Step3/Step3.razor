@@ -1,24 +1,23 @@
 ﻿@namespace AntDesign.Pro.Template.Pages.Form
 
-<Result 
-    Status="success"
-    Title="@("操作成功")"
-    SubTitle="@("预计两小时内到账")"
-    Class="result">
+<Result Status="success"
+        Title="@("Success!")"
+        SubTitle="@("Expected to arrive within two hours")"
+        Class="result">
     <Extra>
         <Button Type="primary" OnClick="OnFinish">
-            再转一笔
+            Make Aanother Transaction
         </Button>
-        <Button>查看账单</Button>
+        <Button>View Bill</Button>
     </Extra>
     <ChildContent>
         <div class="information">
             <Descriptions Column="1">
-                <DescriptionsItem Title="@("付款账户")"> @_model.PayAccount</DescriptionsItem>
-                <DescriptionsItem Title="@("收款账户")"> @_model.ReceiverAccount</DescriptionsItem>
-                <DescriptionsItem Title="@("收款人姓名")"> @_model.ReceiverName</DescriptionsItem>
-                <DescriptionsItem Title="@("转账金额")">
-                    <Statistic Value="_model.Amount" Suffix="@("元")" />
+                <DescriptionsItem Title="@("Account")"> @_model.PayAccount</DescriptionsItem>
+                <DescriptionsItem Title="@("Receipient")"> @_model.ReceiverAccount</DescriptionsItem>
+                <DescriptionsItem Title="@("Payee Name")"> @_model.ReceiverName</DescriptionsItem>
+                <DescriptionsItem Title="@("Amount")">
+                    <Statistic Value="_model.Amount" Suffix="@("Yuan")" />
                 </DescriptionsItem>
             </Descriptions>
         </div>

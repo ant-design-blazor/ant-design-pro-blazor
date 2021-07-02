@@ -6,23 +6,23 @@
       Class="stepForm"
       Model="@_model">
     <Alert Closable
-           ShowIcon
-           Message="确认转账后，资金将直接打入对方账户，无法退回。"
+           ShowIcon="true"
+           Message="After the transfer is confirmed, the funds will be directly credited to the other party's account and cannot be returned."
            Style="margin-bottom: 24px;" />
     <Descriptions Column="@(1)">
-        <DescriptionsItem Title="付款账户">@_model.PayAccount</DescriptionsItem>
-        <DescriptionsItem Title="收款账户">@_model.ReceiverAccount</DescriptionsItem>
-        <DescriptionsItem Title="收款人姓名">@_model.ReceiverName</DescriptionsItem>
-        <DescriptionsItem Title="转账金额">
-            <Statistic Value="@_model.Amount" Suffix="元" />
+        <DescriptionsItem Title="Account">@_model.PayAccount</DescriptionsItem>
+        <DescriptionsItem Title="Recipient">@_model.ReceiverAccount</DescriptionsItem>
+        <DescriptionsItem Title="Payee Name">@_model.ReceiverName</DescriptionsItem>
+        <DescriptionsItem Title="Amount">
+            <Statistic Value="@_model.Amount" Suffix="Yuan" />
         </DescriptionsItem>
     </Descriptions>
-    <Divider Style="margin: 24px 0"/>
-    <FormItem Label="支付密码">
+    <Divider Style="margin: 24px 0" />
+    <FormItem Label="Password">
         <Input Type="password" Style="width: 80%" @bind-Value="@context.Password" />
     </FormItem>
-    <FormItem>
-        <Button Type="primary" OnClick="OnValidateForm">提交</Button>
-        <Button OnClick="Preview">上一步</Button>
+    <FormItem Style="margin-bottom: 8px;" WrapperCol="_formLayout.WrapperCol">
+        <Button Type="primary" OnClick="OnValidateForm">Submit</Button>
+        <Button OnClick="Preview" Style="margin-left: 8px;">Previous Step</Button>
     </FormItem>
 </Form>

@@ -45,7 +45,4 @@
     <Watch Include="**\*.less" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="AntDesign.Pro.csproj.DotSettings" />
-  </ItemGroup>
 </Project>

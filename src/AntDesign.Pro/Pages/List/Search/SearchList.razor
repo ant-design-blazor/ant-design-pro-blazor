@@ -2,11 +2,10 @@
 @inherits LayoutComponentBase
 @layout AntDesign.Pro.Template.BasicLayout
 
-<PageContainer 
-    Title="Search"
-    TabList="_tabList"
-    OnTabChange="HandleTabChange"
-    TabActiveKey="@GetTabKey()">
+<PageContainer Title="Search"
+               TabList="_tabList"
+               OnTabChange="HandleTabChange"
+               TabActiveKey="@GetTabKey()">
     <Breadcrumb>
         <Breadcrumb>
             <BreadcrumbItem>Home</BreadcrumbItem>
@@ -16,8 +15,8 @@
     </Breadcrumb>
     <Content>
         <div style="text-align: center;">
-            <Search Placeholder="请输入"
-                    EnterButton="@("搜索")"
+            <Search Placeholder="Please Enter"
+                    EnterButton="@("Search For")"
                     Size="large"
                     Style="max-width: 522px; width: 100%;" />
         </div>

@@ -1,28 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AntDesign.Pro.Layout;
+using AntDesign.ProLayout;
 using AntDesign.Pro.Template.Models;
 using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Pro.Template.Pages.Profile
-{
-    public partial class Advanced
-    {
-        private readonly IList<TabPaneItem> _tabList = new List<TabPaneItem>
+namespace AntDesign.Pro.Template.Pages.Profile {
+  public partial class Advanced {
+    private readonly IList<TabPaneItem> _tabList = new List<TabPaneItem>
         {
-            new TabPaneItem {Key = "detail", Tab = "详情"},
-            new TabPaneItem {Key = "rules", Tab = "规则"}
+            new TabPaneItem {Key = "detail", Tab = "Details"},
+            new TabPaneItem {Key = "rules", Tab = "Rules"}
         };
 
-        private AdvancedProfileData _data = new AdvancedProfileData();
+    private AdvancedProfileData _data = new AdvancedProfileData();
 
-        [Inject] protected IProfileService ProfileService { get; set; }
+    [Inject] protected IProfileService ProfileService { get; set; }
 
-        protected override async Task OnInitializedAsync()
-        {
-            await base.OnInitializedAsync();
-            _data = await ProfileService.GetAdvancedAsync();
-        }
+    protected override async Task OnInitializedAsync() {
+      await base.OnInitializedAsync();
+      _data = await ProfileService.GetAdvancedAsync();
     }
+  }
 }

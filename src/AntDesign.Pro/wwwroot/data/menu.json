@@ -7,128 +7,128 @@
     "children": [
       {
         "path": "/",
-        "name": "分析页",
+        "name": "Analysis Page",
         "key": "dashboard.analysis"
       },
       {
         "path": "/dashboard/monitor",
-        "name": "监控页",
+        "name": "Monitoring Page",
         "key": "dashboard.monitor"
       },
       {
         "path": "/dashboard/workplace",
-        "name": "工作台",
+        "name": "Workbench",
         "key": "dashboard.workplace"
       }
     ]
   },
   {
     "path": "/form",
-    "name": "表单页",
+    "name": "Form page",
     "key": "form",
     "icon": "form",
     "children": [
       {
         "path": "/form/basic-form",
-        "name": "基础表单",
+        "name": "Basic Form",
         "key": "form.basic-form"
       },
       {
         "path": "/form/step-form",
-        "name": "分布表单",
+        "name": "Step Form",
         "key": "form.step-form"
       },
       {
         "path": "/form/advanced-form",
-        "name": "高级表单",
+        "name": "Advanced Form",
         "key": "form.advanced-form"
       }
     ]
   },
   {
     "path": "/list",
-    "name": "列表页",
+    "name": "List",
     "key": "list",
     "icon": "table",
     "children": [
       {
         "path": "/list/search",
-        "name": "搜索列表",
+        "name": "Search List",
         "key": "list.search",
         "children": [
           {
             "path": "/list/search/articles",
-            "name": "搜索列表（文章）",
+            "name": "Search List (Article)",
             "key": "list.search.articles"
           },
           {
             "path": "/list/search/projects",
-            "name": "搜索列表（项目）",
+            "name": "Search List (Items)",
             "key": "list.search.projects"
           },
           {
             "path": "/list/search/applications",
-            "name": "搜索列表（应用）",
+            "name": "Search List (Application)",
             "key": "list.search.applications"
           }
-        ] 
+        ]
       },
       {
         "path": "/list/table-list",
-        "name": "查询表格",
+        "name": "Inquiry Form",
         "key": "list.table-list"
       },
       {
         "path": "/list/basic-list",
-        "name": "标准列表",
+        "name": "Basic List",
         "key": "list.basic-list"
       },
       {
         "path": "/list/card-list",
-        "name": "卡片列表",
+        "name": "Card List",
         "key": "list.card-list"
       }
     ]
   },
   {
     "path": "/profile",
-    "name": "详情页",
+    "name": "Profile",
     "key": "profile",
     "icon": "profile",
     "children": [
       {
         "path": "/profile/basic",
-        "name": "基础详情页",
+        "name": "Basic Profile",
         "key": "profile.basic"
       },
       {
         "path": "/profile/advanced",
-        "name": "高级详情页",
+        "name": "Advanced Profile",
         "key": "profile.advanced"
       }
     ]
   },
   {
     "path": "/result",
-    "name": "结果页",
+    "name": "Result Pages",
     "key": "result",
     "icon": "check-circle",
     "children": [
       {
         "path": "/result/success",
-        "name": "成功页",
+        "name": "Success Page",
         "key": "result.success"
       },
       {
         "path": "/result/fail",
-        "name": "失败页",
+        "name": "Failed page",
         "key": "result.fail"
       }
     ]
   },
   {
     "path": "/exception",
-    "name": "异常页",
+    "name": "Error Pages",
     "key": "exception",
     "icon": "exception",
     "children": [
@@ -151,18 +151,18 @@
   },
   {
     "path": "/account",
-    "name": "个人页",
+    "name": "Account",
     "key": "account",
     "icon": "user",
     "children": [
       {
         "path": "/account/center",
-        "name": "个人中心",
+        "name": "Account Center",
         "key": "account.center"
       },
       {
         "path": "/account/settings",
-        "name": "个人设置",
+        "name": "Personal settings",
         "key": "account.settings"
       }
     ]

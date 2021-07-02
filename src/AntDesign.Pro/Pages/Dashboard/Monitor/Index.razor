@@ -3,20 +3,20 @@
 
 <GridContent>
     <Row Gutter="24">
-        <AntDesign.Col Span="18" Style="margin-bottom: 24px;">
+        <AntDesign.Col Xl="18" Lg="24" Md="24" Sm="24" Xs="24" Style="margin-bottom: 24px;">
             <Card>
                 <Row>
-                    <AntDesign.Col Span="6">
-                        <Statistic Title="@("Total transactions today")" Value="124543233" Suffix="@("元")" />
+                    <AntDesign.Col Md="6" Sm="12" Xs="24">
+                        <Statistic Title="@("Total transactions today")" Value="124543233" Suffix="@("yuan")" />
                     </AntDesign.Col>
-                    <AntDesign.Col Span="6">
+                    <AntDesign.Col Md="6" Sm="12" Xs="24">
                         <Statistic Title="@("Sales target completion rate")" Value="92" Suffix="@("%")" />
                     </AntDesign.Col>
-                    <AntDesign.Col Span="6">
+                    <AntDesign.Col Md="6" Sm="12" Xs="24">
                         <CountDown Title="@("Remaining time of activity")" Value="@_deadline" Format="hh:mm:ss:fff" />
                     </AntDesign.Col>
-                    <AntDesign.Col Span="6">
-                        <Statistic Title="@("Total transactions per second")" Value="234" Suffix="@("元")" />
+                    <AntDesign.Col Md="6" Sm="12" Xs="24">
+                        <Statistic Title="@("Total transactions per second")" Value="234" Suffix="@("yuan")" />
                     </AntDesign.Col>
                 </Row>
                 <div class="mapChart">
@@ -24,7 +24,7 @@
                 </div>
             </Card>
         </AntDesign.Col>
-        <AntDesign.Col Span="6" Style="margin-bottom: 24px;">
+        <AntDesign.Col Xl="6" Lg="24" Md="24" Sm="24" Xs="24" Style="margin-bottom: 24px;">
             <Card Title="@("Activity forecast")">
                 <ActiveChart />
             </Card>
@@ -35,7 +35,7 @@
     </Row>
 
     <Row Gutter="24">
-        <AntDesign.Col Span="12" Style="margin-bottom: 24px;">
+        <AntDesign.Col Xl="12" Lg="24" Sm="24" Xs="24" Style="margin-bottom: 24px;">
             <Card Title="@("Proportion Per Category")" Class="pieCard">
                 <Row Style="padding: 16px 0;">
                     <AntDesign.Col Span="8">
@@ -50,12 +50,12 @@
                 </Row>
             </Card>
         </AntDesign.Col>
-        <AntDesign.Col Span="6" Style="margin-bottom: 24px;">
+        <AntDesign.Col Xl="6" Lg="12" Sm="24" Xs="24" Style="margin-bottom: 24px;">
             <Card Title="@("Popular Searches")">
                 @* <TagCloud Data="Tags" Height="161" /> *@
             </Card>
         </AntDesign.Col>
-        <AntDesign.Col Span="6" Style="margin-bottom: 24px;">
+        <AntDesign.Col Xl="6" Lg="12" Sm="24" Xs="24" Style="margin-bottom: 24px;">
             <Card Title="@("Resource Surplus")">
                 @* <WaterWave Height="161" Title="Fund Surplus" Percent="34" /> *@
             </Card>
