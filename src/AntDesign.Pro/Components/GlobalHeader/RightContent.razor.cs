@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AntDesign.Pro.Template.Models;
+using AntDesign.Pro.Template.Services;
+using AntDesign.ProLayout;
+using Microsoft.AspNetCore.Components;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AntDesign.ProLayout;
-using AntDesign.Pro.Template.Models;
-using AntDesign.Pro.Template.Services;
-using Microsoft.AspNetCore.Components;
-using AntDesign;
 
 namespace AntDesign.Pro.Template.Components
 {
@@ -34,6 +33,14 @@ namespace AntDesign.Pro.Template.Components
                 Label = "Pro Layout",
                 Value = "Pro Layout"
             }
+        };
+
+        public AvatarMenuItem[] AvatarMenuItems { get; set; } = new AvatarMenuItem[]
+        {
+            new() { Key = "center", IconType = "user", Option = "个人中心"},
+            new() { Key = "setting", IconType = "setting", Option = "个人设置"},
+            new() { IsDivider = true },
+            new() { Key = "logout", IconType = "logout", Option = "退出登录"}
         };
 
         [Inject] protected NavigationManager NavigationManager { get; set; }
