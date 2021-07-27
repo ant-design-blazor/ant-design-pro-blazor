@@ -115,44 +115,32 @@
 
                 <Card Class="tabsCard">
                     <Tabs DefaultActiveKey="tab1">
-                        <TabPane Key="tab1">
-                            <Tab>Operation Log 1</Tab>
-                            <ChildContent>
-                                <Table DataSource="@_data.AdvancedOperation1"
-                                       HidePagination>
-                                    <AntDesign.Column Title="Operating Type" @bind-Field="@context.Type" />
-                                    <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
-                                    <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
-                                    <AntDesign.Column Title="Operating time" @bind-Field="@context.UpdatedAt" />
-                                    <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
-                                </Table>
-                            </ChildContent>
+                        <TabPane Key="tab1" Tab="Operation Log 1">
+                            <Table DataSource="@_data.AdvancedOperation1" HidePagination>
+                                <AntDesign.Column Title="Operating Type" @bind-Field="@context.Type" />
+                                <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
+                                <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
+                                <AntDesign.Column Title="Operating time" @bind-Field="@context.UpdatedAt" />
+                                <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
+                            </Table>
                         </TabPane>
-                        <TabPane Key="tab2">
-                            <Tab>Operation Log 2</Tab>
-                            <ChildContent>
-                                <Table DataSource="@_data.AdvancedOperation2"
-                                       HidePagination>
-                                    <AntDesign.Column Title="Operation Type" @bind-Field="@context.Type" />
-                                    <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
-                                    <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
-                                    <AntDesign.Column Title="Operating time" @bind-Field="@context.UpdatedAt" />
-                                    <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
-                                </Table>
-                            </ChildContent>
+                        <TabPane Key="tab2" Tab="Operation Log 2">
+                            <Table DataSource="@_data.AdvancedOperation2" HidePagination>
+                                <AntDesign.Column Title="Operation Type" @bind-Field="@context.Type" />
+                                <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
+                                <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
+                                <AntDesign.Column Title="Operating time" @bind-Field="@context.UpdatedAt" />
+                                <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
+                            </Table>
                         </TabPane>
-                        <TabPane Key="tab3">
-                            <Tab>Operation Log 3</Tab>
-                            <ChildContent>
-                                <Table DataSource="@_data.AdvancedOperation3"
-                                       HidePagination>
-                                    <AntDesign.Column Title="Operation Type" @bind-Field="@context.Type" />
-                                    <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
-                                    <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
-                                    <AntDesign.Column Title="Operating Time" @bind-Field="@context.UpdatedAt" />
-                                    <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
-                                </Table>
-                            </ChildContent>
+                        <TabPane Key="tab3" Tab="Operation Log 3">
+                            <Table DataSource="@_data.AdvancedOperation3" HidePagination>
+                                <AntDesign.Column Title="Operation Type" @bind-Field="@context.Type" />
+                                <AntDesign.Column Title="Operator" @bind-Field="@context.Name" />
+                                <AntDesign.Column Title="Results" @bind-Field="@context.Status" />
+                                <AntDesign.Column Title="Operating Time" @bind-Field="@context.UpdatedAt" />
+                                <AntDesign.Column Title="Remarks" @bind-Field="@context.Memo" />
+                            </Table>
                         </TabPane>
                     </Tabs>
                 </Card>
@@ -163,21 +151,27 @@
 
 @code
 {
-    private readonly RenderFragment _desc1 = @<div class="textSecondary stepDescription">
-    Qu Lili <Icon Type="dingding" Theme="outline" />
-</div>;
-private readonly RenderFragment _desc2 = @<div class="stepDescription">
-    Zhou Maomao
-    <Icon Type="dingding" Theme="outline" />
-    <div>
-        <a href="">Hurry Up</a>
+    private readonly RenderFragment _desc1 =
+    @<div class="textSecondary stepDescription">
+        Qu Lili <Icon Type="dingding" Theme="outline" />
     </div>
-</div>;
+    ;
+    private readonly RenderFragment _desc2 =
+    @<div class="stepDescription">
+        Zhou Maomao
+        <Icon Type="dingding" Theme="outline" />
+        <div>
+            <a href="">Hurry Up</a>
+        </div>
+    </div>
+    ;
 
-private readonly RenderFragment _title = @<span>
-    Another Data
-    <AntDesign.Tooltip Title="@("The Data Shows")">
-        <Icon Type="info-circle" Theme="outline" Style="color: rgba(0, 0, 0, 0.43); margin-left: 4px;" />
-    </AntDesign.Tooltip>
-</span>;
+    private readonly RenderFragment _title =
+    @<span>
+        Another Data
+        <AntDesign.Tooltip Title="@("The Data Shows")">
+            <Icon Type="info-circle" Theme="outline" Style="color: rgba(0, 0, 0, 0.43); margin-left: 4px;" />
+        </AntDesign.Tooltip>
+    </span>
+    ;
 }
