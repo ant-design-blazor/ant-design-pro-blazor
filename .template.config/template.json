@@ -18,6 +18,13 @@
         "full": {
             "type": "parameter",
             "dataType": "bool",
+            "defaultValue": "false",
+            "description": "create all pages"
+        },
+        "use-less": {
+            "type": "parameter",
+            "dataType": "bool",
+            "description": "Use NodeJS and Less to compile your styles.",
             "defaultValue": "false"
         },
         "host": {
@@ -68,7 +75,59 @@
                 {
                     "exclude": [
                         "AntDesign.Pro.csproj",
-                        "AntDesign.Pro.csproj.DotSettings"
+                        "AntDesign.Pro.csproj.DotSettings",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
+                    ]
+                },
+                {
+                    "condition": "(!full)",
+                    "exclude": [
+                        "Components/**/*",
+                        "Extensions/**/*",
+                        "Layouts/**/*",
+                        "Models/**/*",
+                        "Pages/**/*",
+                        "Services/**/*",
+                        "Utils/**/*",
+                        "wwwroot/**/*"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition": "(host == 'hosted')",
+            "source": "./src/AntDesign.Pro",
+            "target": "./src/Client/",
+            "modifiers": [
+                {
+                    "exclude": [
+                        "AntDesign.Pro.csproj",
+                        "AntDesign.Pro.csproj.DotSettings",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 },
                 {
@@ -88,7 +147,15 @@
         },
         {
             "source": "./.template.config/templates/assets",
-            "target": "./"
+            "target": "./",
+            "modifiers":[
+                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "package.json"
+                    ]
+                }
+            ]
         },
         {
             "condition": "(host == 'wasm')",
@@ -98,8 +165,19 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
+                        "Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -112,34 +190,19 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
-                    ]
-                }
-            ]
-        },
-        {
-            "condition": "(host == 'hosted')",
-            "source": "./src/AntDesign.Pro",
-            "target": "./src/Client/",
-            "modifiers": [
-                {
-                    "exclude": [
-                        "AntDesign.Pro.csproj",
-                        "AntDesign.Pro.csproj.DotSettings"
+                       "Pages/**/*"
                     ]
                 },
                 {
-                    "condition": "(!full)",
+                    "condition": "(!use-less)",
                     "exclude": [
-                        "Components/**/*",
-                        "Extensions/**/*",
-                        "Layouts/**/*",
-                        "Models/**/*",
-                        "Pages/**/*",
-                        "Services/**/*",
-                        "Utils/**/*",
-                        "wwwroot/**/*"
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -157,8 +220,19 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
+                       "Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -171,8 +245,19 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "src/Client/Pages/Welcome.razor",
-                        "src/Client/Pages/Welcome.razor.less"
+                        "src/Client/Pages/**/*"
+                    ]
+                },
+                                {
+                    "condition": "(!use-less)",
+                    "exclude": [
+                        "**/*.less"
+                    ]
+                },
+                {
+                    "condition": "(use-less)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -219,6 +304,30 @@
                         ],
                         "endif": [
                             "//#endif"
+                        ],
+                        "trim": true,
+                        "wholeLine": true,
+                        "evaluator": "C++"
+                    }
+                }
+            ]
+        },
+        "**/*.csproj": {
+            "operations": [
+                {
+                    "type": "conditional",
+                    "configuration": {
+                        "if": [
+                            "<!-- //#if -->"
+                        ],
+                        "else": [
+                            "<!-- //#else -->"
+                        ],
+                        "elseif": [
+                            "<!-- //#elseif -->"
+                        ],
+                        "endif": [
+                            "<!-- //#endif -->"
                         ],
                         "trim": true,
                         "wholeLine": true,

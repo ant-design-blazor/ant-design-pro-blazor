@@ -14,6 +14,7 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
+<!-- //#if (use-less) -->
   <PropertyGroup Condition=" '$(SolutionDir)'==''">
     <SolutionDir>./</SolutionDir>
   </PropertyGroup>
@@ -36,4 +37,5 @@
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm run gulp:pro" />
   </Target>
+<!-- //#endif -->
 </Project>
