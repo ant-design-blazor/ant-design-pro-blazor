@@ -21,12 +21,6 @@
             "defaultValue": "false",
             "description": "create all pages"
         },
-        "use-less": {
-            "type": "parameter",
-            "dataType": "bool",
-            "description": "Use NodeJS and Less to compile your styles.",
-            "defaultValue": "false"
-        },
         "host": {
             "type": "parameter",
             "datatype": "choice",
@@ -52,13 +46,25 @@
             "description": "If specified, skips the automatic restore of the project on create.",
             "defaultValue": "false"
         },
-        "pro-layout": {
-            "type": "generated",
-            "generator": "constant",
-            "parameters": {
-                "value": "AntDesign.ProLayout"
-            },
-            "replaces": "{pro-layout}"
+        "styles": {
+            "type": "parameter",
+            "dataType": "choice",
+            "description": "Whether use NodeJS and Less to compile your custom themes.",
+            "defaultValue": "css",
+            "choices": [
+                {
+                    "choice": "css",
+                    "description": "Use CSS without NodeJS."
+                },
+                {
+                    "choice": "less",
+                    "description": "Use Less and NodeJS."
+                }
+            ]
+        },
+        "UseNodeJS": {
+          "type": "computed",
+          "value": "(styles == 'less')"
         }
     },
     "primaryOutputs": [
@@ -80,13 +86,14 @@
                     ]
                 },
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "package.json"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -101,7 +108,7 @@
                         "Pages/**/*",
                         "Services/**/*",
                         "Utils/**/*",
-                        "wwwroot/**/*"
+                        "wwwroot/data/*"
                     ]
                 }
             ]
@@ -119,13 +126,15 @@
                     ]
                 },
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "gulpfile.js",
+                        "package.json"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -140,7 +149,7 @@
                         "Pages/**/*",
                         "Services/**/*",
                         "Utils/**/*",
-                        "wwwroot/**/*"
+                        "wwwroot/data/*"
                     ]
                 }
             ]
@@ -150,7 +159,7 @@
             "target": "./",
             "modifiers":[
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
                         "package.json"
                     ]
@@ -169,13 +178,15 @@
                     ]
                 },
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -194,13 +205,15 @@
                     ]
                 },
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -224,13 +237,15 @@
                     ]
                 },
                 {
-                    "condition": "(!use-less)",
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -248,14 +263,16 @@
                         "src/Client/Pages/**/*"
                     ]
                 },
-                                {
-                    "condition": "(!use-less)",
+                {
+                    "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "**/*.less"
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
                     ]
                 },
                 {
-                    "condition": "(use-less)",
+                    "condition": "(UseNodeJS)",
                     "exclude": [
                         "**/*.css"
                     ]
@@ -304,30 +321,6 @@
                         ],
                         "endif": [
                             "//#endif"
-                        ],
-                        "trim": true,
-                        "wholeLine": true,
-                        "evaluator": "C++"
-                    }
-                }
-            ]
-        },
-        "**/*.csproj": {
-            "operations": [
-                {
-                    "type": "conditional",
-                    "configuration": {
-                        "if": [
-                            "<!-- //#if -->"
-                        ],
-                        "else": [
-                            "<!-- //#else -->"
-                        ],
-                        "elseif": [
-                            "<!-- //#elseif -->"
-                        ],
-                        "endif": [
-                            "<!-- //#endif -->"
                         ],
                         "trim": true,
                         "wholeLine": true,
