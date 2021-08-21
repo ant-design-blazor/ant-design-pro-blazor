@@ -57,26 +57,15 @@ dotnet new -i AntDesign.Templates
 dotnet new -u AntDesign.Templates
 ```
 
-### 新建项目
-```bash
-# Create an empty wasm project
-dotnet new antdesign --host wasm
+### 模板的参数
 
-# Create wasm project with full pages
-dotnet new antdesign --host wasm --full
+| 参数              | 说明                                             | 类型                           | 默认值 |
+| ----------------- | ------------------------------------------------ | ------------------------------ | ------ |
+| `--full`          | 如果设置这个参数，会生成所有 Ant Design Pro 页面   | bool                           | false  |
+| `--host`          | 指定托管模型                                     | `wasm` \| `server` \| `hosted` | `wasm` |
+| `--styles`        | 指定样式构建类型                                 |  `css` \| `less`                | `css` |
+| `--no-restore`    | 如果设置这个参数，就不会自动恢复包引用             | bool                           | false  |
 
-# Create an empty server-side project
-dotnet new antdesign --host server
-
-# Create server-side project with full pages
-dotnet new antdesign --host server --full
-
-# Create an empty hosted project
-dotnet new antdesign --host hosted
-
-# Create hosted project with full pages
-dotnet new antdesign --host hosted --full
-```
 
 ### 覆盖项目
 ```bash
