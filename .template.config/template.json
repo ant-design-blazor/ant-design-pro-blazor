@@ -40,12 +40,6 @@
                 }
             ]
         },
-        "skipRestore": {
-            "type": "parameter",
-            "datatype": "bool",
-            "description": "If specified, skips the automatic restore of the project on create.",
-            "defaultValue": "false"
-        },
         "styles": {
             "type": "parameter",
             "dataType": "choice",
@@ -65,6 +59,12 @@
         "UseNodeJS": {
           "type": "computed",
           "value": "(styles == 'less')"
+        },
+        "skipRestore": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "If specified, skips the automatic restore of the project on create.",
+            "defaultValue": "false"
         }
     },
     "primaryOutputs": [
@@ -161,7 +161,14 @@
                 {
                     "condition": "(!UseNodeJS)",
                     "exclude": [
-                        "package.json"
+                        "package.json",
+                        "Directory.Build.props"
+                    ]
+                },
+                {
+                    "condition": "(host == 'hosted')",
+                    "exclude": [
+                        "Directory.Build.props"
                     ]
                 }
             ]
