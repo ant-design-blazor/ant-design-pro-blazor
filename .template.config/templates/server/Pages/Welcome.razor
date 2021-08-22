@@ -1,16 +1,16 @@
 ﻿@page "/"
 
-<PageContainer Title="欢迎">
+<PageContainer Title="Welcome">
     <Card>
         <Alert
-            Message="AntDesign.Templates 已经发布到nuget，可以直接下载使用"
+            Message="AntDesign.Templates have been published to nuget, you can download and use them directly."
             Type="success"
             ShowIcon="true"
             Banner
             Style="margin: -12px; margin-bottom: 24px"/>
         <Text Strong>
             <a target="_blank" rel="noopener noreferrer" href="https://www.nuget.org/packages/AntDesign.Templates">
-                使用dotnet快速安装最新模板
+                Use .NET CLI to install the latest template quickly.
             </a>
         </Text>
         <pre class="pre"><code><Text Copyable> dotnet new --install AntDesign.Templates::0.1.0-*</Text></code></pre>
@@ -18,7 +18,7 @@
             Strong
             Style="margin-bottom: 12px">
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design-blazor/ant-design-pro-blazor">
-                创建server空项目
+               Create an empty server-side Blazor project.
             </a>
         </Text>
         <pre class="pre"><code><Text Copyable> dotnet new antdesign --host=server</Text></code></pre>
@@ -26,7 +26,7 @@
             Strong
             Style="margin-bottom: 12px">
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design-blazor/ant-design-pro-blazor">
-                创建包含所有页面的server项目
+                Create an empty server-side Blazor project with all pages.
             </a>
         </Text>
         <pre class="pre"><code><Text Copyable> dotnet new antdesign --host=server --full</Text></code></pre>
@@ -36,6 +36,6 @@
         <a href="https://github.com/ant-design-blazor/ant-design-pro-blazor" target="_blank" rel="noopener noreferrer">
             ant-design-pro-blazor project
         </a>
-        。
+        .
     </p>
 </PageContainer>
