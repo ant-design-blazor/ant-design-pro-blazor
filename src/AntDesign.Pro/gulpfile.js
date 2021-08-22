@@ -5,14 +5,37 @@
   concatCss = require("gulp-concat-css"),
   npmImport = require("less-plugin-npm-import");
 
+const sourceFiles = [
+  '**/*.less',
+  '!node_modules/**',
+  '!**/bin/**',
+  '!**/obj/**'
+];
+
+gulp.task('isolation', function () {
+  return gulp
+    .src(sourceFiles)
+    .pipe(less({
+      javascriptEnabled: true,
+      plugins: [new npmImport({ prefix: '~' })]
+    }))
+    .pipe(rename(function (file) {
+      if (file.basename == 'global') {
+        file.dirname = 'css';
+        file.basename = 'site';
+      }
+    }))
+    .pipe(gulp.dest(function (file) {
+      if (file.basename == 'site.css') {
+        return './wwwroot';
+      }
+      return '.';
+    }));
+});
+
 gulp.task('less', function () {
   return gulp
-    .src([
-      '**/*.less',
-      '!node_modules/**',
-      '!**/bin/**',
-      '!**/obj/**'
-    ])
+    .src(sourceFiles)
     .pipe(less({
       javascriptEnabled: true,
       plugins: [new npmImport({ prefix: '~' })]
@@ -22,4 +45,5 @@ gulp.task('less', function () {
     .pipe(gulp.dest('wwwroot/css'));
 });
 
-gulp.task('default', gulp.parallel('less'), function () { })
+gulp.task('default', gulp.parallel('isolation'), function () {
+});

@@ -18,7 +18,8 @@
         "full": {
             "type": "parameter",
             "dataType": "bool",
-            "defaultValue": "false"
+            "defaultValue": "false",
+            "description": "create all pages"
         },
         "host": {
             "type": "parameter",
@@ -39,19 +40,31 @@
                 }
             ]
         },
+        "styles": {
+            "type": "parameter",
+            "dataType": "choice",
+            "description": "Whether use NodeJS and Less to compile your custom themes.",
+            "defaultValue": "css",
+            "choices": [
+                {
+                    "choice": "css",
+                    "description": "Use CSS without NodeJS."
+                },
+                {
+                    "choice": "less",
+                    "description": "Use Less and NodeJS."
+                }
+            ]
+        },
+        "UseNodeJS": {
+          "type": "computed",
+          "value": "(styles == 'less')"
+        },
         "skipRestore": {
             "type": "parameter",
             "datatype": "bool",
             "description": "If specified, skips the automatic restore of the project on create.",
             "defaultValue": "false"
-        },
-        "pro-layout": {
-            "type": "generated",
-            "generator": "constant",
-            "parameters": {
-                "value": "AntDesign.ProLayout"
-            },
-            "replaces": "{pro-layout}"
         }
     },
     "primaryOutputs": [
@@ -68,7 +81,21 @@
                 {
                     "exclude": [
                         "AntDesign.Pro.csproj",
-                        "AntDesign.Pro.csproj.DotSettings"
+                        "AntDesign.Pro.csproj.DotSettings",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "package.json"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 },
                 {
@@ -81,39 +108,7 @@
                         "Pages/**/*",
                         "Services/**/*",
                         "Utils/**/*",
-                        "wwwroot/**/*"
-                    ]
-                }
-            ]
-        },
-        {
-            "source": "./.template.config/templates/assets",
-            "target": "./"
-        },
-        {
-            "condition": "(host == 'wasm')",
-            "source": "./.template.config/templates/wasm",
-            "target": "./",
-            "modifiers": [
-                {
-                    "condition": "(full)",
-                    "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
-                    ]
-                }
-            ]
-        },
-        {
-            "condition": "(host == 'server')",
-            "source": "./.template.config/templates/server",
-            "target": "./",
-            "modifiers": [
-                {
-                    "condition": "(full)",
-                    "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
+                        "wwwroot/data/*"
                     ]
                 }
             ]
@@ -126,7 +121,22 @@
                 {
                     "exclude": [
                         "AntDesign.Pro.csproj",
-                        "AntDesign.Pro.csproj.DotSettings"
+                        "AntDesign.Pro.csproj.DotSettings",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "gulpfile.js",
+                        "package.json"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 },
                 {
@@ -139,7 +149,80 @@
                         "Pages/**/*",
                         "Services/**/*",
                         "Utils/**/*",
-                        "wwwroot/**/*"
+                        "wwwroot/data/*"
+                    ]
+                }
+            ]
+        },
+        {
+            "source": "./.template.config/templates/assets",
+            "target": "./",
+            "modifiers":[
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "package.json",
+                        "Directory.Build.props"
+                    ]
+                },
+                {
+                    "condition": "(host == 'hosted')",
+                    "exclude": [
+                        "Directory.Build.props"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition": "(host == 'wasm')",
+            "source": "./.template.config/templates/wasm",
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                        "Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
+                    ]
+                }
+            ]
+        },
+        {
+            "condition": "(host == 'server')",
+            "source": "./.template.config/templates/server",
+            "target": "./",
+            "modifiers": [
+                {
+                    "condition": "(full)",
+                    "exclude": [
+                       "Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -157,8 +240,21 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "Pages/Welcome.razor",
-                        "Pages/Welcome.razor.less"
+                       "Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]
@@ -171,8 +267,21 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "src/Client/Pages/Welcome.razor",
-                        "src/Client/Pages/Welcome.razor.less"
+                        "src/Client/Pages/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!UseNodeJS)",
+                    "exclude": [
+                        "**/*.less",
+                        "package.json",
+                        "gulpfile.js"
+                    ]
+                },
+                {
+                    "condition": "(UseNodeJS)",
+                    "exclude": [
+                        "**/*.css"
                     ]
                 }
             ]

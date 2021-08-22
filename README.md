@@ -60,26 +60,14 @@ dotnet new -i AntDesign.Templates
 dotnet new -u AntDesign.Templates
 ```
 
-### Create New Project
-```bash
-# Create an empty wasm project
-dotnet new antdesign --host wasm
+### Options for the template
 
-# Create wasm project with full pages
-dotnet new antdesign --host wasm --full
-
-# Create an empty server-side project
-dotnet new antdesign --host server
-
-# Create server-side project with full pages
-dotnet new antdesign --host server --full
-
-# Create an empty hosted project
-dotnet new antdesign --host hosted
-
-# Create hosted project with full pages
-dotnet new antdesign --host hosted --full
-```
+| Options           | Description                                                        | Type                           | Default |
+| ----------------- | ------------------------------------------------------------------ | ------------------------------ | ------- |
+| `--full`          | If specified, generates all pages of Ant Design Pro                | bool                           | false   |
+| `--host`          | Specify the hosting model                                          | `wasm` \| `server` \| `hosted` | `wasm`  |
+| `--styles`        | Whether use NodeJS and Less to compile your custom themes.         | `css` \| `less`                | `css`   |
+| `--no-restore`    | If specified, skips the automatic restore of the project on create | bool                           | false   |
 
 ### Override Existing Project
 ```bash
