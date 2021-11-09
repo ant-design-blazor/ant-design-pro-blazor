@@ -4,7 +4,7 @@
 <div class="@ClassMapper.Class" style="@Style">
     @if (!HideCheckAll)
     {
-        <Tag Checkable Checked="_checkedAll" CheckedChange="HandleCheckedChange">@SelectAllText</Tag>
+        <Tag Checkable Checked="_checkedAll" CheckedChanged="HandleCheckedChange">@SelectAllText</Tag>
     }
     
     <CascadingValue Value="this">
