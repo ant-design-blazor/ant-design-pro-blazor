@@ -1,7 +1,7 @@
 ﻿@import '~antd/es/style/themes/default.less';
 
 /*此处为了解决样式冲突, 在pro样式的基础上包了一层main, 原始样式从.login开始*/
-.main__b__0 {
+.main__b__0 ::deep {
   width: 368px;
   margin: 0 auto;
   @media screen and (max-width: @screen-sm) {
@@ -10,7 +10,7 @@
 
   .login {
     :global {
-      .ant-tabs .ant-tabs-bar {
+      .ant-tabs .ant-tabs-nav {
         margin-bottom: 24px;
         text-align: center;
         border-bottom: 0;

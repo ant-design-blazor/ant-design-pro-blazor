@@ -208,7 +208,9 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                       "Pages/**/*"
+                       "Pages/Welcome.razor",
+                       "Pages/Welcome.razor.less",
+                       "Pages/Welcome.razor.css",
                     ]
                 },
                 {
