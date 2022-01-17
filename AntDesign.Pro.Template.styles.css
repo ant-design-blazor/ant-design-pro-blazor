@@ -2320,33 +2320,33 @@ a.listItemMetaTitle[b-7n8y2ho5lu] {
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 /*此处为了解决样式冲突, 在pro样式的基础上包了一层main, 原始样式从.login开始*/
-.main__b__0[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  {
   width: 368px;
   margin: 0 auto;
 }
 @media screen and (max-width: 576px) {
-  .main__b__0[b-xgw6utvm5r] {
+  .main__b__0[b-xgw6utvm5r]  {
     width: 95%;
   }
 }
-.main__b__0 .login :global .ant-tabs .ant-tabs-bar[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login :global .ant-tabs .ant-tabs-nav {
   margin-bottom: 24px;
   text-align: center;
   border-bottom: 0;
 }
-.main__b__0 .login .getCaptcha[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .getCaptcha {
   display: block;
   width: 100%;
 }
-.main__b__0 .login .icon[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .icon {
   color: #1890ff;
 }
-.main__b__0 .login .other[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .other {
   margin-top: 24px;
   line-height: 22px;
   text-align: left;
 }
-.main__b__0 .login .other .icon[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .other .icon {
   margin-left: 16px;
   color: rgba(0, 0, 0, 0.45);
   font-size: 24px;
@@ -2354,17 +2354,17 @@ a.listItemMetaTitle[b-7n8y2ho5lu] {
   cursor: pointer;
   transition: color 0.3s;
 }
-.main__b__0 .login .other .icon:hover[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .other .icon:hover {
   color: #1890ff;
 }
-.main__b__0 .login .other .register[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .other .register {
   float: right;
 }
-.main__b__0 .login .prefixIcon[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .prefixIcon {
   color: rgba(0, 0, 0, 0.25);
   font-size: 14px;
 }
-.main__b__0 .login .submit[b-xgw6utvm5r] {
+.main__b__0[b-xgw6utvm5r]  .login .submit {
   width: 100%;
   margin-top: 24px;
 }

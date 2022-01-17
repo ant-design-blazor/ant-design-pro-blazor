@@ -24,8 +24,8 @@ const defaultOptions = {
     inViewport: true
 };
 class Dragger {
-    constructor(triggler, container, dragInViewport) {
-        this._triggler = null;
+    constructor(trigger, container, dragInViewport) {
+        this._trigger = null;
         this._container = null;
         this._options = null;
         this._state = null;
@@ -43,6 +43,8 @@ class Dragger {
                     - this._container.offsetHeight - 1;
                 state.domMaxX = document.documentElement.clientWidth
                     - this._container.offsetWidth - 1;
+                state.domMaxY = state.domMaxY < 0 ? 0 : state.domMaxY;
+                state.domMaxX = state.domMaxX < 0 ? 0 : state.domMaxX;
                 this._container.style.left = left + 'px';
                 this._container.style.top = top + 'px';
                 if (!this._style) {
@@ -93,6 +95,8 @@ class Dragger {
                 - this._container.offsetHeight - 1;
             state.domMaxX = document.documentElement.clientWidth
                 - this._container.offsetWidth - 1;
+            state.domMaxY = state.domMaxY < 0 ? 0 : state.domMaxY;
+            state.domMaxX = state.domMaxX < 0 ? 0 : state.domMaxX;
             state.domStartY = parseInt(this._container.style.top);
             state.domStartX = parseInt(this._container.style.left);
             if (state.domStartY > state.domMaxY) {
@@ -104,7 +108,7 @@ class Dragger {
                 this._container.style.left = state.domMaxX + "px";
             }
         }, 10).bind(this);
-        this._triggler = triggler;
+        this._trigger = trigger;
         this._container = container;
         this._options = Object.assign({}, defaultOptions, {
             inViewport: dragInViewport
@@ -125,9 +129,9 @@ class Dragger {
         };
     }
     bindDrag() {
-        const triggler = this._triggler;
+        const trigger = this._trigger;
         const options = this._options;
-        triggler.addEventListener("mousedown", this.onMousedown, false);
+        trigger.addEventListener("mousedown", this.onMousedown, false);
         window.addEventListener("mouseup", this.onMouseup, false);
         document.addEventListener("mousemove", this.onMousemove);
         if (options.inViewport) {
@@ -135,8 +139,8 @@ class Dragger {
         }
     }
     unbindDrag() {
-        const triggler = this._triggler;
-        triggler.removeEventListener("mousedown", this.onMousedown, false);
+        const trigger = this._trigger;
+        trigger.removeEventListener("mousedown", this.onMousedown, false);
         window.removeEventListener("mouseup", this.onMouseup, false);
         document.removeEventListener("mousemove", this.onMousemove);
         if (this._options.inViewport) {
@@ -150,22 +154,22 @@ class Dragger {
         }
     }
 }
-function enableDraggable(triggler, container, dragInViewport = true) {
-    let dragger = eventMap.get(triggler);
+function enableDraggable(trigger, container, dragInViewport = true) {
+    let dragger = eventMap.get(trigger);
     if (!dragger) {
-        dragger = new Dragger(triggler, container, dragInViewport);
-        eventMap.set(triggler, dragger);
+        dragger = new Dragger(trigger, container, dragInViewport);
+        eventMap.set(trigger, dragger);
     }
     dragger.bindDrag();
 }
-function disableDraggable(triggler) {
-    const dragger = eventMap.get(triggler);
+function disableDraggable(trigger) {
+    const dragger = eventMap.get(trigger);
     if (dragger) {
         dragger.unbindDrag();
     }
 }
-function resetModalPosition(triggler) {
-    const dragger = eventMap.get(triggler);
+function resetModalPosition(trigger) {
+    const dragger = eventMap.get(trigger);
     if (dragger) {
         dragger.resetContainerStyle();
     }

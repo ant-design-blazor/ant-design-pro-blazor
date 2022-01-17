@@ -4,19 +4,19 @@ export class eventHelper {
     static triggerEvent(element, eventType, eventName) {
         //TODO: replace with event constructors https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
         //Not used 
-        var evt = document.createEvent(eventType);
+        const evt = document.createEvent(eventType);
         evt.initEvent(eventName);
         return element.dispatchEvent(evt);
     }
     static addDomEventListener(element, eventName, preventDefault, invoker) {
-        let callback = args => {
+        const callback = args => {
             const obj = {};
             for (let k in args) {
                 if (k !== 'originalTarget') { //firefox occasionally raises Permission Denied when this property is being stringified
                     obj[k] = args[k];
                 }
             }
-            let json = JSON.stringify(obj, (k, v) => {
+            const json = JSON.stringify(obj, (k, v) => {
                 if (v instanceof Node)
                     return 'Node';
                 if (v instanceof Window)
@@ -28,8 +28,8 @@ export class eventHelper {
                 args.preventDefault();
             }
         };
-        if (element == 'window') {
-            if (eventName == 'resize') {
+        if (element === 'window') {
+            if (eventName === 'resize') {
                 window.addEventListener(eventName, this.debounce(() => callback({ innerWidth: window.innerWidth, innerHeight: window.innerHeight }), 200, false));
             }
             else {
@@ -37,21 +37,21 @@ export class eventHelper {
             }
         }
         else {
-            let dom = domInfoHelper.get(element);
+            const dom = domInfoHelper.get(element);
             if (dom) {
                 dom.addEventListener(eventName, callback);
             }
         }
     }
     static addDomEventListenerToFirstChild(element, eventName, preventDefault, invoker) {
-        var dom = domInfoHelper.get(element);
+        const dom = domInfoHelper.get(element);
         if (dom && dom.firstElementChild) {
             this.addDomEventListener(dom.firstElementChild, eventName, preventDefault, invoker);
         }
     }
     static addPreventKeys(inputElement, keys) {
         if (inputElement) {
-            let dom = domInfoHelper.get(inputElement);
+            const dom = domInfoHelper.get(inputElement);
             keys = keys.map(function (x) { return x.toUpperCase(); });
             state.eventCallbackRegistry[inputElement.id + "keydown"] = (e) => this.preventKeys(e, keys);
             dom.addEventListener("keydown", state.eventCallbackRegistry[inputElement.id + "keydown"], false);
@@ -65,7 +65,7 @@ export class eventHelper {
     }
     static removePreventKeys(inputElement) {
         if (inputElement) {
-            let dom = domInfoHelper.get(inputElement);
+            const dom = domInfoHelper.get(inputElement);
             if (dom) {
                 dom.removeEventListener("keydown", state.eventCallbackRegistry[inputElement.id + "keydown"]);
                 state.eventCallbackRegistry[inputElement.id + "keydown"] = null;

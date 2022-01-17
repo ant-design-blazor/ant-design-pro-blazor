@@ -43,7 +43,7 @@ export class infoHelper {
         return result;
     }
     static getElementAbsolutePos(element) {
-        let res = {
+        const res = {
             x: 0,
             y: 0
         };
@@ -62,7 +62,7 @@ export class infoHelper {
     static getBoundingClientRect(element) {
         const domElement = this.get(element);
         if (domElement && domElement.getBoundingClientRect) {
-            let rect = domElement.getBoundingClientRect();
+            const rect = domElement.getBoundingClientRect();
             // Fixes #1468. This wrapping is necessary for old browsers. Remove this when one day we no longer support them.
             return {
                 width: rect.width,
@@ -98,13 +98,40 @@ export class infoHelper {
         return { x: window.pageXOffset, y: window.pageYOffset };
     }
     static hasFocus(selector) {
-        let dom = this.get(selector);
+        const dom = this.get(selector);
         return (document.activeElement === dom);
     }
     static getInnerText(element) {
-        let dom = this.get(element);
+        const dom = this.get(element);
         if (dom)
             return dom.innerText;
+        return null;
+    }
+    static getMaxZIndex() {
+        return [...document.querySelectorAll("*")].reduce((r, e) => Math.max(r, +window.getComputedStyle(e).zIndex || 0), 0);
+    }
+    static isFixedPosition(element) {
+        let node = this.get(element);
+        while (node && node.nodeName.toLowerCase() !== 'body') {
+            if (window.getComputedStyle(node).getPropertyValue('position').toLowerCase() === 'fixed') {
+                return true;
+            }
+            node = node.parentNode;
+        }
+        return false;
+    }
+    static findAncestorWithZIndex(element) {
+        let node = this.get(element);
+        let zIndexAsString;
+        let zIndex;
+        while (node && node.nodeName.toLowerCase() !== 'body') {
+            zIndexAsString = window.getComputedStyle(node).zIndex;
+            zIndex = Number.parseInt(zIndexAsString);
+            if (!Number.isNaN(zIndex)) {
+                return zIndex;
+            }
+            node = node.parentNode;
+        }
         return null;
     }
 }

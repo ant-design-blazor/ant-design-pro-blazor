@@ -2,6 +2,7 @@ import { domInfoHelper } from './exports';
 import { styleHelper } from '../styleHelper';
 import { state } from '../stateProvider';
 import * as enums from '../enums';
+let cachedScrollBarSize = undefined;
 export class manipulationHelper {
     static addElementToBody(element) {
         document.body.appendChild(element);
@@ -9,11 +10,21 @@ export class manipulationHelper {
     static delElementFromBody(element) {
         document.body.removeChild(element);
     }
-    static addElementTo(addElement, elementSelector) {
+    static addElementTo(addElement, elementSelector, prepend = false) {
         let parent = domInfoHelper.get(elementSelector);
         if (parent && addElement) {
-            parent.appendChild(addElement);
+            if (parent instanceof Node && addElement instanceof Node) {
+                if (prepend)
+                    parent.insertBefore(addElement, parent.firstChild);
+                else
+                    parent.appendChild(addElement);
+                return true;
+            }
+            else {
+                console.log("does not implement node", parent, addElement);
+            }
         }
+        return false;
     }
     static delElementFrom(delElement, elementSelector) {
         let parent = domInfoHelper.get(elementSelector);
@@ -27,6 +38,29 @@ export class manipulationHelper {
             for (let key in attributes) {
                 dom.setAttribute(key, attributes[key]);
             }
+        }
+    }
+    static copyElement(element) {
+        if (!this.copyElementAsRichText(element)) {
+            this.copy(element.innerText);
+        }
+    }
+    static copyElementAsRichText(element) {
+        var selection = document.getSelection();
+        if (selection.rangeCount > 0) {
+            selection.removeAllRanges();
+        }
+        var range = document.createRange();
+        range.selectNode(element);
+        selection.addRange(range);
+        try {
+            var successful = document.execCommand('copy');
+            selection.removeAllRanges();
+            return successful;
+        }
+        catch (err) {
+            selection.removeAllRanges();
+            return false;
         }
     }
     static copy(text) {
@@ -87,18 +121,21 @@ export class manipulationHelper {
             dom.blur();
         }
     }
-    static scrollTo(selector) {
-        let element = domInfoHelper.get(selector);
-        if (element && element instanceof HTMLElement) {
+    static scrollTo(selector, parentElement) {
+        const element = domInfoHelper.get(selector);
+        if (parentElement && element && element instanceof HTMLElement) {
+            parentElement.scrollTop = element.offsetTop;
+        }
+        else if (element && element instanceof HTMLElement) {
             element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
         }
     }
     static slideTo(targetPageY) {
-        var timer = setInterval(function () {
-            var currentY = document.documentElement.scrollTop || document.body.scrollTop;
-            var distance = targetPageY > currentY ? targetPageY - currentY : currentY - targetPageY;
-            var speed = Math.ceil(distance / 10);
-            if (currentY == targetPageY) {
+        const timer = setInterval(function () {
+            const currentY = document.documentElement.scrollTop || document.body.scrollTop;
+            const distance = targetPageY > currentY ? targetPageY - currentY : currentY - targetPageY;
+            const speed = Math.ceil(distance / 10);
+            if (currentY === targetPageY) {
                 clearInterval(timer);
             }
             else {
@@ -130,9 +167,10 @@ export class manipulationHelper {
             oldBodyCache[key] = body.style[key];
         });
         state.oldBodyCacheStack.push(oldBodyCache);
+        const scrollBarSize = this.getScrollBarSize();
         styleHelper.css(body, {
             "position": "relative",
-            "width": this.hasScrollbar() ? "calc(100% - 17px)" : null,
+            "width": scrollBarSize > 0 ? "calc(100% - 17px)" : null,
             "overflow": "hidden"
         });
         styleHelper.addCls(document.body, "ant-scrolling-effect");
@@ -153,4 +191,42 @@ manipulationHelper.hasScrollbar = () => {
     if (overflow && overflow === "hidden")
         return false;
     return document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight);
+};
+/**
+ * getScrollBarSize
+ * source https://github.com/react-component/util/blob/master/src/getScrollBarSize.tsx
+ *
+ * @param fresh force get scrollBar size and don't use cache
+ * @returns
+ */
+manipulationHelper.getScrollBarSize = (fresh = false) => {
+    if (typeof document === "undefined") {
+        return 0;
+    }
+    if (fresh || cachedScrollBarSize === undefined) {
+        const inner = document.createElement("div");
+        inner.style.width = "100%";
+        inner.style.height = "200px";
+        const outer = document.createElement("div");
+        const outerStyle = outer.style;
+        outerStyle.position = "absolute";
+        outerStyle.top = "0";
+        outerStyle.left = "0";
+        outerStyle.pointerEvents = "none";
+        outerStyle.visibility = "hidden";
+        outerStyle.width = "200px";
+        outerStyle.height = "150px";
+        outerStyle.overflow = "hidden";
+        outer.appendChild(inner);
+        document.body.appendChild(outer);
+        const widthContained = inner.offsetWidth;
+        outer.style.overflow = "scroll";
+        let widthScroll = inner.offsetWidth;
+        if (widthContained === widthScroll) {
+            widthScroll = outer.clientWidth;
+        }
+        document.body.removeChild(outer);
+        cachedScrollBarSize = widthContained - widthScroll;
+    }
+    return cachedScrollBarSize;
 };

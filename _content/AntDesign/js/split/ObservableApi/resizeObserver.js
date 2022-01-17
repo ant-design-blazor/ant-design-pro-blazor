@@ -5,9 +5,15 @@ export class resizeObserver {
     static isResizeObserverSupported() {
         return "ResizeObserver" in window;
     }
-    static create(key, invoker) {
+    static create(key, invoker, isDotNetInvoker = true) {
         // @ts-ignore: TS2304: Cannot find name 'ResizeObserver'
-        const observer = new ResizeObserver((entries, observer) => resizeObserver.observerCallBack(entries, observer, invoker));
+        let observer;
+        if (isDotNetInvoker) {
+            observer = new ResizeObserver((entries, observer) => resizeObserver.observerCallBack(entries, observer, invoker));
+        }
+        else {
+            observer = new ResizeObserver((entries, observer) => invoker(entries, observer));
+        }
         resizeObserver.resizeObservers.set(key, observer);
     }
     static observe(key, element) {
@@ -31,16 +37,13 @@ export class resizeObserver {
         }
     }
     static dispose(key) {
-        console.log("dispose", key);
         this.disconnect(key);
         this.resizeObservers.delete(key);
     }
     static observerCallBack(entries, observer, invoker) {
-        console.log("observerCallBack start", entries);
         if (invoker) {
             const mappedEntries = new Array();
             entries.forEach(entry => {
-                console.log("observerCallBack entry", entry);
                 if (entry) {
                     const mEntry = new ResizeObserverEntry();
                     if (entry.borderBoxSize) {
