@@ -3,11 +3,29 @@
 
 window.AntDesignCharts = {
     interop: {
-        create: (type, domRef, domId, config, others) => {
+        create: (type, domRef, domId, csConfig, others, jsonConfig, jsConfig) => {
             domRef.innerHTML = '';
 
-            removeNullItem(config);
+            let config = {}
+
+            removeNullItem(csConfig);
+            deepObjectMerge(config, csConfig);
+
+            removeNullItem(others);
             deepObjectMerge(config, others);
+
+            if (jsonConfig != undefined) {
+                let jsonConfigObj = JSON.parse(jsonConfig);
+                removeNullItem(jsonConfigObj);
+                deepObjectMerge(config, jsonConfigObj);
+            }
+
+            if (jsConfig != undefined) {
+                let jsConfigObj = eval("(" + jsConfig + ")");
+                removeNullItem(jsConfigObj);
+                deepObjectMerge(config, jsConfigObj);
+            }
+
             try {
                 const plot = new G2Plot[type](domRef, config);
                 plot.render();
@@ -72,6 +90,11 @@ window.AntDesignCharts = {
                 }
                 dotnetHelper.invokeMethodAsync(func, e);
             })
+        },
+
+        getEvalJson(jsCode) {
+            let jsObj = eval("(" + jsCode + ")");
+            return JSON.stringify(jsObj);
         }
     },
     chartsContainer: {}
