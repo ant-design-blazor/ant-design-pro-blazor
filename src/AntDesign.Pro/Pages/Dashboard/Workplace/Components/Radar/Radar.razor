@@ -1,6 +1,6 @@
 @namespace AntDesign.Pro.Template.Pages.Dashboard.Workplace
 
-<AntDesign.Charts.Radar @ref="_chart" TItem="RadarDataItem" Config="_chartConfig" />
+<AntDesign.Charts.Radar @ref="_chart" Config="_chartConfig" />
 
 @if (HasLegend)
 {
@@ -30,8 +30,8 @@
     {
         Height = 343,
         ForceFit = true,
-        AngleField = "label",
-        RadiusField = "value",
+        XField="label",
+        YField="value",
         RadiusAxis = new ValueAxis
         {
             Grid = new BaseAxisGrid
