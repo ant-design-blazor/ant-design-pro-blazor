@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="AntDesign.Charts" Version="0.2.3" />
-    <PackageReference Include="AntDesign.ProLayout" Version="0.10.6" />
+    <PackageReference Include="AntDesign.ProLayout" Version="0.12.4" />
     <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
   </ItemGroup>
   
