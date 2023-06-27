@@ -9,12 +9,7 @@ namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
     {
         private readonly ColumnConfig _saleChartConfig = new ColumnConfig
         {
-            Title = new AntDesign.Charts.Title
-            {
-                Visible = true,
-                Text = "Stores Sales Trend"
-            },
-            ForceFit = true,
+            AutoFit = true,
             Padding = "auto",
             XField = "x",
             YField = "y"
@@ -22,12 +17,7 @@ namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
 
         private readonly ColumnConfig _visitChartConfig = new ColumnConfig
         {
-            Title = new AntDesign.Charts.Title
-            {
-                Visible = true,
-                Text = "Visits Trend"
-            },
-            ForceFit = true,
+            AutoFit = true,
             Padding = "auto",
             XField = "x",
             YField = "y"
@@ -50,10 +40,13 @@ namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
 
         [Inject] public IChartService ChartService { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            await base.OnInitializedAsync();
-            await OnTabChanged("1");
+            await base.OnAfterRenderAsync(firstRender);
+            if (firstRender)
+            {
+                await OnTabChanged("1");
+            }
         }
 
         private async Task OnTabChanged(string activeKey)

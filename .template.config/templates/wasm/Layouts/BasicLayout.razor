@@ -5,7 +5,9 @@
     Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
     MenuData="_menuData">
     <RightContentRender>
+        //#if (full)
         <AntDesign.Pro.Template.Components.RightContent />
+        //#endif
     </RightContentRender>
     <ChildContent>
         @Body
@@ -18,7 +20,7 @@
 
 @code
 {
-    //#if (full)    
+    //#if (full)
     private MenuDataItem[] _menuData = { };
 
     [Inject] public HttpClient HttpClient { get; set; }
