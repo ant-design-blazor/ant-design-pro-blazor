@@ -210,7 +210,7 @@
                     "exclude": [
                        "Pages/Welcome.razor",
                        "Pages/Welcome.razor.less",
-                       "Pages/Welcome.razor.css",
+                       "Pages/Welcome.razor.css"
                     ]
                 },
                 {
