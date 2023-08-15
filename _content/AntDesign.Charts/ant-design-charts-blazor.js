@@ -30,7 +30,9 @@ window.AntDesignCharts = {
                 const plot = new G2Plot[type](domRef, config);
                 plot.render();
                 window.AntDesignCharts.chartsContainer[domId] = plot;
-                //console.log("create:" + domId)
+                console.log("create:" + domId)
+                console.log("type:" + type);
+                console.log("config:" + JSON.stringify(config, null, 2));
             } catch (err) {
                 console.error(err, config);
             }
