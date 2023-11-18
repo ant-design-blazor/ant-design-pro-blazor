@@ -2,14 +2,17 @@
 @inherits LayoutComponentBase
 
 <AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-                                 MenuData="MenuData" @bind-Collapsed="collapsed">
+                                 MenuData="MenuData"
+                                 MenuAccordion
+                                 Collapsed="collapsed"
+                                 OnCollapse="e=>collapsed=e">
     <HeaderContentRender>
         <Space Size="@("24")">
             <SpaceItem>
-                <Icon Type="@(collapsed?"menu-unfold":"menu-fold")" OnClick="Toggle" />
+                <Icon Class="action" Type="@(collapsed?"menu-unfold":"menu-fold")" OnClick="Toggle" />
             </SpaceItem>
             <SpaceItem>
-                <Icon Type="reload" Theme="outline" OnClick="Reload" />
+                <Icon Class="action" Type="reload" Theme="outline" OnClick="Reload" />
             </SpaceItem>
         </Space>
     </HeaderContentRender>
@@ -38,6 +41,10 @@
     {
         await base.OnInitializedAsync();
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+
+        // workaround for the reusetabs issue that can't open the default page.
+        // will fix in next release. https://github.com/ant-design-blazor/ant-design-blazor/pull/3519
+        TabService.ReloadPage();
     }
 
     public LinkItem[] Links { get; set; } =
