@@ -1,6 +1,8 @@
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(BasicLayout)" />
+        <CascadingValue Value="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(BasicLayout)" />
+        </CascadingValue>
     </Found>
     <NotFound>
         <LayoutView Layout="@typeof(BasicLayout)">
