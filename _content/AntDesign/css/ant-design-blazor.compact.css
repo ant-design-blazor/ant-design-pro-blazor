@@ -1287,6 +1287,9 @@ html {
 .antblaozr-animate-disabled.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow svg {
   transition: none;
 }
+.anticon svg {
+  vertical-align: unset;
+}
 .ant-affix {
   position: fixed;
   z-index: 10;
@@ -16735,6 +16738,103 @@ textarea.ant-mentions {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+.ant-mentions {
+  border: none;
+}
+.ant-mentions .rc-textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 3px 7px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 12px;
+  line-height: 1.66667;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.ant-mentions .rc-textarea::placeholder {
+  color: #bfbfbf;
+  user-select: none;
+}
+.ant-mentions .rc-textarea:placeholder-shown {
+  text-overflow: ellipsis;
+}
+.ant-mentions .rc-textarea:hover {
+  border-color: #40a9ff;
+  border-right-width: 1px;
+}
+.ant-input-rtl .ant-mentions .rc-textarea:hover {
+  border-right-width: 0;
+  border-left-width: 1px !important;
+}
+.ant-mentions .rc-textarea:focus,
+.ant-mentions .rc-textarea-focused {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  border-right-width: 1px;
+  outline: 0;
+}
+.ant-input-rtl .ant-mentions .rc-textarea:focus,
+.ant-input-rtl .ant-mentions .rc-textarea-focused {
+  border-right-width: 0;
+  border-left-width: 1px !important;
+}
+.ant-mentions .rc-textarea-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ant-mentions .rc-textarea-disabled:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px;
+}
+.ant-mentions .rc-textarea[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.ant-mentions .rc-textarea[disabled]:hover {
+  border-color: #d9d9d9;
+  border-right-width: 1px;
+}
+.ant-mentions .rc-textarea-borderless,
+.ant-mentions .rc-textarea-borderless:hover,
+.ant-mentions .rc-textarea-borderless:focus,
+.ant-mentions .rc-textarea-borderless-focused,
+.ant-mentions .rc-textarea-borderless-disabled,
+.ant-mentions .rc-textarea-borderless[disabled] {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+textarea.ant-mentions .rc-textarea {
+  max-width: 100%;
+  height: auto;
+  min-height: 28px;
+  line-height: 1.66667;
+  vertical-align: bottom;
+  transition: all 0.3s, height 0s;
+}
+.ant-mentions .rc-textarea-lg {
+  padding: 3.4px 11px;
+  font-size: 14px;
+}
+.ant-mentions .rc-textarea-sm {
+  padding: 0px 7px;
+}
+.ant-mentions .rc-textarea-rtl {
+  direction: rtl;
+}
 .ant-message {
   box-sizing: border-box;
   margin: 0;
@@ -18565,6 +18665,20 @@ textarea.ant-pagination-options-quick-jumper input {
   margin-right: 8px;
   margin-left: 0;
   text-align: right;
+}
+.ant-progress-line {
+  font-size: 0;
+}
+.ant-progress-line .ant-progress-outer,
+.ant-progress-line .ant-progress-text {
+  font-size: 12px;
+}
+.ant-progress-small.ant-progress-line {
+  font-size: 0;
+}
+.ant-progress-small.ant-progress-line .ant-progress-outer,
+.ant-progress-small.ant-progress-line .ant-progress-text {
+  font-size: 12px;
 }
 .ant-radio-group {
   box-sizing: border-box;
@@ -22357,6 +22471,22 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   width: var(--scrollbar-width);
   height: var(--scrollbar-width);
   background: #d9d9d9;
+}
+.ant-table-resizable .ant-table-resizable-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: ew-resize;
+  user-select: none;
+}
+.ant-table-resizable .ant-table-resizable-handle:hover {
+  border-right: 2px dashed #40a9ff;
+}
+.ant-table-resizable .ant-table-resizing {
+  border-right: 2px dashed #096dd9;
+  z-index: 99;
 }
 .ant-tabs-small > .ant-tabs-nav .ant-tabs-tab {
   padding: 4px 0;

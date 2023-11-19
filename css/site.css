@@ -27,6 +27,9 @@ ul,
 ol {
   list-style: none;
 }
+.action {
+  cursor: pointer;
+}
 @media (max-width: 480px) {
   .ant-table {
     width: 100%;

@@ -122,7 +122,7 @@ function proccessObject(o) {
         if (o[attr] === null || o[attr] === undefined) delete o[attr];
         else if (typeof o[attr] == 'object') {
             removeNullItem(o[attr]);
-            if (isEmptyObj(o[attr])) delete o[attr];
+            if (isEmptyObj(o[attr]) && attr!="data") delete o[attr];
         }
     }
 }
