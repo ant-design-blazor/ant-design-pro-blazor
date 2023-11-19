@@ -1,14 +1,27 @@
 ﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
 
-<AntDesign.ProLayout.BasicLayout 
-    Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-    MenuData="MenuData">
+<AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+                                 MenuData="MenuData"
+                                 MenuAccordion
+                                 Collapsed="collapsed"
+                                 OnCollapse="e=>collapsed=e">
+    <HeaderContentRender>
+        <Space Size="@("24")">
+            <SpaceItem>
+                <Icon Class="action" Type="@(collapsed?"menu-unfold":"menu-fold")" OnClick="Toggle" />
+            </SpaceItem>
+            <SpaceItem>
+                <Icon Class="action" Type="reload" Theme="outline" OnClick="Reload" />
+            </SpaceItem>
+        </Space>
+    </HeaderContentRender>
     <RightContentRender>
         <AntDesign.Pro.Template.Components.RightContent />
     </RightContentRender>
     <ChildContent>
-        @Body
+        <ReuseTabs></ReuseTabs>
+        @*  @Body *@
     </ChildContent>
     <FooterRender>
         <FooterView Copyright="2021 Ant Design Blazor" Links="Links"></FooterView>
@@ -17,14 +30,21 @@
 <SettingDrawer />
 
 @inject HttpClient HttpClient
+@inject ReuseTabsService TabService;
 @code
 {
+    bool collapsed;
+
     private MenuDataItem[] MenuData { get; set; } = { };
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+
+        // workaround for the reusetabs issue that can't open the default page.
+        // will fix in next release. https://github.com/ant-design-blazor/ant-design-blazor/pull/3519
+        TabService.ReloadPage();
     }
 
     public LinkItem[] Links { get; set; } =
@@ -51,4 +71,14 @@
             BlankTarget = true,
         }
     };
+
+    void Toggle()
+    {
+        collapsed = !collapsed;
+    }
+
+    void Reload()
+    {
+        TabService.ReloadPage();
+    }
 }
