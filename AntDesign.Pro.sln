@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C60BCE84-4AF4-4393-8D3E-1B69E29549C1}"
 EndProject
@@ -13,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\pr-checks.yml = .github\workflows\pr-checks.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.App.Pro", "src\AntDesign.App.Pro\AntDesign.App.Pro\AntDesign.App.Pro.csproj", "{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.App.Pro.Client", "src\AntDesign.App.Pro\AntDesign.App.Pro.Client\AntDesign.App.Pro.Client.csproj", "{3CAB0568-E6EB-47B6-8B35-340A45606317}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign", "..\ant-design-blazor\components\AntDesign.csproj", "{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +29,27 @@ Global
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAB0568-E6EB-47B6-8B35-340A45606317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAB0568-E6EB-47B6-8B35-340A45606317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAB0568-E6EB-47B6-8B35-340A45606317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAB0568-E6EB-47B6-8B35-340A45606317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{539597BB-9A1F-484F-8029-B7E0A1076A98} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{3CAB0568-E6EB-47B6-8B35-340A45606317} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E124DDCB-1F8D-4F96-BF41-D87019D0A412}

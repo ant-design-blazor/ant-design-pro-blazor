@@ -1,5 +1,6 @@
 ﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
+ 
 
 <AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
                                  MenuData="MenuData"
@@ -20,7 +21,10 @@
         <AntDesign.Pro.Template.Components.RightContent />
     </RightContentRender>
     <ChildContent>
-        <ReuseTabs></ReuseTabs>
+        @* <ReuseTabs>
+           
+        </ReuseTabs> *@
+        @RouteData.RenderBody()
         @*  @Body *@
     </ChildContent>
     <FooterRender>
@@ -33,6 +37,9 @@
 @inject ReuseTabsService TabService;
 @code
 {
+    [Parameter]
+    public ReuseTabsRouteData RouteData { get; set; } 
+
     bool collapsed;
 
     private MenuDataItem[] MenuData { get; set; } = { };
@@ -44,7 +51,7 @@
 
         // workaround for the reusetabs issue that can't open the default page.
         // will fix in next release. https://github.com/ant-design-blazor/ant-design-blazor/pull/3519
-        TabService.ReloadPage();
+        // TabService.ReloadPage();
     }
 
     public LinkItem[] Links { get; set; } =

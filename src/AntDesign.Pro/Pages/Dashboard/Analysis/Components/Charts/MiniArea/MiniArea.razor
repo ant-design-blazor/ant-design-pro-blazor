@@ -25,10 +25,14 @@
         }
     };
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
-        var data = await ChartService.GetVisitDataAsync();
-        await _visitChart.ChangeData(data);
+        if (firstRender)
+        {
+            var data = await ChartService.GetVisitDataAsync();
+            await _visitChart.ChangeData(data);
+
+        }
+        await base.OnAfterRenderAsync(firstRender);
     }
 }
