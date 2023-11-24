@@ -4,6 +4,7 @@ using AntDesign.App.Pro.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,8 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
 
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8080") });
+System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(sp.GetService<IHttpContextAccessor>()?.HttpContext?.Request.Host.Host??"") });
 
 
 builder.Services.AddAuthentication(options =>
