@@ -19,7 +19,7 @@ builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
 
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7182") });
+builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("https://localhost:8080") });
 
 
 builder.Services.AddAuthentication(options =>
