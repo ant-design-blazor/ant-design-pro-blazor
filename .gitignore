@@ -341,3 +341,4 @@ healthchecksdb
 /package-lock.json
 /src/AntDesign.Pro/wwwroot/css/*.css
 /src/AntDesign.Pro/**/*.css
+/src/AntDesign.App.Pro/AntDesign.App.Pro/Properties/ServiceDependencies/AntDesignAuto - Zip Deploy/profile.arm.json
