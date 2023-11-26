@@ -21,7 +21,7 @@ builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
 
 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(sp.GetService<IHttpContextAccessor>()?.HttpContext?.Request.Host.Host??"") });
+builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("http://127.0.0.1:8080") });
 
 
 builder.Services.AddAuthentication(options =>
