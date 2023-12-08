@@ -1,6 +1,7 @@
 using AntDesign.App.Pro.Components;
 using AntDesign.App.Pro.Components.Account;
 using AntDesign.App.Pro.Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
-
-AntDesign.Pro.Template.Program.AddClientServices(builder.Services);
 
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
@@ -43,6 +42,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+builder.Services.AddClientServices();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -63,10 +64,23 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+app.MapWhen(ctx => ctx.Request.Path.StartsWithSegments("/dashboard"), second =>
+{
+    second.UseStaticFiles();
+    second.UseRouting();
+    second.UseAntiforgery();
+    second.UseEndpoints(endpoints =>
+    {
+        endpoints.MapRazorComponents<AntDesign.Pro.Template.Components.App>()
+        .AddInteractiveServerRenderMode()
+        .AddInteractiveWebAssemblyRenderMode();
+    });
+});
+
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode()
-    .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(AntDesign.Pro.Template._Imports).Assembly);
+       //.AddAdditionalAssemblies(typeof(AntDesign.Pro.Template.Components._Imports).Assembly)
+       .AddInteractiveServerRenderMode()
+       .AddInteractiveWebAssemblyRenderMode();
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();

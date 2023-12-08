@@ -1,0 +1,8 @@
+﻿<Router AppAssembly="@typeof(_Imports).Assembly" >
+    <Found Context="routeData">
+        <CascadingValue Value="new ReuseTabsRouteData(routeData)">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(AntDesign.Pro.Template.LayoutWarpper)" />
+        </CascadingValue>
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+</Router>

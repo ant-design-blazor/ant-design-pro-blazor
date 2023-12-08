@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.App.Pro.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign", "..\ant-design-blazor\components\AntDesign.csproj", "{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.ProLayout", "..\blazor-pro-components\src\layout\src\AntDesign.ProLayout.csproj", "{16898D82-FF37-4855-8812-0C306907B222}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16898D82-FF37-4855-8812-0C306907B222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16898D82-FF37-4855-8812-0C306907B222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16898D82-FF37-4855-8812-0C306907B222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16898D82-FF37-4855-8812-0C306907B222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{5ABC2AC3-1573-4F95-BF1F-BFBCDB70B1D0} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
 		{3CAB0568-E6EB-47B6-8B35-340A45606317} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
 		{8B67B842-5BCB-49D7-A6A5-8DF57ED64DC6} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{16898D82-FF37-4855-8812-0C306907B222} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E124DDCB-1F8D-4F96-BF41-D87019D0A412}

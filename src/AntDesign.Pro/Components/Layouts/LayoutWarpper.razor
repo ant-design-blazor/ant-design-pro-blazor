@@ -1,0 +1,11 @@
+﻿@namespace AntDesign.Pro.Template
+
+@inherits LayoutComponentBase
+
+<AntDesign.Pro.Template.BasicLayout RouteData="@RouteData" @rendermode="@InteractiveAuto" ></AntDesign.Pro.Template.BasicLayout>
+
+
+@code{
+    [CascadingParameter]
+    public ReuseTabsRouteData RouteData { get; set; }
+}
