@@ -8,11 +8,10 @@ using Microsoft.AspNetCore.Components.Authorization;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 
-builder.Services.AddClientServices();
+builder.Services.AddClientServices(builder.Configuration.GetSection("ProSettings"));
 
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
 builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();

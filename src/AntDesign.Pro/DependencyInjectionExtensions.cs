@@ -1,10 +1,11 @@
 ﻿using AntDesign.Pro.Template.Services;
+using AntDesign.ProLayout;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjectionExtensions
     {
-       public static void AddClientServices(this IServiceCollection services)
+       public static void AddClientServices(this IServiceCollection services,IConfiguration configuration)
         {
             services.AddAntDesign();
 
@@ -13,6 +14,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IProfileService, ProfileService>();
+
+            services.Configure<ProSettings>(configuration);
         }
     }
 }

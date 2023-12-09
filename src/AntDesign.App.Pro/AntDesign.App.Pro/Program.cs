@@ -42,7 +42,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
-builder.Services.AddClientServices();
+builder.Services.AddClientServices(builder.Configuration.GetSection("ProSettings"));
 
 var app = builder.Build();
 

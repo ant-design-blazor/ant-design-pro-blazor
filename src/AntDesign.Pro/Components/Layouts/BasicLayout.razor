@@ -22,10 +22,10 @@
     </RightContentRender>
     <ChildContent>
 
-@*         <ReuseTabs ReuseTabsRouteData="RouteData"></ReuseTabs>
+        <ReuseTabs ReuseTabsRouteData="RouteData"></ReuseTabs>
    
- *@
-        @RouteData.RenderBody()
+
+        @* @RouteData.RenderBody() *@
         @*  @Body *@
     </ChildContent>
     <FooterRender>
@@ -50,10 +50,9 @@
         await base.OnInitializedAsync();
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
 
-        // workaround for the reusetabs issue that can't open the default page.
-        // will fix in next release. https://github.com/ant-design-blazor/ant-design-blazor/pull/3519
-        //TabService.ReloadPage();
     }
+
+    
 
     public LinkItem[] Links { get; set; } =
     {
