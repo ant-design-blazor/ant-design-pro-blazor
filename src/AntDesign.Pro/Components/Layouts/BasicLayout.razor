@@ -49,10 +49,7 @@
     {
         await base.OnInitializedAsync();
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
-
     }
-
-    
 
     public LinkItem[] Links { get; set; } =
     {

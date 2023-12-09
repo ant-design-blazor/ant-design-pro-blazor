@@ -20,7 +20,24 @@ builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
 
 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("http://127.0.0.1:8080") });
+builder.Services.AddTransient(sp =>
+{
+    var httpContext=sp.GetService<IHttpContextAccessor>()?.HttpContext;
+    if (httpContext != null)
+    {
+        // 构建当前运行时的URL
+        var request = httpContext.Request;
+        var host = request.Host.ToUriComponent();
+        var scheme = request.Scheme;
+        var baseAddress = $"{scheme}://{host}";
+        return new HttpClient(){ BaseAddress = new Uri(baseAddress) };
+    }
+    else
+    {
+        // 如果无法获取HTTP上下文，可以设置一个默认值
+        return new HttpClient() { BaseAddress = new Uri("http://localhost:5000") };
+    }
+});
 
 
 builder.Services.AddAuthentication(options =>
