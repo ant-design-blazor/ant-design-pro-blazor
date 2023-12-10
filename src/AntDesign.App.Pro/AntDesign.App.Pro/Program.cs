@@ -81,11 +81,22 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapWhen(ctx => ctx.Request.Path.StartsWithSegments("/dashboard"), second =>
+app.MapWhen(ctx => ctx.Request.Path.StartsWithSegments("/admin"), second =>
 {
+
+    second.Use(async (ctx, next) =>
+    {
+
+        ctx.Request.Path = ctx.Request.Path.ToString()?.Replace("admin/", "");
+
+        await next();
+    });
+
     second.UseStaticFiles();
     second.UseRouting();
     second.UseAntiforgery();
+
+
     second.UseEndpoints(endpoints =>
     {
         endpoints.MapRazorComponents<AntDesign.Pro.Template.Components.App>()
