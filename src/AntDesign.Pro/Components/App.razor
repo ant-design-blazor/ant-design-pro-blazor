@@ -13,12 +13,13 @@
     <link href="_content/AntDesign.ProLayout/css/ant-design-pro-layout-blazor.css" rel="stylesheet" />
     <link href="./css/site.css" rel="stylesheet" />
 
-    <HeadOutlet @rendermode="InteractiveAuto" />
+    <HeadOutlet @rendermode="RenderMode.InteractiveAuto" />
 </head>
 
 <body data-app="dashboard">
     
-    <Routes @rendermode="InteractiveAuto" />
+    <Routes @rendermode="RenderMode.InteractiveAuto" />
+    <AntContainer @rendermode="RenderMode.InteractiveAuto" />
 
     <script defer src="https://unpkg.com/@@antv/g2plot@2.4.17/dist/g2plot.min.js"></script>
     <script defer src="_content/AntDesign/js/ant-design-blazor.js"></script>

@@ -1,7 +1,6 @@
 ﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
 
-
 <AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
                                  MenuData="MenuData"
                                  MenuAccordion
@@ -22,10 +21,10 @@
     </RightContentRender>
     <ChildContent>
 
-        @* <ReuseTabs ReuseTabsRouteData="RouteData"></ReuseTabs> *@
+        <ReuseTabs ReuseTabsRouteData="RouteData"></ReuseTabs>
    
-
-        @RouteData.RenderBody()
+@* 
+        @RouteData.RenderBody() *@
         @*  @Body *@
     </ChildContent>
     <FooterRender>
