@@ -41,10 +41,15 @@
         </NoticeIcon>
     </SpaceItem>
     <SpaceItem>
-        <AvatarDropdown Name="@_currentUser.Name"
-                        Avatar="@_currentUser.Avatar"
-                        MenuItems="@AvatarMenuItems"
-                        OnItemSelected="HandleSelectUser" />
+        <AuthorizeView>
+            <Authorized>
+                 <AvatarDropdown Name="@context.User.Identity.Name"
+                                 Avatar="@_currentUser.Avatar"
+                                 MenuItems="@AvatarMenuItems"
+                                 OnItemSelected="HandleSelectUser" />
+            </Authorized>
+        </AuthorizeView>
+
     </SpaceItem>
     <SpaceItem>
         <SelectLang OnItemSelected="HandleSelectLang" />
