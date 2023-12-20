@@ -2,6 +2,7 @@
     <Found Context="routeData">
         <CascadingValue Value="routeData">
             <RouteView RouteData="@routeData" DefaultLayout="@typeof(BasicLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </CascadingValue>
     </Found>
     <NotFound>

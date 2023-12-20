@@ -7,12 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AntDesign.Pro.Template.Client\AntDesign.Pro.Template.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Client\AntDesign.Pro.Template.Client.csproj" />
-  </ItemGroup>
-
 
 </Project>

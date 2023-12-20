@@ -35,8 +35,8 @@
                     "description": "Server-Side"
                 },
                 {
-                    "choice": "hosted",
-                    "description": "Asp.NET Core Hosted WebAssembly"
+                    "choice": "webapp",
+                    "description": "Asp.NET Core webapp WebAssembly"
                 }
             ]
         },
@@ -74,7 +74,7 @@
     ],
     "sources": [
         {
-            "condition": "(host != 'hosted')",
+            "condition": "(host != 'webapp')",
             "source": "./src/AntDesign.Pro",
             "target": "./",
             "modifiers": [
@@ -114,9 +114,9 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
+            "condition": "(host == 'webapp')",
             "source": "./src/AntDesign.Pro",
-            "target": "./src/Client/",
+            "target": "./src/AntDesign.Pro.Template.Client/",
             "modifiers": [
                 {
                     "exclude": [
@@ -166,7 +166,7 @@
                     ]
                 },
                 {
-                    "condition": "(host == 'hosted')",
+                    "condition": "(host == 'webapp')",
                     "exclude": [
                         "Directory.Build.props"
                     ]
@@ -230,9 +230,9 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
+            "condition": "(host == 'webapp')",
             "source": "./.template.config/templates/wasm",
-            "target": "./src/Client/",
+            "target": "./src/AntDesign.Pro.Template.Client/",
             "modifiers": [
                  {
                     "exclude": [
@@ -262,14 +262,14 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
-            "source": "./.template.config/templates/hosted",
+            "condition": "(host == 'webapp')",
+            "source": "./.template.config/templates/webapp",
             "target": "./",
             "modifiers": [
                 {
                     "condition": "(full)",
                     "exclude": [
-                        "src/Client/Pages/**/*"
+                        "src/AntDesign.Pro.Template.Client/Pages/**/*"
                     ]
                 },
                 {

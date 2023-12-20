@@ -65,7 +65,7 @@ dotnet new -u AntDesign.Templates
 | Options           | Description                                                        | Type                           | Default |
 | ----------------- | ------------------------------------------------------------------ | ------------------------------ | ------- |
 | `--full`          | If specified, generates all pages of Ant Design Pro                | bool                           | false   |
-| `--host`          | Specify the hosting model                                          | `wasm` \| `server` \| `hosted` | `wasm`  |
+| `--host`          | Specify the hosting model                                          | `wasm` \| `server` \| `webapp` | `wasm`  |
 | `--styles`        | Whether use NodeJS and Less to compile your custom themes.         | `css` \| `less`                | `css`   |
 | `--no-restore`    | If specified, skips the automatic restore of the project on create | bool                           | false   |
 

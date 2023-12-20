@@ -34,7 +34,7 @@ jobs:
             dotnet new -i ./pack/AntDesign.Templates.1.0.0.nupkg
             dotnet new antdesign -n wasm --host wasm --full
             dotnet new antdesign -n server --host server --full
-            dotnet new antdesign -n hosted --host hosted --full
+            dotnet new antdesign -n webapp --host webapp --full
             dotnet build ./wasm
             dotnet build ./server
-            dotnet build ./hosted
+            dotnet build ./webapp
