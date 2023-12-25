@@ -7,6 +7,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddHttpClient("API").ConfigureHttpClient((sp, client) =>
+{
+    var httpContext = sp.GetService<IHttpContextAccessor>()?.HttpContext;
+    if (httpContext == null)
+    {
+        client.BaseAddress = new Uri("https://localhost:80/");
+        return;
+    }
+
+    var request = httpContext.Request;
+    var host = request.Host.ToUriComponent();
+    var scheme = request.Scheme;
+    client.BaseAddress = new Uri($"{scheme}://{host}");
+});
+
+builder.Services.AddTransient(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("API"));
+
+AntDesign.Pro.Template.Client.Program.AddAntDeisgnPro(builder.Services, builder.Configuration.GetSection("ProSettings"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
