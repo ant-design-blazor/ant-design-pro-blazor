@@ -1,5 +1,7 @@
 @using AntDesign.Pro.Template.Services
 @namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
+@inherits AntComponentBase
+
 @inject IChartService ChartService
 <AntDesign.Charts.Column @ref="_chart" Config="_chartConfig" />
 
@@ -27,6 +29,10 @@
     {
         await base.OnInitializedAsync();
         var data = await ChartService.GetVisitDataAsync();
-        await _chart.ChangeData(data);
+
+        CallAfterRender(async () =>
+        {
+            await _chart.ChangeData(data);
+        });
     }
 }

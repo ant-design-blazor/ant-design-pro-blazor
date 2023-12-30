@@ -1,4 +1,5 @@
 @namespace AntDesign.Pro.Template.Pages.Dashboard.Workplace
+@inherits AntComponentBase
 
 <AntDesign.Charts.Radar @ref="_chart" Config="_chartConfig" />
 
@@ -51,8 +52,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await base.OnInitializedAsync();
         var data = await ChartService.GetRadarDataAsync();
-        await _chart.ChangeData(data);
+
+        CallAfterRender(async () =>
+        {
+            await _chart.ChangeData(data);
+        });
+
+        await base.OnInitializedAsync();
     }
 }

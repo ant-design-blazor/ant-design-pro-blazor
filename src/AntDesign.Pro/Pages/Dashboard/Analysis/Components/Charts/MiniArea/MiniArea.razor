@@ -1,5 +1,7 @@
 @using AntDesign.Pro.Template.Services
 @namespace AntDesign.Pro.Template.Pages.Dashboard.Analysis
+@inherits AntComponentBase
+
 @inject IChartService ChartService
 
 <Area @ref="_visitChart" Config="_visitChartConfig" />
@@ -29,6 +31,9 @@
     {
         await base.OnInitializedAsync();
         var data = await ChartService.GetVisitDataAsync();
-        await _visitChart.ChangeData(data);
+        CallAfterRender(async () =>
+        {
+            await _visitChart.ChangeData(data);
+        });
     }
 }
