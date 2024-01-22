@@ -5079,6 +5079,42 @@ a.ant-btn-sm {
 .ant-checkbox + span:empty {
   display: none;
 }
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: transparent;
+  border-color: #434343;
+}
+.ant-checkbox-input:checked +  .ant-checkbox-inner {
+  background-color: #177ddc;
+  border-color: #177ddc;
+}
+.ant-checkbox-input:checked +  .ant-checkbox-inner::after {
+  position: absolute;
+  display: table;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg) scale(1) translate(-50%, -50%);
+  opacity: 1;
+  transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+  content: ' ';
+}
+.ant-checkbox-disabled .ant-checkbox-inner::after {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  animation-name: none;
+}
+.ant-checkbox-disabled .ant-checkbox-inner {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: #434343 !important;
+}
+.ant-checkbox-disabled .ant-checkbox-inner::after {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-collapse: separate;
+  animation-name: none;
+}
+.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  animation-name: none;
+}
 .ant-collapse {
   box-sizing: border-box;
   margin: 0;
@@ -19313,6 +19349,14 @@ span.ant-radio + * {
 .ant-radio + span:empty {
   display: none;
 }
+.ant-radio-input:checked + .ant-radio-inner {
+  border-color: #177ddc;
+}
+.ant-radio-input:checked + .ant-radio-inner::after {
+  transform: scale(0.5);
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
 .ant-rate {
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.85);
@@ -27306,4 +27350,25 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .ant-image-preview-switch-right {
   right: 8px;
+}
+.ant-flex {
+  display: flex;
+}
+.ant-flex-vertical {
+  flex-direction: column;
+}
+.ant-flex-rtl {
+  direction: rtl;
+}
+.ant-flex:empty {
+  display: none;
+}
+.ant-flex-gap-small {
+  gap: 8px;
+}
+.ant-flex-gap-middle {
+  gap: 16px;
+}
+.ant-flex-gap-large {
+  gap: 24px;
 }
