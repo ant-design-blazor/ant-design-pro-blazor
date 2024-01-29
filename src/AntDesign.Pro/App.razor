@@ -1,7 +1,15 @@
+<CascadingAuthenticationState>
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <CascadingValue Value="routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(BasicLayout)" />
+                <AuthorizeView>
+                    <Authorized>
+                        <RouteView RouteData="@routeData" DefaultLayout="@typeof(BasicLayout)" />
+                    </Authorized>
+                    <NotAuthorized>
+                        <AntDesign.Pro.Template.Pages.User.Login></AntDesign.Pro.Template.Pages.User.Login>
+                    </NotAuthorized>
+                </AuthorizeView>
         </CascadingValue>
     </Found>
     <NotFound>
@@ -10,4 +18,5 @@
         </LayoutView>
     </NotFound>
 </Router>
+</CascadingAuthenticationState>
 <AntContainer />

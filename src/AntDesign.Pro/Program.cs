@@ -5,6 +5,8 @@ using AntDesign.ProLayout;
 using AntDesign.Pro.Template.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Components.Authorization;
+using Blazored.LocalStorage;
 
 namespace AntDesign.Pro.Template
 {
@@ -15,6 +17,7 @@ namespace AntDesign.Pro.Template
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped(
                 sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
             builder.Services.AddAntDesign();
@@ -24,7 +27,10 @@ namespace AntDesign.Pro.Template
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IProfileService, ProfileService>();
-
+            builder.Services.AddScoped<IAuthenticationService, AuthenticationServiceProvider>();
+            builder.Services.AddScoped<AuthenticationStateProvider, AuthenticationServiceProvider>();
+            builder.Services.AddBlazoredLocalStorage();
+            //builder.Services.AddTransient<AuthenticationState, AuthenticationState>();
             await builder.Build().RunAsync();
         }
     }
