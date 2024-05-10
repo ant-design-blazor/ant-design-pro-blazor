@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C60BCE84-4AF4-4393-8D3E-1B69E29549C1}"
 EndProject
@@ -13,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\pr-checks.yml = .github\workflows\pr-checks.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro", ".template.config\templates\webapp\AntDesign.Pro\AntDesign.Pro\AntDesign.Pro.csproj", "{EDE738DB-F779-4168-9A62-E2DE3B381BEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro.Client", ".template.config\templates\webapp\AntDesign.Pro\AntDesign.Pro.Client\AntDesign.Pro.Client.csproj", "{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webapp", "webapp", "{C82D02AE-2CDD-4882-BE16-6432D5EF0EE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +29,23 @@ Global
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539597BB-9A1F-484F-8029-B7E0A1076A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDE738DB-F779-4168-9A62-E2DE3B381BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDE738DB-F779-4168-9A62-E2DE3B381BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDE738DB-F779-4168-9A62-E2DE3B381BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDE738DB-F779-4168-9A62-E2DE3B381BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{539597BB-9A1F-484F-8029-B7E0A1076A98} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
+		{EDE738DB-F779-4168-9A62-E2DE3B381BEB} = {C82D02AE-2CDD-4882-BE16-6432D5EF0EE4}
+		{0CD9486D-C763-4DA8-A14D-54E48D3CE2FE} = {C82D02AE-2CDD-4882-BE16-6432D5EF0EE4}
+		{C82D02AE-2CDD-4882-BE16-6432D5EF0EE4} = {C60BCE84-4AF4-4393-8D3E-1B69E29549C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E124DDCB-1F8D-4F96-BF41-D87019D0A412}
