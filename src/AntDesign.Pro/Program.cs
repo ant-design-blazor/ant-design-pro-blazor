@@ -25,6 +25,9 @@ namespace AntDesign.Pro.Template
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IProfileService, ProfileService>();
 
+            builder.Services.AddInteractiveStringLocalizer();
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             await builder.Build().RunAsync();
         }
     }
