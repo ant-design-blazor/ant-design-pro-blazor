@@ -5440,6 +5440,25 @@ a.ant-btn-sm {
   margin-right: 44px;
   margin-left: 0;
 }
+.ant-comment-right .ant-comment-avatar {
+  margin-left: 12px;
+  margin-right: 0px;
+}
+.ant-comment-right .ant-comment-inner {
+  flex-direction: row-reverse;
+}
+.ant-comment-right .ant-comment-content-author {
+  flex-direction: row-reverse;
+}
+.ant-comment-right .ant-comment-content-detail,
+.ant-comment-right .ant-comment-actions {
+  width: fit-content;
+  margin-left: auto;
+}
+.ant-comment-right.ant-comment-rtl .ant-comment-avatar {
+  margin-left: 0px;
+  margin-right: 12px;
+}
 .ant-picker-status-error.ant-picker,
 .ant-picker-status-error.ant-picker:not([disabled]):hover {
   background-color: #fff;
@@ -19122,6 +19141,16 @@ span.ant-radio + * {
   opacity: 1;
   transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
+.ant-radio-disabled .ant-radio-input:checked + .ant-radio-inner {
+  border-color: #d9d9d9;
+}
+.ant-radio-checked .ant-radio-inner::after {
+  opacity: 0;
+  /** cover the *-checked's opacity, use :checked's for static SSR  */
+}
+.ant-radio-checked .ant-radio-inner {
+  border-color: #d9d9d9;
+}
 .ant-rate {
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
@@ -25269,6 +25298,9 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .ant-upload-list-rtl.ant-upload-list-picture-card .ant-upload-list-item {
   float: unset;
+}
+.ant-upload-no-btn .ant-upload-list-item {
+  margin-top: 0;
 }
 .ant-select-auto-complete {
   box-sizing: border-box;
