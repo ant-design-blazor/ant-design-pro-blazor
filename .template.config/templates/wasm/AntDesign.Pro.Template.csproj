@@ -33,5 +33,10 @@
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm install" />
     <Exec WorkingDirectory="$(SolutionDir)" Command="npm run gulp:pro" />
   </Target>
+
+  <ItemGroup>
+    <Content Remove="package.json" />
+    <Content Remove="package-lock.json" />
+  </ItemGroup>
   <!--#endif -->
 </Project>
