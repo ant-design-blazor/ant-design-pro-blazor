@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AntDesign;
+using Microsoft.Extensions.Localization;
+using AntDesign.Extensions.Localization;
+using System.Globalization;
+using System;
 
 namespace AntDesign.Pro.Template.Components
 {
@@ -36,19 +39,24 @@ namespace AntDesign.Pro.Template.Components
             }
         };
 
-        public AvatarMenuItem[] AvatarMenuItems { get; set; } = new AvatarMenuItem[]
-        {
-            new() { Key = "center", IconType = "user", Option = "个人中心"},
-            new() { Key = "setting", IconType = "setting", Option = "个人设置"},
-            new() { IsDivider = true },
-            new() { Key = "logout", IconType = "logout", Option = "退出登录"}
-        };
+        private AvatarMenuItem[] AvatarMenuItems =>
+            [
+                new() { Key = "center", IconType = "user", Option = L["menu.account.center"]},
+                new() { Key = "setting", IconType = "setting", Option = L["menu.account.settings"] },
+                new() { IsDivider = true },
+                new() { Key = "logout", IconType = "logout", Option = L["menu.account.logout"]}
+            ];
 
         [Inject] protected NavigationManager NavigationManager { get; set; }
 
         [Inject] protected IUserService UserService { get; set; }
         [Inject] protected IProjectService ProjectService { get; set; }
         [Inject] protected MessageService MessageService { get; set; }
+
+        [Inject] private IStringLocalizer<App> L { get; set; }
+        [Inject] private ILocalizationService LocalizationService { get; set; }
+
+        private EventHandler<CultureInfo> _localizationChanged;
 
         protected override async Task OnInitializedAsync()
         {
@@ -60,6 +68,15 @@ namespace AntDesign.Pro.Template.Components
             _messages = notices.Where(x => x.Type == "message").Cast<NoticeIconData>().ToArray();
             _events = notices.Where(x => x.Type == "event").Cast<NoticeIconData>().ToArray();
             _count = notices.Length;
+
+            _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
+            LocalizationService.LanguageChanged += _localizationChanged;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            LocalizationService.LanguageChanged -= _localizationChanged;
+            base.Dispose(disposing);
         }
 
         protected void SetClassMap()
@@ -87,6 +104,7 @@ namespace AntDesign.Pro.Template.Components
 
         public void HandleSelectLang(MenuItem item)
         {
+            LocalizationService.SetLanguage(CultureInfo.GetCultureInfo(item.Key));
         }
 
         public async Task HandleClear(string key)
