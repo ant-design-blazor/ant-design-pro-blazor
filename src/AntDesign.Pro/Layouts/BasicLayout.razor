@@ -21,7 +21,7 @@
     </RightContentRender>
     <ChildContent>
         <ReuseTabs></ReuseTabs>
-        @*  @Body *@
+        @* @Body *@
     </ChildContent>
     <FooterRender>
         <FooterView Copyright="2021 Ant Design Blazor" Links="Links"></FooterView>
@@ -41,10 +41,6 @@
     {
         await base.OnInitializedAsync();
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
-
-        // workaround for the reusetabs issue that can't open the default page.
-        // will fix in next release. https://github.com/ant-design-blazor/ant-design-blazor/pull/3519
-        TabService.ReloadPage();
     }
 
     public LinkItem[] Links { get; set; } =
