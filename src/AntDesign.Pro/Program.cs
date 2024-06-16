@@ -17,15 +17,22 @@ namespace AntDesign.Pro.Template
 
             builder.Services.AddScoped(
                 sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
-            builder.Services.AddAntDesign();
+
+            AddClientServices(builder.Services);
+
             builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
-            builder.Services.AddScoped<IChartService, ChartService>();
-            builder.Services.AddScoped<IProjectService, ProjectService>();
-            builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IAccountService, AccountService>();
-            builder.Services.AddScoped<IProfileService, ProfileService>();
 
             await builder.Build().RunAsync();
+        }
+
+        public static void AddClientServices(IServiceCollection services)
+        {
+            services.AddAntDesign();
+            services.AddScoped<IChartService, ChartService>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IProfileService, ProfileService>();
         }
     }
 }
