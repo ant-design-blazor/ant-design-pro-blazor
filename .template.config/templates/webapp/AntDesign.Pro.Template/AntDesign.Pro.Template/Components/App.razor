@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <link href="_content/AntDesign/css/ant-design-blazor.css" rel="stylesheet" />
+    <link href="_content/AntDesign.ProLayout/css/ant-design-pro-layout-blazor.css" rel="stylesheet" />
+    <link href="./css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="AntDesign.Pro.Template.styles.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -14,6 +17,10 @@
 
 <body>
     <Routes @rendermode="InteractiveAuto" />
+
+    <script type="text/javascript" src="@("https://unpkg.com/@antv/g2plot@2.4.17/dist/g2plot.min.js")"></script>
+    <script src="_content/AntDesign/js/ant-design-blazor.js"></script>
+    <script src="_content/AntDesign.Charts/ant-design-charts-blazor.js"></script>
     <script src="_framework/blazor.web.js"></script>
 </body>
 
