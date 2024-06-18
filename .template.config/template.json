@@ -236,7 +236,8 @@
             "modifiers": [
                  {
                     "exclude": [
-                        "AntDesign.Pro.Template.csproj"
+                        "AntDesign.Pro.Template.csproj",
+                         "Program.cs"
                     ]
                 },
                 {

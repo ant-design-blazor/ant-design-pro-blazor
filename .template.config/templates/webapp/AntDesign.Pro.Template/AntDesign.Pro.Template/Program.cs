@@ -1,5 +1,6 @@
 using AntDesign.Pro.Template.Client.Pages;
 using AntDesign.Pro.Template.Components;
+using AntDesign.ProLayout;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAntDesign();
+
+builder.Services.AddScoped(sp =>
+{
+    var httpContext = sp.GetRequiredService<IHttpContextAccessor>().HttpContext;
+    if (httpContext != null)
+    {
+        return new HttpClient
+        {
+            BaseAddress = new Uri(httpContext.Request.Scheme + "://" + httpContext.Request.Host)
+        };
+    }
+    return new HttpClient();
+});
+
+AntDesign.Pro.Template.Program.AddClientServices(builder.Services);
+
+builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
 
 var app = builder.Build();
 
