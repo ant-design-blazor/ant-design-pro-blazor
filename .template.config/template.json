@@ -24,19 +24,19 @@
         "host": {
             "type": "parameter",
             "datatype": "choice",
-            "defaultValue": "wasm",
+            "defaultValue": "webapp",
             "choices": [
                 {
+                    "choice": "webapp",
+                    "description": "Blazor Web APP with auto render mode"
+                },
+                {
                     "choice": "wasm",
-                    "description": "WebAssembly"
+                    "description": "WebAssembly Standalone app"
                 },
                 {
                     "choice": "server",
-                    "description": "Server-Side"
-                },
-                {
-                    "choice": "hosted",
-                    "description": "Asp.NET Core Hosted WebAssembly"
+                    "description": "Server-site app"
                 }
             ]
         },
@@ -74,7 +74,7 @@
     ],
     "sources": [
         {
-            "condition": "(host != 'hosted')",
+            "condition": "(host != 'webapp')",
             "source": "./src/AntDesign.Pro",
             "target": "./",
             "modifiers": [
@@ -114,9 +114,9 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
+            "condition": "(host == 'webapp')",
             "source": "./src/AntDesign.Pro",
-            "target": "./src/Client/",
+            "target": "./AntDesign.Pro.Template/AntDesign.Pro.Template.Client/",
             "modifiers": [
                 {
                     "exclude": [
@@ -166,7 +166,7 @@
                     ]
                 },
                 {
-                    "condition": "(host == 'hosted')",
+                    "condition": "(host == 'webapp')",
                     "exclude": [
                         "Directory.Build.props"
                     ]
@@ -230,13 +230,14 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
+            "condition": "(host == 'webapp')",
             "source": "./.template.config/templates/wasm",
-            "target": "./src/Client/",
+            "target": "./AntDesign.Pro.Template/AntDesign.Pro.Template.Client/",
             "modifiers": [
                  {
                     "exclude": [
-                        "AntDesign.Pro.Template.csproj"
+                        "AntDesign.Pro.Template.csproj",
+                         "Program.cs"
                     ]
                 },
                 {
@@ -262,8 +263,8 @@
             ]
         },
         {
-            "condition": "(host == 'hosted')",
-            "source": "./.template.config/templates/hosted",
+            "condition": "(host == 'webapp')",
+            "source": "./.template.config/templates/webapp",
             "target": "./",
             "modifiers": [
                 {

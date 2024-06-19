@@ -62,7 +62,7 @@ dotnet new -u AntDesign.Templates
 | 参数              | 说明                                             | 类型                           | 默认值 |
 | ----------------- | ------------------------------------------------ | ------------------------------ | ------ |
 | `--full`          | 如果设置这个参数，会生成所有 Ant Design Pro 页面   | bool                           | false  |
-| `--host`          | 指定托管模型                                     | `wasm` \| `server` \| `hosted` | `wasm` |
+| `--host`          | 指定托管模型                                     | `webapp` \| `wasm` \| `server` | `webapp` |
 | `--styles`        | 指定样式构建类型                                 |  `css` \| `less`                | `css` |
 | `--no-restore`    | 如果设置这个参数，就不会自动恢复包引用             | bool                           | false  |
 
@@ -70,5 +70,5 @@ dotnet new -u AntDesign.Templates
 ### 覆盖项目
 ```bash
 ## You can override an existing project with the --force
-dotnet new antdesign --host wasm --force
+dotnet new antdesign --host webapp --force
 ```

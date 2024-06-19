@@ -48,11 +48,13 @@
             Visible = true
         }
     };
-
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await base.OnInitializedAsync();
-        var data = await ChartService.GetRadarDataAsync();
-        await _chart.ChangeData(data);
+        if (firstRender)
+        {
+            var data = await ChartService.GetRadarDataAsync();
+            await _chart.ChangeData(data);
+        }
+        await base.OnAfterRenderAsync(firstRender);
     }
 }
