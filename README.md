@@ -72,5 +72,5 @@ dotnet new -u AntDesign.Templates
 ### Override Existing Project
 ```bash
 ## You can override an existing project with the --force
-dotnet new antdesign --host wasm --force
+dotnet new antdesign --host webapp --force
 ```
