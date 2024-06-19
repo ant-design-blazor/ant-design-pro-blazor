@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AntDesign.Pro.Template",
   "resources": {
-    "hash": "sha256-Kod4ZFtQdqopSbfxjmNIoYcOKU5QkQaApcyNOpFv+H4=",
+    "hash": "sha256-rnf41SL3VEWpQeHZphAHKQz6Y74lSVR9P5KZH5q85UY=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -18,14 +18,14 @@
     },
     "assembly": {
       "AntDesign.Charts.wasm": "sha256-xAkLJifzTB62Gm2MkFykEZ3Mcg/UpHeqi+J9VWdZM/A=",
-      "AntDesign.Pro.Template.wasm": "sha256-lbWb+a6WfQo4bb+ql3Yk/wjVmEOhLDMzSTF6FR2zREU=",
+      "AntDesign.Pro.Template.wasm": "sha256-MmG+QN6a/vfi0hx5vHRmaWXwJAryP+zHUE65QMc7sLo=",
       "AntDesign.ProLayout.wasm": "sha256-wv6ggcZoTpi3N6jfITwXgMM/Co7LwGoRS88vYi4S0yk=",
       "AntDesign.wasm": "sha256-CIj+cy579S/gpe458ORGV6Lu5P7QQnkpATxa0Y60s0c=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.wasm": "sha256-Mpd98aRLb9cK/TLwAqYub55BwBvzDAyJs18h1O7jIqk=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-sWKUQTpOL9NkqWtXNPOGBRB6txfquj79HPgafHmqNU4=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-6HO8q37T7HMsnb92jw1qSRao+TSNkBmfZurQE9u650I=",
-      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-bFsGhYzN3MQQqj+DhuA5/IdNlXyYH5EN2w56Coql53w=",
-      "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-enPwGlUgYKVeKpht5QtskoaDUOgb53oW9Tu4PO38ZAM=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-+LSYPYo+S92sF53U3dCcFilhm/mfZ8Scpfo1Lw2UjD0=",
+      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-DCXcu+V18C8GCnSAWWlhnnjYHQf0RnFzPvhrSMowEBU=",
+      "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-puTWDjE92Mpz5c7/wK7dNFOtI+687ixlHDzns4QgKr0=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-P/xpjEXA5v7pW7PKj+UZy1oclEg8BhdY8CZu6g+TkK8=",
       "Microsoft.Extensions.Configuration.Binder.wasm": "sha256-vR3QmjxXTUt5q+A2NG1FmRxGE77j8zMhymMFNFxa4lw=",
       "Microsoft.Extensions.Configuration.Json.wasm": "sha256-Sxmy2ZS134URxbHEvdbS6NcQ3zXS7UWx/5ZPpwiW7FA=",
