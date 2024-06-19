@@ -24,19 +24,19 @@
         "host": {
             "type": "parameter",
             "datatype": "choice",
-            "defaultValue": "wasm",
+            "defaultValue": "webapp",
             "choices": [
                 {
+                    "choice": "webapp",
+                    "description": "Blazor Web APP with auto render mode"
+                },
+                {
                     "choice": "wasm",
-                    "description": "WebAssembly"
+                    "description": "WebAssembly Standalone app"
                 },
                 {
                     "choice": "server",
-                    "description": "Server-Side"
-                },
-                {
-                    "choice": "webapp",
-                    "description": "Blazor WebAPP with auto render mode"
+                    "description": "Server-site app"
                 }
             ]
         },
