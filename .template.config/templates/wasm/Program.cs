@@ -21,6 +21,9 @@ namespace AntDesign.Pro.Template
             builder.Services.AddAntDesign();
             builder.Services.Configure<ProSettings>(builder.Configuration.GetSection("ProSettings"));
             //#if (full)
+            builder.Services.AddInteractiveStringLocalizer();
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             builder.Services.AddScoped<IChartService, ChartService>();
             builder.Services.AddScoped<IProjectService, ProjectService>();
             builder.Services.AddScoped<IUserService, UserService>();

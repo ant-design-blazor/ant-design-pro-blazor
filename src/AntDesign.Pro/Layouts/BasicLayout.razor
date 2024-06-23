@@ -1,13 +1,12 @@
 ﻿@namespace AntDesign.Pro.Template
-@using AntDesign.Extensions.Localization
-@using System.Globalization
 @inherits LayoutComponentBase
 @implements IDisposable
 
-<AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
-                                 MenuData="MenuData"
-                                 MenuAccordion
-                                 @bind-Collapsed="collapsed">
+<AntDesign.ProLayout.BasicLayout 
+    Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
+    MenuData="_menuData"
+    MenuAccordion
+    @bind-Collapsed="collapsed">
     <HeaderContentRender>
         <Space Size="@("24")">
             <SpaceItem>
@@ -19,11 +18,12 @@
         </Space>
     </HeaderContentRender>
     <RightContentRender>
+        //#if (full)
         <AntDesign.Pro.Template.Components.RightContent />
+        //#endif
     </RightContentRender>
     <ChildContent>
         <ReuseTabs></ReuseTabs>
-        @* @Body *@
     </ChildContent>
     <FooterRender>
         <FooterView Copyright="2021 Ant Design Blazor" Links="Links"></FooterView>
@@ -31,30 +31,45 @@
 </AntDesign.ProLayout.BasicLayout>
 <SettingDrawer />
 
-@inject HttpClient HttpClient
-@inject ReuseTabsService TabService;
-@inject ILocalizationService LocalizationService;
 @code
 {
     bool collapsed;
+    private MenuDataItem[] _menuData = { };
 
-    private MenuDataItem[] MenuData { get; set; } = { };
+    [Inject] private ReuseTabsService TabService { get; set; }
+    //#if (full)
+
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    [Inject] private ILocalizationService LocalizationService { get; set; }
 
     private EventHandler<CultureInfo> _localizationChanged;
-
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-
-        _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
-        LocalizationService.LanguageChanged += _localizationChanged;
-
-        MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
-    }
 
     public void Dispose()
     {
         LocalizationService.LanguageChanged -= _localizationChanged;
+    }
+
+    //#endif
+
+    protected override async Task OnInitializedAsync()
+    {
+        //#if (!full)
+        _menuData = new[]{
+            new MenuDataItem
+            {
+                Path = "/",
+                Name = "welcome",
+                Key = "welcome",
+                Icon = "smile",
+            }
+        };
+        //#else
+
+        _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
+        LocalizationService.LanguageChanged += _localizationChanged;
+        _menuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+        //#endif
     }
 
     public LinkItem[] Links { get; set; } =

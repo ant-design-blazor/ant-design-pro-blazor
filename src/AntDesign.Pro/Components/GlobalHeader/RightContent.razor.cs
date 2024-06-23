@@ -9,6 +9,7 @@ using Microsoft.Extensions.Localization;
 using AntDesign.Extensions.Localization;
 using System.Globalization;
 using System;
+using AntDesign;
 
 namespace AntDesign.Pro.Template.Components
 {
@@ -55,8 +56,6 @@ namespace AntDesign.Pro.Template.Components
 
         [Inject] private IStringLocalizer<App> L { get; set; }
         [Inject] private ILocalizationService LocalizationService { get; set; }
-
-        private EventHandler<CultureInfo> _localizationChanged;
 
         protected override async Task OnInitializedAsync()
         {
