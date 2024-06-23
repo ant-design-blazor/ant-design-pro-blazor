@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AntDesign.Pro.Template",
   "resources": {
-    "hash": "sha256-dyx83j1dKL/jB75S1QKWCpxmS9fO7oBgW7Zm7SbeyEc=",
+    "hash": "sha256-OIjtbB9da0IvYB4tVrtWxLgy/KMkjPGny1LW1FhnOds=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -18,10 +18,10 @@
     },
     "assembly": {
       "AntDesign.Charts.wasm": "sha256-xAkLJifzTB62Gm2MkFykEZ3Mcg/UpHeqi+J9VWdZM/A=",
-      "AntDesign.Extensions.Localization.wasm": "sha256-y+bwG+7oBYnbIK6Ruvo2IoVJUOMDYnPcPsFbbMpVZ8w=",
-      "AntDesign.Pro.Template.wasm": "sha256-9WLlC2MmK5P01Sb3J2sNfQsezFQVj7bbfC/48mEsoqA=",
-      "AntDesign.ProLayout.wasm": "sha256-wv6ggcZoTpi3N6jfITwXgMM/Co7LwGoRS88vYi4S0yk=",
-      "AntDesign.wasm": "sha256-CIj+cy579S/gpe458ORGV6Lu5P7QQnkpATxa0Y60s0c=",
+      "AntDesign.Extensions.Localization.wasm": "sha256-h8l+4EbZl3RYXGlDN7epdlGojUkLCpqJwmQrPSMT3ns=",
+      "AntDesign.Pro.Template.wasm": "sha256-5lJdmy5PQESNg0H2TyUsKSqY7DrbIM3v/U3H2bkdpKM=",
+      "AntDesign.ProLayout.wasm": "sha256-M/+Bf+qEiuWqEtAGlAvMznw8xpNteBhbulJoGUh97sU=",
+      "AntDesign.wasm": "sha256-xWEJ4hS0LTq7mQbB6++b/NEx48toLmGIXow260Umwtg=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.wasm": "sha256-Mpd98aRLb9cK/TLwAqYub55BwBvzDAyJs18h1O7jIqk=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-sWKUQTpOL9NkqWtXNPOGBRB6txfquj79HPgafHmqNU4=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-+LSYPYo+S92sF53U3dCcFilhm/mfZ8Scpfo1Lw2UjD0=",
@@ -62,7 +62,7 @@
       "System.Net.Http.wasm": "sha256-Ks3UcD/hFmHohPRmC99tNXcA77wJ1l5Qm2avy5qs9K4=",
       "System.Net.Primitives.wasm": "sha256-yVTWaROK719NfQdf63uAz2SkM+e6H6E1voy56YaEY6U=",
       "System.ObjectModel.wasm": "sha256-NpYEOMCNE6ZMYhyRxVRZ6bsEnFP6G4N4J76E0/Uupw8=",
-      "System.Private.CoreLib.wasm": "sha256-7+THpVXIiA4RyPX0DU9VnBDS2Ih9vksFM4XlBbq4yyU=",
+      "System.Private.CoreLib.wasm": "sha256-W777RQecKl1xOAVls2pOfufiqxJxxI9B8x7898MPxFQ=",
       "System.Private.Uri.wasm": "sha256-k9yuYZbLG90TO5e+IDtBRP/YjskY4pjS275RUf8kt+I=",
       "System.Private.Xml.Linq.wasm": "sha256-zqLs5hYV+co74MdxOvbwnhWfsNQk9jCoVz050aVzKVM=",
       "System.Private.Xml.wasm": "sha256-pv50h6Peg4S/EbevIeRht47AY+c/LL+L7nnPp1bXCDQ=",
@@ -80,7 +80,7 @@
     },
     "satelliteResources": {
       "zh-CN": {
-        "AntDesign.Pro.Template.resources.wasm": "sha256-G2vCW8294j6QmUP5TfRBo3X/cJ1FFOEh35/TA+wn96k="
+        "AntDesign.Pro.Template.resources.wasm": "sha256-DytDaBu/PMAqQRASDzfIDjHl17lSdUAuUqAybhfKe9Q="
       }
     },
     "libraryInitializers": {
