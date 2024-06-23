@@ -68,15 +68,6 @@ namespace AntDesign.Pro.Template.Components
             _messages = notices.Where(x => x.Type == "message").Cast<NoticeIconData>().ToArray();
             _events = notices.Where(x => x.Type == "event").Cast<NoticeIconData>().ToArray();
             _count = notices.Length;
-
-            _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
-            LocalizationService.LanguageChanged += _localizationChanged;
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            LocalizationService.LanguageChanged -= _localizationChanged;
-            base.Dispose(disposing);
         }
 
         protected void SetClassMap()

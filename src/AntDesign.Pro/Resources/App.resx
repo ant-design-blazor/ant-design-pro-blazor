@@ -124,6 +124,6 @@
     <value>Logout</value>
   </data>
   <data name="menu.account.settings" xml:space="preserve">
-    <value>Account Settings</value>
+    <value>Settings</value>
   </data>
 </root>

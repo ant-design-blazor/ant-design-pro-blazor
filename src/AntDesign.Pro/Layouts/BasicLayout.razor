@@ -1,11 +1,13 @@
 ﻿@namespace AntDesign.Pro.Template
+@using AntDesign.Extensions.Localization
+@using System.Globalization
 @inherits LayoutComponentBase
+@implements IDisposable
 
 <AntDesign.ProLayout.BasicLayout Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
                                  MenuData="MenuData"
                                  MenuAccordion
-                                 Collapsed="collapsed"
-                                 OnCollapse="e=>collapsed=e">
+                                 @bind-Collapsed="collapsed">
     <HeaderContentRender>
         <Space Size="@("24")">
             <SpaceItem>
@@ -31,16 +33,28 @@
 
 @inject HttpClient HttpClient
 @inject ReuseTabsService TabService;
+@inject ILocalizationService LocalizationService;
 @code
 {
     bool collapsed;
 
     private MenuDataItem[] MenuData { get; set; } = { };
 
+    private EventHandler<CultureInfo> _localizationChanged;
+
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+
+        _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
+        LocalizationService.LanguageChanged += _localizationChanged;
+
         MenuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
+    }
+
+    public void Dispose()
+    {
+        LocalizationService.LanguageChanged -= _localizationChanged;
     }
 
     public LinkItem[] Links { get; set; } =
