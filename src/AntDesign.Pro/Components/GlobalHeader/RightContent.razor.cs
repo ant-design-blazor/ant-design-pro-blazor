@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Localization;
+using AntDesign.Extensions.Localization;
+using System.Globalization;
+using System;
 using AntDesign;
 
 namespace AntDesign.Pro.Template.Components
@@ -36,19 +40,22 @@ namespace AntDesign.Pro.Template.Components
             }
         };
 
-        public AvatarMenuItem[] AvatarMenuItems { get; set; } = new AvatarMenuItem[]
-        {
-            new() { Key = "center", IconType = "user", Option = "个人中心"},
-            new() { Key = "setting", IconType = "setting", Option = "个人设置"},
-            new() { IsDivider = true },
-            new() { Key = "logout", IconType = "logout", Option = "退出登录"}
-        };
+        private AvatarMenuItem[] AvatarMenuItems =>
+            [
+                new() { Key = "center", IconType = "user", Option = L["menu.account.center"]},
+                new() { Key = "setting", IconType = "setting", Option = L["menu.account.settings"] },
+                new() { IsDivider = true },
+                new() { Key = "logout", IconType = "logout", Option = L["menu.account.logout"]}
+            ];
 
         [Inject] protected NavigationManager NavigationManager { get; set; }
 
         [Inject] protected IUserService UserService { get; set; }
         [Inject] protected IProjectService ProjectService { get; set; }
         [Inject] protected MessageService MessageService { get; set; }
+
+        [Inject] private IStringLocalizer<App> L { get; set; }
+        [Inject] private ILocalizationService LocalizationService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -87,6 +94,7 @@ namespace AntDesign.Pro.Template.Components
 
         public void HandleSelectLang(MenuItem item)
         {
+            LocalizationService.SetLanguage(CultureInfo.GetCultureInfo(item.Key));
         }
 
         public async Task HandleClear(string key)
