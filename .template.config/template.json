@@ -103,7 +103,7 @@
                     "exclude": [
                         "Components/**/*",
                         "Extensions/**/*",
-                        "Layouts/**/*",
+                        "Layouts/UserLayout.*",
                         "Models/**/*",
                         "Pages/**/*",
                         "Services/**/*",
@@ -116,7 +116,7 @@
         {
             "condition": "(host == 'webapp')",
             "source": "./src/AntDesign.Pro",
-            "target": "./AntDesign.Pro.Template/AntDesign.Pro.Template.Client/",
+            "target": "./src/AntDesign.Pro.Template.Client/",
             "modifiers": [
                 {
                     "exclude": [
@@ -144,7 +144,7 @@
                     "exclude": [
                         "Components/**/*",
                         "Extensions/**/*",
-                        "Layouts/**/*",
+                        "Layouts/UserLayout.*",
                         "Models/**/*",
                         "Pages/**/*",
                         "Services/**/*",
@@ -237,7 +237,7 @@
                  {
                     "exclude": [
                         "AntDesign.Pro.Template.csproj",
-                         "Program.cs"
+                        "Program.cs"
                     ]
                 },
                 {
