@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35005.142
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro.Template", "AntDesign.Pro.Template\AntDesign.Pro.Template\AntDesign.Pro.Template.csproj", "{B5934F21-93C6-46BA-B25D-C2D3B62EDCFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro.Template", "src\AntDesign.Pro.Template\AntDesign.Pro.Template.csproj", "{B5934F21-93C6-46BA-B25D-C2D3B62EDCFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro.Template.Client", "AntDesign.Pro.Template\AntDesign.Pro.Template.Client\AntDesign.Pro.Template.Client.csproj", "{21B555E8-4868-4C61-A487-269C436022FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesign.Pro.Template.Client", "src\AntDesign.Pro.Template.Client\AntDesign.Pro.Template.Client.csproj", "{21B555E8-4868-4C61-A487-269C436022FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

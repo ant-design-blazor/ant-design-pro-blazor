@@ -1,6 +1,8 @@
 ﻿@namespace AntDesign.Pro.Template
 @inherits LayoutComponentBase
+@* //#if (full)*@
 @implements IDisposable
+@*#//#endif*@
 
 <AntDesign.ProLayout.BasicLayout 
     Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
@@ -18,9 +20,9 @@
         </Space>
     </HeaderContentRender>
     <RightContentRender>
-        <!--#if (full) -->
+        @*//#if (full)*@
         <AntDesign.Pro.Template.Components.RightContent />
-        <!--#endif -->
+        @*//#endif*@
     </RightContentRender>
     <ChildContent>
         <ReuseTabs></ReuseTabs>
