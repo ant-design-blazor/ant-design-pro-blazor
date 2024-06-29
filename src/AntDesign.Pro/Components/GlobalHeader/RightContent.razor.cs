@@ -54,7 +54,7 @@ namespace AntDesign.Pro.Template.Components
         [Inject] protected IProjectService ProjectService { get; set; }
         [Inject] protected MessageService MessageService { get; set; }
 
-        [Inject] private IStringLocalizer<App> L { get; set; }
+        [Inject] private IStringLocalizer<Resources> L { get; set; }
         [Inject] private ILocalizationService LocalizationService { get; set; }
 
         protected override async Task OnInitializedAsync()
