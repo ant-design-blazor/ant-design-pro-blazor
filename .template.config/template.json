@@ -57,8 +57,8 @@
             ]
         },
         "UseNodeJS": {
-          "type": "computed",
-          "value": "(styles == 'less')"
+            "type": "computed",
+            "value": "(styles == 'less')"
         },
         "skipRestore": {
             "type": "parameter",
@@ -209,9 +209,9 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                       "Pages/Welcome.razor",
-                       "Pages/Welcome.razor.less",
-                       "Pages/Welcome.razor.css"
+                        "Pages/Welcome.razor",
+                        "Pages/Welcome.razor.less",
+                        "Pages/Welcome.razor.css"
                     ]
                 },
                 {
@@ -235,7 +235,7 @@
             "source": "./.template.config/templates/wasm",
             "target": "./src/AntDesign.Pro.Template.Client/",
             "modifiers": [
-                 {
+                {
                     "exclude": [
                         "AntDesign.Pro.Template.csproj",
                         "Program.cs"
@@ -244,7 +244,7 @@
                 {
                     "condition": "(full)",
                     "exclude": [
-                       "Pages/**/*"
+                        "Pages/**/*"
                     ]
                 },
                 {
@@ -352,6 +352,30 @@
             ],
             "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
             "continueOnError": true
+        },
+        {
+            "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+            "condition": "(OS != \"Windows_NT\")",
+            "args": {
+                "executable": "./setup.sh",
+                "args": "",
+                "redirectStandardOutput": false,
+                "redirectStandardError": false
+            },
+            "description": "Run script",
+            "manualInstructions": []
+        },
+        {
+            "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+            "condition": "(OS == \"Windows_NT\")",
+            "args": {
+                "executable": "setup.ps1",
+                "args": "",
+                "redirectStandardOutput": false,
+                "redirectStandardError": false
+            },
+            "description": "Run script",
+            "manualInstructions": []
         }
     ]
 }

@@ -1,0 +1,1 @@
+find ./src/AntDesign.Pro.Template.Client -type f -exec sed -i 's/AntDesign.Pro.Template/AntDesign.Pro.Template.Client/g' {} +
