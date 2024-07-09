@@ -15,8 +15,9 @@ namespace AntDesign.Pro.Template
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            //builder.RootComponents.Add<App>("#app");
-
+//#if (host == 'wasm')
+            builder.RootComponents.Add<App>("#app");
+//#endif
             builder.Services.AddScoped(
                 sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
