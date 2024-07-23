@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AntDesign.Pro.Template",
   "resources": {
-    "hash": "sha256-5WvHKSq1Mgkb3qAEZ+j0vufWMOv3YNRVw+GxK8+CW5I=",
+    "hash": "sha256-gaJUrOWDR3E3qYJEGCqEiTx/8jIQ3sIV+LRvqIjky94=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -18,13 +18,13 @@
     },
     "assembly": {
       "AntDesign.Charts.wasm": "sha256-xAkLJifzTB62Gm2MkFykEZ3Mcg/UpHeqi+J9VWdZM/A=",
-      "AntDesign.Extensions.Localization.wasm": "sha256-icIWFvWD0vbaLZSgR16XnRhmSnbAQOv+OivHefK4b50=",
-      "AntDesign.Pro.Template.wasm": "sha256-/ow+ZmsrRCx7Ryic6K0XemqN1dt9A8hKCkQUNxqXgf4=",
-      "AntDesign.ProLayout.wasm": "sha256-nVhJfjEiT8sdRVZHxabjzsYlIXd4Nd/UoMqTFT44B2Q=",
-      "AntDesign.wasm": "sha256-wfuPEavE7juzHqSDmDAvepmtFAyxraEo31v+Au7lUDY=",
+      "AntDesign.Extensions.Localization.wasm": "sha256-hZDgMFt8O1SBKYi7ins2oBmw8q/pkrLfNaqIzU+MN3A=",
+      "AntDesign.Pro.Template.wasm": "sha256-BqL3n3gJVj9ctd9x1tnaiPPrQZRwZxnUYdtfGkpAYzg=",
+      "AntDesign.ProLayout.wasm": "sha256-GSXunjj2I0WguOMrlh5+TG8ih03DODt5M2Kgz9KD1Ms=",
+      "AntDesign.wasm": "sha256-6w5orON5Gsgfm2WeK/7I6Bc6kSRx/e3rHdpAnRz029A=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.wasm": "sha256-Mpd98aRLb9cK/TLwAqYub55BwBvzDAyJs18h1O7jIqk=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-sWKUQTpOL9NkqWtXNPOGBRB6txfquj79HPgafHmqNU4=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-+LSYPYo+S92sF53U3dCcFilhm/mfZ8Scpfo1Lw2UjD0=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-BVmqGxbl+yzyjj+4KW3mGHGZlXndgHpbUnrV43r8KuM=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-DCXcu+V18C8GCnSAWWlhnnjYHQf0RnFzPvhrSMowEBU=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-enPwGlUgYKVeKpht5QtskoaDUOgb53oW9Tu4PO38ZAM=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-P/xpjEXA5v7pW7PKj+UZy1oclEg8BhdY8CZu6g+TkK8=",
@@ -69,7 +69,7 @@
       "System.Reflection.DispatchProxy.wasm": "sha256-9RV8Uk3tt9SsoX/V2+esQThNsslLslNfYvWhylpcFbw=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-TAtIMM4NMjNrLChnEM9FoIlR3eVDVC5v/KP+4FwGQxE=",
       "System.Runtime.Serialization.Primitives.wasm": "sha256-s9IFHjJPMelArANlsFOrYAddzAfkWbMFNJ2alqD0yL8=",
-      "System.Runtime.wasm": "sha256-Bj3e+6POTVdVjCuvhKd8TA9xtQYtT685NolLrqdjE9I=",
+      "System.Runtime.wasm": "sha256-B+pNUae9RmF6+oySsysnNgpxEdO18hRcMQSeXiBlBCo=",
       "System.Text.Encodings.Web.wasm": "sha256-26X/aC+2YfiG3xcs20q7v1U2Ujn7L9uT4MT1ivKg6Gs=",
       "System.Text.Json.wasm": "sha256-ysfvtkHpm7ZhojaXfAKxyzjlD25PjZ0o6YqpJc7iWRk=",
       "System.Text.RegularExpressions.wasm": "sha256-Bl08lA563Diyl/V1ltacT05Zk1lO5N+K3B1SdeRNdb0=",
@@ -80,17 +80,17 @@
     },
     "satelliteResources": {
       "zh-CN": {
-        "AntDesign.Pro.Template.resources.wasm": "sha256-KCP4/jD3iDnAwU9E6QQp7+LkWkjUUbww1+xPA8I8s5s="
+        "AntDesign.Pro.Template.resources.wasm": "sha256-8s3lsjYbFKrYLjO4/3nargb1BIFOS9t19gqnZNhwSIo="
       }
     },
     "libraryInitializers": {
       "_content/AntDesign.Charts/AntDesign.Charts.lib.module.js": "sha256-8mD76Nh6EHnNaLRIKGQVIWOUTePlbKoIqrmAhJP2Nfc=",
-      "_content/AntDesign.ProLayout/AntDesign.ProLayout.lib.module.js": "sha256-zn8Ac+YnWJyH3uBoF/bZ8MYM3ItH41YoWeIh4QiKo9Q=",
+      "_content/AntDesign.ProLayout/AntDesign.ProLayout.lib.module.js": "sha256-WCcHRiHXl0rd+bmdXmqoEB/WK+uV8d1crI/A8t9FPsM=",
       "_content/AntDesign/AntDesign.lib.module.js": "sha256-Y7oJ7/rOncGnhfBrDAPc045cW9bF4cp1INbpZClDsxM="
     },
     "modulesAfterConfigLoaded": {
       "../_content/AntDesign.Charts/AntDesign.Charts.lib.module.js": "sha256-8mD76Nh6EHnNaLRIKGQVIWOUTePlbKoIqrmAhJP2Nfc=",
-      "../_content/AntDesign.ProLayout/AntDesign.ProLayout.lib.module.js": "sha256-zn8Ac+YnWJyH3uBoF/bZ8MYM3ItH41YoWeIh4QiKo9Q=",
+      "../_content/AntDesign.ProLayout/AntDesign.ProLayout.lib.module.js": "sha256-WCcHRiHXl0rd+bmdXmqoEB/WK+uV8d1crI/A8t9FPsM=",
       "../_content/AntDesign/AntDesign.lib.module.js": "sha256-Y7oJ7/rOncGnhfBrDAPc045cW9bF4cp1INbpZClDsxM="
     }
   },

@@ -19,7 +19,7 @@ function loadScriptAndStyle() {
     const antblazorCss = '_content/AntDesign/css/ant-design-blazor.css';
     const prolayoutCss = '_content/AntDesign.ProLayout/css/ant-design-pro-layout-blazor.css';
 
-    if (!document.querySelector(`[href="${prolayoutCss}"]`)){
+    if (!document.querySelector(`[href="${prolayoutCss}"]`) && !document.querySelector('[no-prolayout-css]')){
         var customStyle = document.createElement('link');
         customStyle.setAttribute('href', `${prolayoutCss}`);
         customStyle.setAttribute('rel', 'stylesheet');
