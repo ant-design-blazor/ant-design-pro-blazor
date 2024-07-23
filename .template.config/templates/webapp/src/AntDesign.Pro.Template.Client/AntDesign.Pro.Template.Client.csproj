@@ -10,8 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="AntDesign.Charts" Version="0.4.0" />
-    <PackageReference Include="AntDesign.Extensions.Localization" Version="0.19.3" />
-    <PackageReference Include="AntDesign.ProLayout" Version="0.19.3" />
+    <PackageReference Include="AntDesign.Extensions.Localization" Version="0.19.6" />
+    <PackageReference Include="AntDesign.ProLayout" Version="0.19.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
