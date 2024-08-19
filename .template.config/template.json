@@ -60,6 +60,14 @@
           "type": "computed",
           "value": "(styles == 'less')"
         },
+        "IsWebApp":{
+          "type": "computed",
+          "value": "(host == 'webapp')"
+        },
+        "IsNotWebApp":{
+          "type": "computed",
+          "value": "(host != 'webapp')"
+        },
         "skipRestore": {
             "type": "parameter",
             "datatype": "bool",
