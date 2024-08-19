@@ -33,7 +33,7 @@ namespace AntDesign.Pro.Template
             services.AddAntDesign();
             //#if (full)
             services.AddInteractiveStringLocalizer();
-            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddLocalization();
 
             services.AddScoped<IChartService, ChartService>();
             services.AddScoped<IProjectService, ProjectService>();
