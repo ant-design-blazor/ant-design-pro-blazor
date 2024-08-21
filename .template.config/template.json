@@ -68,6 +68,10 @@
           "type": "computed",
           "value": "(host != 'webapp')"
         },
+        "IsNotFull":{
+            "type": "computed",
+            "value": "(!full)"
+          },
         "skipRestore": {
             "type": "parameter",
             "datatype": "bool",
