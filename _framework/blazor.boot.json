@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AntDesign.Pro.Template",
   "resources": {
-    "hash": "sha256-h7kAP7srZJug/BV+2lbgWKlRdp4wM1LNmXvN2pj7KMI=",
+    "hash": "sha256-VD7ldEZ4C+nG4Eo55/mFZOgiW6116ZCDE+koAZhgkpY=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -19,7 +19,7 @@
     "assembly": {
       "AntDesign.Charts.wasm": "sha256-xAkLJifzTB62Gm2MkFykEZ3Mcg/UpHeqi+J9VWdZM/A=",
       "AntDesign.Extensions.Localization.wasm": "sha256-hZDgMFt8O1SBKYi7ins2oBmw8q/pkrLfNaqIzU+MN3A=",
-      "AntDesign.Pro.Template.wasm": "sha256-6DzqcpXvGTzgzS66kTaRfxSCEg/7Vce0yLGemWNq37I=",
+      "AntDesign.Pro.Template.wasm": "sha256-Xlq2YXze3inZU4T/DLf8RUi34Q/eB1GksXnX9aSEUtI=",
       "AntDesign.ProLayout.wasm": "sha256-GSXunjj2I0WguOMrlh5+TG8ih03DODt5M2Kgz9KD1Ms=",
       "AntDesign.wasm": "sha256-6w5orON5Gsgfm2WeK/7I6Bc6kSRx/e3rHdpAnRz029A=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.wasm": "sha256-Mpd98aRLb9cK/TLwAqYub55BwBvzDAyJs18h1O7jIqk=",
@@ -80,7 +80,7 @@
     },
     "satelliteResources": {
       "zh-CN": {
-        "AntDesign.Pro.Template.resources.wasm": "sha256-g/JTo4hcqSIlbrHBiZ1fWw6M5J+JhaiJTbBxe62z1gs="
+        "AntDesign.Pro.Template.resources.wasm": "sha256-+T4tmaQ36R5xyCeu99pDfLb6wzsNhzP49WUb07a1BI4="
       }
     },
     "libraryInitializers": {
