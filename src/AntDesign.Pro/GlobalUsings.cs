@@ -5,3 +5,5 @@ global using AntDesign.Pro.Template.Resources;
 #else 
 global using AntDesign.Pro.Resources;
 #endif
+
+global using AntDesign;
