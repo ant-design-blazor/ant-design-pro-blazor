@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net8</TargetFramework>
-	<ImplicitUsings>enable</ImplicitUsings>
-	<Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
     <AssemblyName>AntDesign.Pro.Template</AssemblyName>
     <RootNamespace>AntDesign.Pro.Template</RootNamespace>
-	<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
-	<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+	  <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+	  <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
   </PropertyGroup>
 
   <ItemGroup>
