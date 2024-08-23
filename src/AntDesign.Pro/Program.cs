@@ -7,6 +7,7 @@ using AntDesign.Pro.Template.Services;
 //#endif
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace AntDesign.Pro.Template
 {
@@ -18,8 +19,14 @@ namespace AntDesign.Pro.Template
 //#if (host == 'wasm')
             builder.RootComponents.Add<App>("#app");
 //#endif
-            builder.Services.AddScoped(
-                sp => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
+
+            builder.Services.AddScoped<HttpDelegatingHandler>();
+
+            builder.Services.AddHttpClient()
+                .ConfigureHttpClientDefaults(c => c.AddHttpMessageHandler<HttpDelegatingHandler>( )
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)));
+
+            builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient());
 
             AddClientServices(builder.Services);
 
