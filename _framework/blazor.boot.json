@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AntDesign.Pro.Template",
   "resources": {
-    "hash": "sha256-yG7lJDdX8tVvisCqunAIO+RJqi5uFq38Gf6AHGiun70=",
+    "hash": "sha256-IfSGhqTtFd+fC5TrjChWEA+9Xr3xXCZtMnpcY0GJjlQ=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -18,10 +18,10 @@
     },
     "assembly": {
       "AntDesign.Charts.wasm": "sha256-xAkLJifzTB62Gm2MkFykEZ3Mcg/UpHeqi+J9VWdZM/A=",
-      "AntDesign.Extensions.Localization.wasm": "sha256-CbLRlOfO6CCkrXVYjsWBzpkF6HldmJXt1u1yt1TykSg=",
-      "AntDesign.Pro.Template.wasm": "sha256-LqugZbzuiK/XlTVyIpgPEsTS2NKFwZMjfFbZTFLZpe8=",
-      "AntDesign.ProLayout.wasm": "sha256-NoIz//73UllzKSa1ophRsxJN1SRfoGZ0ENBbr2ygPHQ=",
-      "AntDesign.wasm": "sha256-ff3PTbOR7VB+kL85/8Lfi9v4ing1efrUf8tT+hkDj2o=",
+      "AntDesign.Extensions.Localization.wasm": "sha256-p1r6xO0pPmy48C4BDtoQlTG6teKhp/BxU7SwBuc2ZTk=",
+      "AntDesign.Pro.Template.wasm": "sha256-+gGsM/YtdLC2BwV6QKGp0mZD2EiCi06kvCKQ8DEHQTY=",
+      "AntDesign.ProLayout.wasm": "sha256-cmXO/1arvktEfBWpa9KGJOo13CQ3vn+61UNYs3/RCXU=",
+      "AntDesign.wasm": "sha256-oWVoBCURb11Aa834WC8HuZr7udF4GC2H7OJOglvyWh0=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-a6VSaBARW2iMSKlkh6rdZTqGeR/3LqbxdHjmw2FDnIQ=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-BVmqGxbl+yzyjj+4KW3mGHGZlXndgHpbUnrV43r8KuM=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-DCXcu+V18C8GCnSAWWlhnnjYHQf0RnFzPvhrSMowEBU=",
@@ -78,7 +78,7 @@
     },
     "satelliteResources": {
       "zh-CN": {
-        "AntDesign.Pro.Template.resources.wasm": "sha256-/6iSL1IPKfYf+RJBuWb2IMYIpO/XIzUvJeWEZS1Vm5s="
+        "AntDesign.Pro.Template.resources.wasm": "sha256-x1M3YMPE6yl30epmkfScqSu2Co1tewzWtGNzQFpCEyU="
       }
     },
     "libraryInitializers": {
