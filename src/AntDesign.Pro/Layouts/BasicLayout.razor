@@ -1,8 +1,5 @@
-﻿@namespace AntDesign.Pro.Template
+﻿@namespace AntDesign.Pro.Template.Layouts
 @inherits LayoutComponentBase
-@* //#if (full)*@
-@implements IDisposable
-@*#//#endif*@
 
 <AntDesign.ProLayout.BasicLayout 
     Logo="@("https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg")"
@@ -31,71 +28,35 @@
         <FooterView Copyright="2021 Ant Design Blazor" Links="Links"></FooterView>
     </FooterRender>
 </AntDesign.ProLayout.BasicLayout>
+
 <SettingDrawer />
 
-@code
-{
+@code{
     bool collapsed;
-    private MenuDataItem[] _menuData = { };
 
-    [Inject] private ReuseTabsService TabService { get; set; }
-    //#if (full)
-
-    [Inject] private HttpClient HttpClient { get; set; }
-
-    [Inject] private ILocalizationService LocalizationService { get; set; }
-
-    private EventHandler<CultureInfo> _localizationChanged;
-
-    public void Dispose()
+    public LinkItem[] Links =
     {
-        LocalizationService.LanguageChanged -= _localizationChanged;
-    }
-
-    //#endif
-
-    protected override async Task OnInitializedAsync()
-    {
-#if IsNotFull
-        _menuData = new[]{
-            new MenuDataItem
+            new LinkItem
             {
-                Path = "/",
-                Name = "welcome",
-                Key = "welcome",
-                Icon = "smile",
+                Key = "Ant Design Blazor",
+                Title = "Ant Design Blazor",
+                Href = "https://antblazor.com",
+                BlankTarget = true,
+            },
+            new LinkItem
+            {
+                Key = "github",
+                Title = (RenderFragment)(@<Icon Type="github" />),
+                Href = "https://github.com/ant-design-blazor/ant-design-pro-blazor",
+                BlankTarget = true,
+            },
+            new LinkItem
+            {
+                Key = "Blazor",
+                Title = "Blazor",
+                Href = "https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor?WT.mc_id=DT-MVP-5003987",
+                BlankTarget = true,
             }
-        };
-#else
-        _localizationChanged = (sender, args) => InvokeAsync(StateHasChanged);
-        LocalizationService.LanguageChanged += _localizationChanged;
-        _menuData = await HttpClient.GetFromJsonAsync<MenuDataItem[]>("data/menu.json");
-#endif
-    }
-
-    public LinkItem[] Links { get; set; } =
-    {
-        new LinkItem
-        {
-            Key = "Ant Design Blazor",
-            Title = "Ant Design Blazor",
-            Href = "https://antblazor.com",
-            BlankTarget = true,
-        },
-        new LinkItem
-        {
-            Key = "github",
-            Title = (RenderFragment)(@<Icon Type="github" />),
-            Href = "https://github.com/ant-design-blazor/ant-design-pro-blazor",
-            BlankTarget = true,
-        },
-        new LinkItem
-        {
-            Key = "Blazor",
-            Title = "Blazor",
-            Href = "https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor?WT.mc_id=DT-MVP-5003987",
-            BlankTarget = true,
-        }
     };
 
     void Toggle()
@@ -103,8 +64,4 @@
         collapsed = !collapsed;
     }
 
-    void Reload()
-    {
-        TabService.ReloadPage();
-    }
 }
