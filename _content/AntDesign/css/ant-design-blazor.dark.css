@@ -7121,6 +7121,10 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 .ant-drawer .ant-tree-show-line .ant-tree-switcher {
   background: #1f1f1f;
 }
+body:has(.ant-drawer-open .ant-drawer-mask) {
+  overflow: hidden;
+  padding-right: var(--ant-scrollbar-width);
+}
 .ant-dropdown-menu-item.ant-dropdown-menu-item-danger {
   color: #a61d24;
 }
@@ -17468,6 +17472,10 @@ textarea.ant-mentions .rc-textarea {
 .ant-modal-wrap-rtl .ant-modal-resizable .ant-modal-footer {
   left: 0;
 }
+body:has(.ant-modal-open .ant-modal-mask) {
+  overflow: hidden;
+  padding-right: var(--ant-scrollbar-width);
+}
 .ant-notification .ant-picker-clear,
 .ant-notification .ant-slider-handle,
 .ant-notification .ant-anchor-wrapper,
@@ -23503,6 +23511,9 @@ a[antblazor-tab-link]::before {
 a[antblazor-tab-link] ~ * {
   position: relative;
 }
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-operations + .ant-tabs-nav-add {
+  background: transparent;
+}
 .antblazor-tabs-dropdown.ant-dropdown .ant-dropdown-menu {
   max-height: 200px;
   margin: 0;
@@ -26435,6 +26446,9 @@ div.ant-typography-edit-content.ant-typography-rtl {
 .ant-tree-child-tree {
   overflow: hidden;
 }
+.ant-tree-indent {
+  font-size: 0;
+}
 .ant-select-tree-checkbox {
   box-sizing: border-box;
   margin: 0;
@@ -27398,6 +27412,10 @@ div.ant-typography-edit-content.ant-typography-rtl {
 }
 .ant-image-preview-switch-right {
   right: 8px;
+}
+body:has(.ant-image-preview-open .ant-image-preview-mask) {
+  overflow: hidden;
+  padding-right: var(--ant-scrollbar-width);
 }
 .ant-flex {
   display: flex;
