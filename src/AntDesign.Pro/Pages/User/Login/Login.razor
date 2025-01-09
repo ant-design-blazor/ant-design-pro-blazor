@@ -8,31 +8,31 @@
             <Tabs ActiveKey="@context.LoginType">
                 <TabPane Key="1" Tab="Account Login">
                     <FormItem>
-                        <AntDesign.Input Placeholder="Username: admin or user" Size="large" @bind-Value="@context.UserName">
+                        <AntDesign.Input Placeholder="Username: admin or user" Size="@InputSize.Large" @bind-Value="@context.UserName">
                             <Prefix><Icon Type="user" /></Prefix>
                         </AntDesign.Input>
                     </FormItem>
                     <FormItem>
-                        <AntDesign.Input Placeholder="Password: ant.design" Size="large" @bind-Value="@context.Password" Type="password">
+                        <AntDesign.Input Placeholder="Password: ant.design" Size="@InputSize.Large" @bind-Value="@context.Password" Type="@InputType.Password">
                             <Prefix><Icon Type="lock" /></Prefix>
                         </AntDesign.Input>
                     </FormItem>
                 </TabPane>
                 <TabPane Key="2" Tab="Mobile Login">
                     <FormItem>
-                        <AntDesign.Input Placeholder="Phone Number" Size="large" @bind-Value="@context.Mobile">
+                        <AntDesign.Input Placeholder="Phone Number" Size="@InputSize.Large" @bind-Value="@context.Mobile">
                             <Prefix><Icon Type="mobile" /></Prefix>
                         </AntDesign.Input>
                     </FormItem>
                     <FormItem>
                         <Row Gutter="8">
                             <AntDesign.Col Span="16">
-                                <AntDesign.Input Placeholder="Verification code" Size="large" @bind-Value="@context.Captcha">
+                                <AntDesign.Input Placeholder="Verification code" Size="@InputSize.Large" @bind-Value="@context.Captcha">
                                     <Prefix><Icon Type="mail" /></Prefix>
                                 </AntDesign.Input>
                             </AntDesign.Col>
                             <AntDesign.Col Span="8">
-                                <Button Size="large" Block OnClick="GetCaptcha">Verify</Button>
+                                <Button Size="@ButtonSize.Large" Block OnClick="GetCaptcha">Verify</Button>
                             </AntDesign.Col>
                         </Row>
                     </FormItem>
@@ -46,7 +46,7 @@
                     Forgot Password
                 </a>
             </div>
-            <Button Type="primary" HtmlType="submit" Class="submit" Size="large" Block>Log in </Button>
+            <Button Type="@ButtonType.Primary" HtmlType="submit" Class="submit" Size="@ButtonSize.Large" Block>Log in </Button>
             <div class="other">
                 Other Login Methods
                 <Icon Class="icon" Type="alipay-circle" />

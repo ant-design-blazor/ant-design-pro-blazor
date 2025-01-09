@@ -5,7 +5,7 @@
 <div class="filterCardList">
     <Card>
         <Form Model="_model"
-              Layout="inline">
+              Layout="@FormLayout.Inline">
             <StandardFormRow Title="Category" Block Style="padding-bottom: 11px">
                 <FormItem>
                     <TagSelect Expandable Value="_selectCategories">
@@ -70,7 +70,7 @@
                         @context.Title
                     </TitleTemplate>
                     <AvatarTemplate>
-                        <Avatar Size="small" Src="@context.Avatar" />
+                        <Avatar Size="@AvatarSize.Small" Src="@context.Avatar" />
                     </AvatarTemplate>
                 </CardMeta>
                 <div class="cardItemContent">
@@ -93,15 +93,15 @@
 @code
 {
     private static readonly RenderFragment Download =@<AntDesign.Tooltip Title="@("下载")">
-    <Icon Type="download" Theme="outline" />
+    <Icon Type="download" Theme="@IconThemeType.Outline" />
 </AntDesign.Tooltip>;
 
 private static readonly IList<RenderFragment> Actions = new List<RenderFragment>
 {
         Download,
-@<AntDesign.Tooltip Title="@("Edit")"><Icon Type="edit" Theme="outline" /></AntDesign.Tooltip>,
-@<AntDesign.Tooltip Title="@("Share")"><Icon Type="share-alt" Theme="outline" /></AntDesign.Tooltip>,
-@<Dropdown><Icon Type="ellipsis" Theme="outline" /></Dropdown>
+@<AntDesign.Tooltip Title="@("Edit")"><Icon Type="edit" Theme="@IconThemeType.Outline" /></AntDesign.Tooltip>,
+@<AntDesign.Tooltip Title="@("Share")"><Icon Type="share-alt" Theme="@IconThemeType.Outline" /></AntDesign.Tooltip>,
+@<Dropdown><Icon Type="ellipsis" Theme="@IconThemeType.Outline" /></Dropdown>
     };
 
         private static RenderFragment FormatWan(int val) {

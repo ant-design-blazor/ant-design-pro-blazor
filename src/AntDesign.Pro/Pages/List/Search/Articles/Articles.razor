@@ -4,7 +4,7 @@
 
 <Card>
     <Form Model="_model"
-          Layout="inline">
+          Layout="@FormLayout.Inline">
         <StandardFormRow Title="Category" Block Style="padding-bottom: 11px;">
             <TagSelect Expandable>
                 <TagSelectOption Value="cat1">Category 1</TagSelectOption>
@@ -24,7 +24,7 @@
         <StandardFormRow Title="Author" Grid>
             <Select TItem="string"
                     TItemValue="string"
-                    Mode="multiple"
+                    Mode="SelectMode.Multiple"
                     Placeholder="Select Author"
                     DefaultValues="_defaultOwners"
                     Style="width:inherit"
@@ -74,7 +74,7 @@
 <Card Style="margin-top: 24px;"
       BodyStyle="padding: 8px 32px 32px 32px;">
     <AntList TItem="ListItemDataType"
-             Size="large"
+             Size="@ListSize.Large"
              Class="articleList"
              ItemLayout="ListItemLayout.Vertical"
              DataSource="_fakeList">
