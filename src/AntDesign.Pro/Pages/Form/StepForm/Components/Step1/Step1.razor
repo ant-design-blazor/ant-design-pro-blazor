@@ -37,7 +37,7 @@
         <Input Placeholder="Please enter the transfer amount" @bind-Value="@context.Amount" />
     </FormItem>
     <FormItem WrapperCol="_formLayout.WrapperCol">
-        <Button Type="primary" OnClick="OnValidateForm">
+        <Button Type="@ButtonType.Primary" OnClick="OnValidateForm">
             Next Step
         </Button>
     </FormItem>

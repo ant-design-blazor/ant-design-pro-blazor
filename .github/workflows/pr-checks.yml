@@ -12,10 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.100
+          dotnet-version: |
+            9.0.x
 
       - uses: actions/setup-node@v1
         with:

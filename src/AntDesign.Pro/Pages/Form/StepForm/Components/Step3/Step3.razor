@@ -1,11 +1,11 @@
 ﻿@namespace AntDesign.Pro.Template.Pages.Form
 
-<Result Status="success"
+<Result Status="@ResultStatus.Success"
         Title="@("Success!")"
         SubTitle="@("Expected to arrive within two hours")"
         Class="result">
     <Extra>
-        <Button Type="primary" OnClick="OnFinish">
+        <Button Type="@ButtonType.Primary" OnClick="OnFinish">
             Make Aanother Transaction
         </Button>
         <Button>View Bill</Button>

@@ -45,8 +45,8 @@
                      Grid="_listGridType">
                 <ListItem NoFlex>
                     @if (string.IsNullOrEmpty(context.Id)) {
-                        <Button Type="dashed" class="newButton">
-                            <Icon Type="plus" Theme="outline" /> Add Product
+                        <Button Type="@ButtonType.Dashed" class="newButton">
+                            <Icon Type="plus" Theme="@IconThemeType.Outline" /> Add Product
                         </Button>
                     }
                     else {

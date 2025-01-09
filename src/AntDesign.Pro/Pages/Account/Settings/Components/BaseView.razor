@@ -3,7 +3,7 @@
 <div class="baseView">
     <div class="left" style="min-width: 310px;">
         <Form 
-            Layout="vertical"
+            Layout="@FormLayout.Vertical"
             OnFinish="HandleFinish"
             Model="@_currentUser">
             <FormItem Label="Email">
@@ -36,7 +36,7 @@
                 <PhoneView />
             </FormItem>
             <FormItem>
-                <Button HtmlType="submit" Type="primary">
+                <Button HtmlType="submit" Type="@ButtonType.Primary">
                     Update Information
                 </Button>
             </FormItem>

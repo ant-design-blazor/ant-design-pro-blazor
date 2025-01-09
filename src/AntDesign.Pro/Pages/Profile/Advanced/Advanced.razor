@@ -25,12 +25,12 @@
                 </Overlay>
                 <ChildContent>
                     <Button>
-                        <Icon Type="ellipsis" Theme="outline" />
+                        <Icon Type="ellipsis" Theme="@IconThemeType.Outline" />
                     </Button>
                 </ChildContent>
             </Dropdown>
         </ButtonGroup>
-        <Button Type="primary">Main Operation</Button>
+        <Button Type="@ButtonType.Primary">Main Operation</Button>
     </Extra>
     <ExtraContent>
         <div class="moreInfo">
@@ -39,7 +39,7 @@
         </div>
     </ExtraContent>
     <Content>
-        <Descriptions Class="headerList" Size="small" Column="2">
+        <Descriptions Class="headerList" Size="@DescriptionsSize.Small" Column="2">
             <DescriptionsItem Title="@("Founder")">Qu Lili</DescriptionsItem>
             <DescriptionsItem Title="@("Ordering Products")">XX Service</DescriptionsItem>
             <DescriptionsItem Title="@("Creation Time")">2017-07-07</DescriptionsItem>
@@ -54,7 +54,7 @@
         <div class="main__b__3">
             <GridContent>
                 <Card Title="@("Process Progress")" Style="margin-bottom: 24px;">
-                    <Steps Direction="horizontal"
+                    <Steps Direction="@StepsDirection.Horizontal"
                            Current="1">
                         <ChildContent>
                             <Step Title="@("Created Project")" DescriptionTemplate="@_desc1" />
@@ -84,7 +84,7 @@
                         <DescriptionsItem Title="@("Update Time")">2017-08-08</DescriptionsItem>
                     </Descriptions>
                     <h4 style="margin-bottom: 16px;">Information Group</h4>
-                    <Card Type="inner" Title="@("Multi-Level Information Group")" Bordered>
+                    <Card Type="CardType.Inner" Title="@("Multi-Level Information Group")" Bordered>
                         <Descriptions Style="margin-bottom: 16px;" Title="@("Group Name")">
                             <DescriptionsItem Title="@("Principal")">Lin Dongdong</DescriptionsItem>
                             <DescriptionsItem Title="@("Role Code")">1234567</DescriptionsItem>
@@ -153,13 +153,13 @@
 {
     private readonly RenderFragment _desc1 =
     @<div class="textSecondary stepDescription">
-        Qu Lili <Icon Type="dingding" Theme="outline" />
+        Qu Lili <Icon Type="dingding" Theme="@IconThemeType.Outline" />
     </div>
     ;
     private readonly RenderFragment _desc2 =
     @<div class="stepDescription">
         Zhou Maomao
-        <Icon Type="dingding" Theme="outline" />
+        <Icon Type="dingding" Theme="@IconThemeType.Outline" />
         <div>
             <a href="">Hurry Up</a>
         </div>
@@ -170,7 +170,7 @@
     @<span>
         Another Data
         <AntDesign.Tooltip Title="@("The Data Shows")">
-            <Icon Type="info-circle" Theme="outline" Style="color: rgba(0, 0, 0, 0.43); margin-left: 4px;" />
+            <Icon Type="info-circle" Theme="@IconThemeType.Outline" Style="color: rgba(0, 0, 0, 0.43); margin-left: 4px;" />
         </AntDesign.Tooltip>
     </span>
     ;

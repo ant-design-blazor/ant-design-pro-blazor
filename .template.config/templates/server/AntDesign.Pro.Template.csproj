@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AntDesign.Charts" Version="0.4.0" />
-    <PackageReference Include="AntDesign.Extensions.Localization" Version="1.0.0" />
-    <PackageReference Include="AntDesign.ProLayout" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
+    <PackageReference Include="AntDesign.Extensions.Localization" Version="1.1.2" />
+    <PackageReference Include="AntDesign.ProLayout" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="9.0.0" />
   </ItemGroup>
   
   <!--#if (UseNodeJS) -->

@@ -13,15 +13,15 @@
 
                 <div class="detail">
                     <p>
-                        <Icon Type="contacts" Theme="outline" Style="margin-right:8px;" />
+                        <Icon Type="contacts" Theme="@IconThemeType.Outline" Style="margin-right:8px;" />
                         @_currentUser.Title
                     </p>
                     <p>
-                        <Icon Type="cluster" Theme="outline" Style="margin-right:8px;" />
+                        <Icon Type="cluster" Theme="@IconThemeType.Outline" Style="margin-right:8px;" />
                         @_currentUser.Group
                     </p>
                     <p>
-                        <Icon Type="home" Theme="outline" Style="margin-right:8px;" />
+                        <Icon Type="home" Theme="@IconThemeType.Outline" Style="margin-right:8px;" />
                         <!--todo: add userinfo-->
                         @_currentUser.Geographic.Province.Label
                         @_currentUser.Geographic.City.Label
@@ -32,20 +32,20 @@
 
                 <div class="tags">
                     <div class="tagsTitle">Tags</div>
-                    @foreach (var tag in _currentUser.Tags) {
+                    @foreach (var tag in _currentUser.Tags)
+                    {
                         <Tag>@tag.Label</Tag>
                     }
 
-                    @if (_inputVisible) {
-                        <AntDesign.Input Type="text"
-                                         Size="small"
-                                         Style="width: 78px"
-                                         @bind-Value="InputValue"
-                                         OnBlur="HandleInputConfirm" />
+                    @if (_inputVisible)
+                    {
+                        <AntDesign.Input Type="InputType.Text" Size="InputSize.Small" Style="width: 78px"
+                            @bind-Value="InputValue" OnBlur="HandleInputConfirm" />
                     }
-                    else {
+                    else
+                    {
                         <Tag OnClick="ShowInput" Style="border-style: dashed">
-                            <Icon Type="plus" Theme="outline" />
+                            <Icon Type="plus" Theme="@IconThemeType.Outline" />
                         </Tag>
                     }
                 </div>
@@ -60,28 +60,26 @@
         </AntDesign.Col>
         <AntDesign.Col Lg="17" Md="24">
             <Card Class="tabsCard">
-                <CardTabs>
-                    <Tabs DefaultActiveKey="1">
-                        <TabPane Key="1">
-                            <TabTemplate>Articles (@_fakeList.Count)</TabTemplate>
-                            <ChildContent>
-                                <Articles List="_fakeList" />
-                            </ChildContent>
-                        </TabPane>
-                        <TabPane Key="2">
-                            <TabTemplate>Applications (@_fakeList.Count)</TabTemplate>
-                            <ChildContent>
-                                <Applications List="_fakeList" />
-                            </ChildContent>
-                        </TabPane>
-                        <TabPane Key="3">
-                            <TabTemplate>Projects (@_fakeList.Count)</TabTemplate>
-                            <ChildContent>
-                                <Projects List="_fakeList" />
-                            </ChildContent>
-                        </TabPane>
-                    </Tabs>
-                </CardTabs>
+                <Tabs DefaultActiveKey="1">
+                    <TabPane Key="1">
+                        <TabTemplate>Articles (@_fakeList.Count)</TabTemplate>
+                        <ChildContent>
+                            <Articles List="_fakeList" />
+                        </ChildContent>
+                    </TabPane>
+                    <TabPane Key="2">
+                        <TabTemplate>Applications (@_fakeList.Count)</TabTemplate>
+                        <ChildContent>
+                            <Applications List="_fakeList" />
+                        </ChildContent>
+                    </TabPane>
+                    <TabPane Key="3">
+                        <TabTemplate>Projects (@_fakeList.Count)</TabTemplate>
+                        <ChildContent>
+                            <Projects List="_fakeList" />
+                        </ChildContent>
+                    </TabPane>
+                </Tabs>
             </Card>
         </AntDesign.Col>
     </Row>

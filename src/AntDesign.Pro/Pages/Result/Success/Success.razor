@@ -3,13 +3,13 @@
 
 <GridContent>
     <Card>
-        <Result Status="success"
+        <Result Status="@ResultStatus.Success"
                 Title="Submission Success"
                 SubTitle="The submission results page is used to feed back the results of a series of operational tasks. If it is a simple operation, use the Message global prompt feedback. This text area can show a simple supplementary explanation. If there is a similar requirement for displaying documents, the following gray area can present more complicated content."
                 Style="margin-bottom: 16px">
             <Extra>
                 <span>
-                    <Button Type="primary">Back List</Button>
+                    <Button Type="@ButtonType.Primary">Back List</Button>
                     <Button>View Project</Button>
                     <Button>Print</Button>
                 </span>
@@ -30,7 +30,7 @@
                             <div class="title__b__1">
                                 <div style="margin: 8px 0 4px">
                                     Qu Lili
-                                    <Icon Type="dingding" Theme="outline" Style="color: #00A0E9; margin-left: 8px;"></Icon>
+                                    <Icon Type="dingding" Theme="@IconThemeType.Outline" Style="color: #00A0E9; margin-left: 8px;"></Icon>
                                 </div>
                                 <div>2016-12-12 12:32</div>
                             </div>
@@ -45,7 +45,7 @@
                                 <div style="margin: 8px 0 4px">
                                     Zhou Maomao
                                     <a href="">
-                                        <Icon Type="dingding" Theme="outline" Style="color: #00A0E9; margin-left: 8px;"></Icon>
+                                        <Icon Type="dingding" Theme="@IconThemeType.Outline" Style="color: #00A0E9; margin-left: 8px;"></Icon>
                                         Urge
                                     </a>
                                 </div>
