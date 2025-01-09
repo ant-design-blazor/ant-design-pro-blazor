@@ -1287,6 +1287,50 @@ html {
 .antblaozr-animate-disabled.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow svg {
   transition: none;
 }
+.antblazor-overlay-trigger-wrapper {
+  display: block;
+}
+.antblazor-overlay-trigger-wrapper:has(> a),
+.antblazor-overlay-trigger-wrapper:has(> abbr),
+.antblazor-overlay-trigger-wrapper:has(> b),
+.antblazor-overlay-trigger-wrapper:has(> bdi),
+.antblazor-overlay-trigger-wrapper:has(> bdo),
+.antblazor-overlay-trigger-wrapper:has(> br),
+.antblazor-overlay-trigger-wrapper:has(> cite),
+.antblazor-overlay-trigger-wrapper:has(> code),
+.antblazor-overlay-trigger-wrapper:has(> data),
+.antblazor-overlay-trigger-wrapper:has(> datalist),
+.antblazor-overlay-trigger-wrapper:has(> em),
+.antblazor-overlay-trigger-wrapper:has(> i),
+.antblazor-overlay-trigger-wrapper:has(> img),
+.antblazor-overlay-trigger-wrapper:has(> input),
+.antblazor-overlay-trigger-wrapper:has(> kbd),
+.antblazor-overlay-trigger-wrapper:has(> label),
+.antblazor-overlay-trigger-wrapper:has(> map),
+.antblazor-overlay-trigger-wrapper:has(> mark),
+.antblazor-overlay-trigger-wrapper:has(> math),
+.antblazor-overlay-trigger-wrapper:has(> meter),
+.antblazor-overlay-trigger-wrapper:has(> noscript),
+.antblazor-overlay-trigger-wrapper:has(> object),
+.antblazor-overlay-trigger-wrapper:has(> output),
+.antblazor-overlay-trigger-wrapper:has(> progress),
+.antblazor-overlay-trigger-wrapper:has(> q),
+.antblazor-overlay-trigger-wrapper:has(> ruby),
+.antblazor-overlay-trigger-wrapper:has(> samp),
+.antblazor-overlay-trigger-wrapper:has(> script),
+.antblazor-overlay-trigger-wrapper:has(> select),
+.antblazor-overlay-trigger-wrapper:has(> small),
+.antblazor-overlay-trigger-wrapper:has(> span),
+.antblazor-overlay-trigger-wrapper:has(> strong),
+.antblazor-overlay-trigger-wrapper:has(> sub),
+.antblazor-overlay-trigger-wrapper:has(> sup),
+.antblazor-overlay-trigger-wrapper:has(> textarea),
+.antblazor-overlay-trigger-wrapper:has(> time),
+.antblazor-overlay-trigger-wrapper:has(> u),
+.antblazor-overlay-trigger-wrapper:has(> var),
+.antblazor-overlay-trigger-wrapper:has(> wbr) {
+  display: inline;
+}
 .anticon svg {
   vertical-align: unset;
 }
@@ -22577,6 +22621,9 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
 .ant-table-resizable .ant-table-resizing {
   border-right: 2px dashed #096dd9;
   z-index: 99;
+}
+.ant-table.ant-table-striped tr:nth-child(2n) {
+  background-color: #fafafa;
 }
 tr.ant-table-grouping-footer > td {
   padding: 0;
