@@ -1,6 +1,6 @@
 {
     "name": "AntDesign.Pro",
-    "version": "1.1.2",
+    "version": "1.1.4",
     "description": "An out-of-box UI solution for enterprise applications as a Blazor boilerplate.",
     "scripts": {
         "start": "dotnet watch -p ./src/AntDesign.Pro run",

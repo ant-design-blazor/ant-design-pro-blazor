@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="AntDesign.Charts" Version="0.4.0" />
-    <PackageReference Include="AntDesign.Extensions.Localization" Version="1.1.2" />
-    <PackageReference Include="AntDesign.ProLayout" Version="1.1.2" />
+    <PackageReference Include="AntDesign.Extensions.Localization" Version="1.1.4" />
+    <PackageReference Include="AntDesign.ProLayout" Version="1.1.4" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="9.0.0" />
   </ItemGroup>
