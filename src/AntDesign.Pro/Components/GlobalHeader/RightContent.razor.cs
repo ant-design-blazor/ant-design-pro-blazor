@@ -111,12 +111,12 @@ namespace AntDesign.Pro.Template.Components
                     _events = new NoticeIconData[] { };
                     break;
             }
-            await MessageService.Success($"清空了{key}");
+            MessageService.Success($"清空了{key}");
         }
 
         public async Task HandleViewMore(string key)
         {
-            await MessageService.Info("Click on view more");
+            MessageService.Info("Click on view more");
         }
     }
 }
