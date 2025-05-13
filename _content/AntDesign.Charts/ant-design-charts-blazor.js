@@ -3,87 +3,90 @@
 
 window.AntDesignCharts = {
     interop: {
-        create: (type, domRef, domId, csConfig, others, jsonConfig, jsConfig) => {
+        create: (type, domRef, domId, chartRef, csConfig, others, jsonConfig, jsConfig) => {
             domRef.innerHTML = '';
+            let config = {};
 
-            let config = {}
-
-            removeNullItem(csConfig);
-            deepObjectMerge(config, csConfig);
-
-            removeNullItem(others);
-            deepObjectMerge(config, others);
+            if (csConfig) deepObjectMerge(config, csConfig);
+            if (others) deepObjectMerge(config, others);
 
             if (jsonConfig != undefined) {
                 let jsonConfigObj = JSON.parse(jsonConfig);
-                removeNullItem(jsonConfigObj);
                 deepObjectMerge(config, jsonConfigObj);
             }
 
             if (jsConfig != undefined) {
                 let jsConfigObj = eval("(" + jsConfig + ")");
-                removeNullItem(jsConfigObj);
                 deepObjectMerge(config, jsConfigObj);
             }
 
+            console.log(config);
             try {
                 const plot = new G2Plot[type](domRef, config);
+
+                plot.on('afterrender', () => {
+                    chartRef.invokeMethodAsync('AfterChartRender')
+                });
+
+                plot.on('beforedestroy', () => {
+                    chartRef.dispose();
+                });
+
                 plot.render();
                 window.AntDesignCharts.chartsContainer[domId] = plot;
                 console.log("create:" + domId)
                 console.log("type:" + type);
-                console.log("config:" + JSON.stringify(config, null, 2));
             } catch (err) {
                 console.error(err, config);
             }
         },
         destroy(domId) {
-            //console.log("destroy:" + domId);
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].destroy();
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (!chart) return;
+            chart.destroy();
             delete window.AntDesignCharts.chartsContainer[domId];
         },
         render(domId) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].render();
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.render();
         },
         repaint(domId) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].repaint();
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.repaint();
         },
         updateConfig(domId, config, others, all) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            removeNullItem(config)
-            deepObjectMerge(config, others)
-            window.AntDesignCharts.chartsContainer[domId].updateConfig(config, all);
-            window.AntDesignCharts.chartsContainer[domId].render();
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (!chart) return;
+            deepObjectMerge(config, others);
+            chart.updateConfig(config, all);
+            chart.render();
         },
         changeData(domId, data, all) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].changeData(data, all);
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.changeData(data, all);
         },
         setActive(domId, condition, style) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].setActive(condition, style);
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.setActive(condition, style);
         },
         setSelected(domId, condition, style) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].setSelected(condition, style);
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.setSelected(condition, style);
         },
         setDisable(domId, condition, style) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].setDisable(condition, style);
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.setDisable(condition, style);
         },
         setDefault(domId, condition, style) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
-            window.AntDesignCharts.chartsContainer[domId].setDefault(condition, style);
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (chart) chart.setDefault(condition, style);
         },
-
         setEvent(domId, event, dotnetHelper, func) {
-            if (window.AntDesignCharts.chartsContainer[domId] == undefined) return;
+            const chart = window.AntDesignCharts.chartsContainer[domId];
+            if (!chart) return;
 
             console.log("setEvent");
-            window.AntDesignCharts.chartsContainer[domId].on(event, ev => {
+            chart.on(event, ev => {
                 let e = {};
                 for (let attr in ev) {
                     if (typeof ev[attr] !== "function" && typeof ev[attr] !== "object") {
@@ -93,7 +96,6 @@ window.AntDesignCharts = {
                 dotnetHelper.invokeMethodAsync(func, e);
             })
         },
-
         getEvalJson(jsCode) {
             let jsObj = eval("(" + jsCode + ")");
             return JSON.stringify(jsObj);
@@ -102,51 +104,110 @@ window.AntDesignCharts = {
     chartsContainer: {}
 }
 
-
-//清除没有赋值的项
+// 判断对象是否为空
 function isEmptyObj(o) {
-    for (let attr in o) return !1;
-    return !0
+    for (let attr in o) return false;
+    return true;
 }
 
-function processArray(arr) {
-    for (let i = arr.length - 1; i >= 0; i--) {
-        if (arr[i] === null || arr[i] === undefined) arr.splice(i, 1);
-        else if (typeof arr[i] == 'object') removeNullItem(arr[i], arr, i);
+const evalableKeys = ['formatter', 'customContent'];
+
+/**
+ * 深度合并对象，同时处理函数属性
+ * @param {Object} source - 源对象
+ * @param {Object} target - 目标对象
+ * @param {WeakMap} visited - 已访问对象的WeakMap，用于处理循环引用
+ * @returns {Object} - 合并后的对象
+ */
+function deepObjectMerge(source, target, visited = new WeakMap()) {
+    if (!target || typeof target !== 'object') return source;
+    if (visited.has(target)) return source;
+    visited.set(target, true);
+
+    // 处理数组
+    if (Array.isArray(target)) {
+        return target
+            .filter(item => item != null)
+            .map(item => {
+                if (!item || typeof item !== 'object') return item;
+                if (Array.isArray(item)) return [...item];
+                if (visited.has(item)) return {...item};
+                return deepObjectMerge({}, item, visited);
+            });
     }
-    return arr.length == 0
-}
 
-function proccessObject(o) {
-    for (let attr in o) {
-        if (o[attr] === null || o[attr] === undefined) delete o[attr];
-        else if (typeof o[attr] == 'object') {
-            removeNullItem(o[attr]);
-            if (isEmptyObj(o[attr]) && attr!="data") delete o[attr];
+    // 收集需要处理的函数属性
+    const funcProps = {};
+    
+    // 处理普通属性和Symbol属性
+    const processProperties = (props) => {
+        props.forEach(key => {
+            const value = target[key];
+            if (typeof value === 'string') {
+                try {
+                    if (key.toString().endsWith('Function')) {
+                        const newKey = key.toString().replace('Function', '');
+                        funcProps[newKey] = eval('(' + value + ')');
+                        delete target[key];
+                    } else if (evalableKeys.includes(key.toString()) && value.trim().startsWith('(')) {
+                        funcProps[key] = eval('(' + value + ')');
+                    }
+                } catch (e) {
+                    console.error(`Error evaluating function for ${key}:`, e);
+                }
+            }
+        });
+    };
+
+    // 处理普通属性
+    processProperties(Object.keys(target));
+    // 处理Symbol属性
+    processProperties(Object.getOwnPropertySymbols(target));
+
+    // 处理对象的所有属性（包括Symbol）
+    const allProps = [...Object.keys(target), ...Object.getOwnPropertySymbols(target)];
+    allProps.forEach(key => {
+        const value = target[key];
+        
+        // 处理null和undefined
+        if (value == null) {
+            delete source[key];
+            return;
         }
-    }
-}
 
-function removeNullItem(o, arr, i) {
-    let s = ({}).toString.call(o);
-    if (s == '[object Array]') {
-        if (processArray(o) === true) { //o也是数组，并且删除完子项，从所属数组中删除
-            if (arr) arr.splice(i, 1);
+        // 处理嵌套对象
+        if (typeof value === 'object') {
+            if (visited.has(value)) {
+                source[key] = Array.isArray(value) ? [...value] : {...value};
+                return;
+            }
+            source[key] = deepObjectMerge(
+                (!source[key] || typeof source[key] !== 'object' || Array.isArray(source[key])) ? {} : source[key],
+                value,
+                visited
+            );
+            // 移除空对象（但保留data属性）
+            if (isEmptyObj(source[key]) && key !== 'data') {
+                delete source[key];
+            }
+            return;
         }
-    } else if (s == '[object Object]') {
-        proccessObject(o);
-        if (arr && isEmptyObj(o)) arr.splice(i, 1);
-    }
-}
 
-// 深度合并对象
-function deepObjectMerge(source, target) {
-    for (var key in target) {
-        if (source[key] && source[key].toString() === "[object Object]") {
-            deepObjectMerge(source[key], target[key])
-        } else {
-            source[key] = target[key]
-        }
-    }
+        // 处理基础类型
+        source[key] = value;
+    });
+
+    // 合并函数属性
+    Object.assign(source, funcProps);
+
     return source;
+}
+
+// 导出函数和变量供测试使用
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        isEmptyObj,
+        evalableKeys,
+        deepObjectMerge
+    };
 }
