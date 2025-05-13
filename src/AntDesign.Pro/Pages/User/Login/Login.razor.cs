@@ -25,7 +25,7 @@ namespace AntDesign.Pro.Template.Pages.User {
 
     public async Task GetCaptcha() {
       var captcha = await AccountService.GetCaptchaAsync(_model.Mobile);
-      await Message.Success($"Verification code validated successfully! The verification code is: {captcha}");
+      Message.Success($"Verification code validated successfully! The verification code is: {captcha}");
     }
   }
 }
