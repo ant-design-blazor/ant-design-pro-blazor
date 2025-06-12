@@ -3,7 +3,7 @@
     "version": "1.4.0",
     "description": "An out-of-box UI solution for enterprise applications as a Blazor boilerplate.",
     "scripts": {
-        "start": "dotnet watch -p ./src/AntDesign.Pro run",
+        "start": "dotnet watch --project ./src/AntDesign.Pro run",
         "build": "dotnet publish -o dist",
         "gulp:pro": "gulp --gulpfile ./src/AntDesign.Pro/gulpfile.js",
         "test": "echo \"Error: no test specified\" && exit 1"
