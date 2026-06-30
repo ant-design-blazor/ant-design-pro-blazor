@@ -22678,7 +22678,17 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   border-right: 2px dashed var(--ant-primary-color-active);
   z-index: 99;
 }
-.ant-table.ant-table-striped tr:nth-child(2n) {
+.ant-table.ant-table-striped:not(.ant-table-fixed-header):not(.ant-table-fixed-column) .ant-table-tbody tr:nth-child(2n) {
+  background-color: #fafafa;
+}
+.ant-table.ant-table-striped.ant-table-fixed-column .ant-table-tbody tr:nth-child(2n+1),
+.ant-table.ant-table-striped.ant-table-fixed-header .ant-table-tbody tr:nth-child(2n+1) {
+  background-color: #fafafa;
+}
+.ant-table.ant-table-striped.ant-table-fixed-column .ant-table-tbody tr:nth-child(2n+1) .ant-table-cell-fix-left,
+.ant-table.ant-table-striped.ant-table-fixed-header .ant-table-tbody tr:nth-child(2n+1) .ant-table-cell-fix-left,
+.ant-table.ant-table-striped.ant-table-fixed-column .ant-table-tbody tr:nth-child(2n+1) .ant-table-cell-fix-right,
+.ant-table.ant-table-striped.ant-table-fixed-header .ant-table-tbody tr:nth-child(2n+1) .ant-table-cell-fix-right {
   background-color: #fafafa;
 }
 tr.ant-table-grouping-footer > td {
